@@ -1,41 +1,26 @@
 "use client";
 
-import { cva, type VariantProps } from "class-variance-authority";
-import { cn } from "@/lib/utils";
-import type { ButtonHTMLAttributes } from "react";
+import { extendVariants } from "@heroui/system";
+import { Button as HeroUIButton } from "@heroui/button";
 
-const buttonVariants = cva(
-  "inline-flex items-center justify-center rounded-[var(--r-sm)] font-semibold transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-j-teal/40 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
-  {
-    variants: {
-      variant: {
-        primary: "bg-j-teal text-white hover:bg-j-teal-deep",
-        secondary: "bg-transparent text-j-navy border border-j-stone-dark hover:bg-j-cream",
-        ghost: "text-j-navy-soft hover:bg-j-stone/50",
-      },
-      size: {
-        sm: "h-9 px-4 text-sm",
-        md: "h-11 px-6 text-base",
-        lg: "h-12 px-8 text-base",
-        icon: "h-11 w-11",
-      },
+export const Button = extendVariants(HeroUIButton, {
+  variants: {
+    variant: {
+      primary:
+        "bg-primary text-primary-foreground hover:bg-primary-600 font-semibold",
+      secondary:
+        "bg-transparent text-secondary border border-default-300 hover:bg-default-100 font-semibold",
+      ghost: "text-default-500 hover:bg-default-200/50 font-semibold",
     },
-    defaultVariants: {
-      variant: "primary",
-      size: "md",
+    size: {
+      sm: "h-9 min-w-[4rem] px-4 text-sm",
+      md: "h-11 min-w-[6rem] px-6 text-base",
+      lg: "h-12 min-w-[8rem] px-8 text-base",
+      icon: "h-11 w-11 min-w-0 px-0",
     },
-  }
-);
-
-export interface ButtonProps
-  extends ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonVariants> {}
-
-export function Button({ className, variant, size, ...props }: ButtonProps) {
-  return (
-    <button
-      className={cn(buttonVariants({ variant, size, className }))}
-      {...props}
-    />
-  );
-}
+  },
+  defaultVariants: {
+    variant: "primary",
+    size: "md",
+  },
+});

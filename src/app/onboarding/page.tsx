@@ -270,7 +270,7 @@ function DietaryStep({
       </div>
 
       <div className="mt-auto pt-8">
-        <Button size="lg" className="w-full" onClick={onNext} disabled={!selected}>
+        <Button size="lg" className="w-full" onClick={onNext} isDisabled={!selected}>
           Continue
         </Button>
       </div>
