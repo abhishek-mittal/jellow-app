@@ -1,0 +1,150 @@
+name: Sync GitHub Project Board Status
+
+on:
+  pull_request:
+    types: [opened, closed]
+
+jobs:
+  sync-status:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Determine target status option
+        id: status
+        run: |
+          if [[ "${{ github.event.action }}" == "closed" && "${{ github.event.pull_request.merged }}" == "true" ]]; then
+            echo "option_id=950e41d0" >> "$GITHUB_OUTPUT"   # Done
+            echo "label=Done" >> "$GITHUB_OUTPUT"
+          elif [[ "${{ github.event.action }}" == "closed" ]]; then
+            echo "option_id=9e173c30" >> "$GITHUB_OUTPUT"   # Todo (closed unmerged → back to queue)
+            echo "label=Todo" >> "$GITHUB_OUTPUT"
+          else
+            echo "option_id=47120e7d" >> "$GITHUB_OUTPUT"   # In Progress (opened)
+            echo "label=In Progress" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Get project and linked issues
+        id: project
+        env:
+          GH_TOKEN: ${{ secrets.GH_PROJECT_TOKEN }}
+          PROJECT_OWNER: abhishek-mittal
+          PROJECT_NUMBER: 5
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          REPO: ${{ github.event.repository.name }}
+        run: |
+          # Get project node ID
+          PROJECT_ID=$(gh api graphql -f query='
+            query($login: String!, $number: Int!) {
+              user(login: $login) {
+                projectV2(number: $number) { id }
+              }
+            }' \
+            -f login="$PROJECT_OWNER" \
+            -F number="$PROJECT_NUMBER" \
+            --jq '.data.user.projectV2.id')
+          echo "project_id=$PROJECT_ID" >> "$GITHUB_OUTPUT"
+
+          # Get issues closed/linked by this PR (requires "Fixes #N" / "Closes #N")
+          LINKED_ISSUES=$(gh api graphql -f query='
+            query($owner: String!, $repo: String!, $pr: Int!) {
+              repository(owner: $owner, name: $repo) {
+                pullRequest(number: $pr) {
+                  closingIssuesReferences(first: 10) {
+                    nodes { number }
+                  }
+                }
+              }
+            }' \
+            -f owner="$PROJECT_OWNER" \
+            -f repo="$REPO" \
+            -F pr="$PR_NUMBER" \
+            --jq '[.data.repository.pullRequest.closingIssuesReferences.nodes[].number] | @json')
+          echo "linked_issues=$LINKED_ISSUES" >> "$GITHUB_OUTPUT"
+
+      - name: Update project card status
+        if: steps.project.outputs.linked_issues != '[]'
+        env:
+          GH_TOKEN: ${{ secrets.GH_PROJECT_TOKEN }}
+          PROJECT_OWNER: abhishek-mittal
+          PROJECT_NUMBER: 5
+          PROJECT_ID: ${{ steps.project.outputs.project_id }}
+          STATUS_FIELD_ID: PVTSSF_lAHOAiJDAM4BRZ3ezg_Pfp0
+          OPTION_ID: ${{ steps.status.outputs.option_id }}
+          STATUS_LABEL: ${{ steps.status.outputs.label }}
+          LINKED_ISSUES: ${{ steps.project.outputs.linked_issues }}
+        run: |
+          # Get all project items (issues only) and their numbers
+          ALL_ITEMS=$(gh api graphql -f query='
+            query($login: String!, $number: Int!) {
+              user(login: $login) {
+                projectV2(number: $number) {
+                  items(first: 100) {
+                    nodes {
+                      id
+                      content {
+                        ... on Issue { number }
+                      }
+                    }
+                  }
+                }
+              }
+            }' \
+            -f login="$PROJECT_OWNER" \
+            -F number="$PROJECT_NUMBER" \
+            --jq '.data.user.projectV2.items.nodes')
+
+          for ISSUE_NUMBER in $(echo "$LINKED_ISSUES" | python3 -c "import sys,json; [print(n) for n in json.load(sys.stdin)]"); do
+            ITEM_ID=$(echo "$ALL_ITEMS" | python3 -c "
+          import sys, json
+          items = json.load(sys.stdin)
+          target = $ISSUE_NUMBER
+          for item in items:
+              if item.get('content', {}).get('number') == target:
+                  print(item['id'])
+                  break
+          ")
+
+            if [[ -n "$ITEM_ID" ]]; then
+              gh api graphql -f query='
+                mutation($project: ID!, $item: ID!, $field: ID!, $option: String!) {
+                  updateProjectV2ItemFieldValue(input: {
+                    projectId: $project
+                    itemId: $item
+                    fieldId: $field
+                    value: { singleSelectOptionId: $option }
+                  }) { projectV2Item { id } }
+                }' \
+                -f project="$PROJECT_ID" \
+                -f item="$ITEM_ID" \
+                -f field="$STATUS_FIELD_ID" \
+                -f option="$OPTION_ID"
+
+              echo "✅ Issue #$ISSUE_NUMBER → $STATUS_LABEL"
+            else
+              echo "⚠️  Issue #$ISSUE_NUMBER not found on project board — skipping"
+            fi
+          done
+
+  # ────────────────────────────────────────────────────────────────────────────
+  # Delete the source branch after a Copilot PR is merged.
+  delete-copilot-branch:
+    name: Delete merged Copilot branch
+    if: >-
+      github.event.action == 'closed' &&
+      github.event.pull_request.merged == true &&
+      startsWith(github.event.pull_request.head.ref, 'copilot/')
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      OWNER: ${{ github.event.repository.owner.login }}
+      REPO: ${{ github.event.repository.name }}
+      BRANCH: ${{ github.event.pull_request.head.ref }}
+    steps:
+      - name: Delete source branch
+        run: |
+          EXISTS=$(gh api repos/$OWNER/$REPO/branches --jq "[.[].name] | contains([\"$BRANCH\"])" 2>/dev/null || echo "false")
+          if [[ "$EXISTS" == "true" ]]; then
+            gh api repos/$OWNER/$REPO/git/refs/heads/$BRANCH --method DELETE
+            echo "🗑️  Deleted branch: $BRANCH"
+          else
+            echo "Branch '$BRANCH' already gone — nothing to do"
+          fi

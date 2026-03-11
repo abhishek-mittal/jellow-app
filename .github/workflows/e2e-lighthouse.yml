@@ -2,7 +2,7 @@ name: E2E & Lighthouse
 
 on:
   pull_request:
-    branches: [main]
+    branches: [main, agent-dev]
 
 concurrency:
   group: e2e-${{ github.ref }}

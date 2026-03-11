@@ -1,0 +1,207 @@
+name: Enrich Copilot PR (labels · milestone · project)
+
+on:
+  pull_request:
+    types: [opened, ready_for_review]
+
+# ─── Job 1: Fires when a Copilot PR is first opened ──────────────────────────
+# Promotes the draft, applies labels/milestone, adds to board.
+#
+# ─── Job 2: Fires when the Copilot agent marks the PR ready for review ────────
+# Moves all linked issue cards to "Agent Done" — signalling human review needed.
+
+jobs:
+  enrich:
+    name: Enrich newly opened Copilot PR
+    if: >-
+      github.event.action == 'opened' &&
+      github.event.pull_request.user.login == 'copilot-swe-agent[bot]'
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.GH_PROJECT_TOKEN }}
+      OWNER: abhishek-mittal
+      REPO: jellow-app
+      PROJECT_NUMBER: 5
+      PR_NUMBER: ${{ github.event.pull_request.number }}
+      PR_BRANCH: ${{ github.event.pull_request.head.ref }}
+
+    steps:
+      - name: Promote out of draft
+        run: |
+          IS_DRAFT=$(gh api repos/$OWNER/$REPO/pulls/$PR_NUMBER --jq '.draft')
+          if [[ "$IS_DRAFT" == "true" ]]; then
+            gh pr ready "$PR_NUMBER" --repo "$OWNER/$REPO"
+            echo "Converted draft PR #$PR_NUMBER to ready for review"
+          else
+            echo "PR #$PR_NUMBER is already ready for review"
+          fi
+
+      - name: Resolve label from branch name
+        id: label
+        run: |
+          BRANCH="$PR_BRANCH"
+          if [[ "$BRANCH" == feat/* || "$BRANCH" == feature/* ]]; then
+            echo "name=enhancement" >> "$GITHUB_OUTPUT"
+          elif [[ "$BRANCH" == fix/* || "$BRANCH" == bugfix/* || "$BRANCH" == hotfix/* ]]; then
+            echo "name=bug" >> "$GITHUB_OUTPUT"
+          elif [[ "$BRANCH" == chore/* || "$BRANCH" == refactor/* ]]; then
+            echo "name=maintenance" >> "$GITHUB_OUTPUT"
+          elif [[ "$BRANCH" == docs/* ]]; then
+            echo "name=documentation" >> "$GITHUB_OUTPUT"
+          else
+            echo "name=enhancement" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Ensure label exists (create if missing)
+        run: |
+          LABEL="${{ steps.label.outputs.name }}"
+          EXISTS=$(gh api repos/$OWNER/$REPO/labels --jq "[.[].name] | contains([\"$LABEL\"])")
+          if [[ "$EXISTS" != "true" ]]; then
+            gh api repos/$OWNER/$REPO/labels \
+              --method POST \
+              --field name="$LABEL" \
+              --field color="a2eeef"
+          fi
+
+      - name: Apply label to PR
+        run: |
+          gh pr edit "$PR_NUMBER" \
+            --repo "$OWNER/$REPO" \
+            --add-label "${{ steps.label.outputs.name }}"
+
+      - name: Apply latest open milestone to PR
+        run: |
+          MILESTONE_NUMBER=$(gh api repos/$OWNER/$REPO/milestones \
+            --jq '[.[] | select(.state=="open")] | sort_by(.due_on) | first | .number // empty')
+          if [[ -n "$MILESTONE_NUMBER" ]]; then
+            gh api repos/$OWNER/$REPO/issues/$PR_NUMBER \
+              --method PATCH \
+              --field milestone="$MILESTONE_NUMBER"
+            echo "Set milestone #$MILESTONE_NUMBER"
+          else
+            echo "No open milestone found — skipping"
+          fi
+
+      - name: Add PR to GitHub Project board
+        run: |
+          PROJECT_ID=$(gh api graphql -f query='
+            query($login: String!, $number: Int!) {
+              user(login: $login) {
+                projectV2(number: $number) { id }
+              }
+            }' \
+            -f login="$OWNER" \
+            -F number="$PROJECT_NUMBER" \
+            --jq '.data.user.projectV2.id')
+
+          PR_NODE_ID=$(gh api repos/$OWNER/$REPO/pulls/$PR_NUMBER --jq '.node_id')
+
+          gh api graphql -f query='
+            mutation($project: ID!, $content: ID!) {
+              addProjectV2ItemById(input: { projectId: $project, contentId: $content }) {
+                item { id }
+              }
+            }' \
+            -f project="$PROJECT_ID" \
+            -f content="$PR_NODE_ID" \
+            --jq '"Added PR to project: \(.data.addProjectV2ItemById.item.id)"'
+
+  # ────────────────────────────────────────────────────────────────────────────
+  mark-agent-done:
+    name: Move linked issues to Agent Done
+    if: >-
+      github.event.action == 'ready_for_review' &&
+      github.event.pull_request.user.login == 'copilot-swe-agent[bot]'
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.GH_PROJECT_TOKEN }}
+      PROJECT_OWNER: abhishek-mittal
+      PROJECT_NUMBER: 5
+      PR_NUMBER: ${{ github.event.pull_request.number }}
+      REPO: ${{ github.event.repository.name }}
+      STATUS_FIELD_ID: PVTSSF_lAHOAiJDAM4BRZ3ezg_Pfp0
+      AGENT_DONE_OPTION_ID: d4d2aa8b
+
+    steps:
+      - name: Move linked issue cards to Agent Done
+        run: |
+          PROJECT_ID=$(gh api graphql -f query='
+            query($login: String!, $number: Int!) {
+              user(login: $login) {
+                projectV2(number: $number) { id }
+              }
+            }' \
+            -f login="$PROJECT_OWNER" \
+            -F number="$PROJECT_NUMBER" \
+            --jq '.data.user.projectV2.id')
+
+          LINKED_ISSUES=$(gh api graphql -f query='
+            query($owner: String!, $repo: String!, $pr: Int!) {
+              repository(owner: $owner, name: $repo) {
+                pullRequest(number: $pr) {
+                  closingIssuesReferences(first: 10) {
+                    nodes { number }
+                  }
+                }
+              }
+            }' \
+            -f owner="$PROJECT_OWNER" \
+            -f repo="$REPO" \
+            -F pr="$PR_NUMBER" \
+            --jq '[.data.repository.pullRequest.closingIssuesReferences.nodes[].number] | @json')
+
+          if [[ "$LINKED_ISSUES" == "[]" ]]; then
+            echo "No linked issues found for PR #$PR_NUMBER — skipping"
+            exit 0
+          fi
+
+          ALL_ITEMS=$(gh api graphql -f query='
+            query($login: String!, $number: Int!) {
+              user(login: $login) {
+                projectV2(number: $number) {
+                  items(first: 100) {
+                    nodes {
+                      id
+                      content {
+                        ... on Issue { number }
+                      }
+                    }
+                  }
+                }
+              }
+            }' \
+            -f login="$PROJECT_OWNER" \
+            -F number="$PROJECT_NUMBER" \
+            --jq '.data.user.projectV2.items.nodes')
+
+          for ISSUE_NUMBER in $(echo "$LINKED_ISSUES" | python3 -c "import sys,json; [print(n) for n in json.load(sys.stdin)]"); do
+            ITEM_ID=$(echo "$ALL_ITEMS" | python3 -c "
+          import sys, json
+          items = json.load(sys.stdin)
+          target = $ISSUE_NUMBER
+          for item in items:
+              if item.get('content', {}).get('number') == target:
+                  print(item['id'])
+                  break
+          ")
+
+            if [[ -n "$ITEM_ID" ]]; then
+              gh api graphql -f query='
+                mutation($project: ID!, $item: ID!, $field: ID!, $option: String!) {
+                  updateProjectV2ItemFieldValue(input: {
+                    projectId: $project
+                    itemId: $item
+                    fieldId: $field
+                    value: { singleSelectOptionId: $option }
+                  }) { projectV2Item { id } }
+                }' \
+                -f project="$PROJECT_ID" \
+                -f item="$ITEM_ID" \
+                -f field="$STATUS_FIELD_ID" \
+                -f option="$AGENT_DONE_OPTION_ID"
+
+              echo "✅ Issue #$ISSUE_NUMBER → Agent Done"
+            else
+              echo "⚠️  Issue #$ISSUE_NUMBER not found on project board — skipping"
+            fi
+          done
