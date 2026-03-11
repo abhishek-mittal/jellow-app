@@ -135,6 +135,63 @@ jobs:
           done
 
   # ────────────────────────────────────────────────────────────────────────────
+  # Close linked issues when a PR is merged.
+  # GitHub only auto-closes via "Fixes #N" when merging to the DEFAULT branch.
+  # Since Copilot PRs target agent-dev, we close issues explicitly.
+  close-issues-on-merge:
+    name: Close linked issues on merge
+    if: >-
+      github.event.action == 'closed' &&
+      github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.GH_PROJECT_TOKEN }}
+      PROJECT_OWNER: abhishek-mittal
+      PR_NUMBER: ${{ github.event.pull_request.number }}
+      REPO: ${{ github.event.repository.name }}
+    steps:
+      - name: Close linked issues
+        run: |
+          LINKED_ISSUES=$(gh api graphql -f query='
+            query($owner: String!, $repo: String!, $pr: Int!) {
+              repository(owner: $owner, name: $repo) {
+                pullRequest(number: $pr) {
+                  closingIssuesReferences(first: 10) {
+                    nodes { number }
+                  }
+                }
+              }
+            }' \
+            -f owner="$PROJECT_OWNER" \
+            -f repo="$REPO" \
+            -F pr="$PR_NUMBER" \
+            --jq '[.data.repository.pullRequest.closingIssuesReferences.nodes[].number] | @json')
+
+          # Fallback: extract issue number from Copilot branch name (copilot/jellow-<N>-…)
+          if [[ "$LINKED_ISSUES" == "[]" || "$LINKED_ISSUES" == "null" ]]; then
+            BRANCH="${{ github.event.pull_request.head.ref }}"
+            if ISSUE_NUM=$(echo "$BRANCH" | grep -oP '(?<=jellow-)\d+' | head -1) && [[ -n "$ISSUE_NUM" ]]; then
+              LINKED_ISSUES="[$ISSUE_NUM]"
+              echo "ℹ️  Fallback: extracted issue #$ISSUE_NUM from branch $BRANCH"
+            fi
+          fi
+
+          if [[ "$LINKED_ISSUES" == "[]" || "$LINKED_ISSUES" == "null" ]]; then
+            echo "No linked issues found — skipping"
+            exit 0
+          fi
+
+          for ISSUE_NUMBER in $(echo "$LINKED_ISSUES" | python3 -c "import sys,json; [print(n) for n in json.load(sys.stdin)]"); do
+            STATE=$(gh api repos/$PROJECT_OWNER/$REPO/issues/$ISSUE_NUMBER --jq '.state')
+            if [[ "$STATE" == "open" ]]; then
+              gh issue close "$ISSUE_NUMBER" --repo "$PROJECT_OWNER/$REPO" --reason completed
+              echo "✅ Closed issue #$ISSUE_NUMBER"
+            else
+              echo "Issue #$ISSUE_NUMBER already closed — skipping"
+            fi
+          done
+
+  # ────────────────────────────────────────────────────────────────────────────
   # Delete the source branch after a Copilot PR is merged.
   delete-copilot-branch:
     name: Delete merged Copilot branch
