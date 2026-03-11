@@ -1,7 +1,6 @@
 import { FoodCard } from "@/components/ui/food-card";
-import { VerdictBadge } from "@/components/ui/verdict-badge";
 import { seedHistory, seedUser } from "@/lib/seed-data";
-import { formatRelativeTime } from "@/lib/verdict";
+import { verdictLevelToVerdict } from "@/lib/verdict";
 import Link from "next/link";
 
 export default function HomePage() {
@@ -61,7 +60,9 @@ export default function HomePage() {
                   <p className="font-semibold text-gray-900">{challenge.title}</p>
                   <p className="text-sm text-gray-500">{challenge.description}</p>
                 </div>
-                <VerdictBadge level="good" label={`+${challenge.reward}`} />
+                <span className="rounded-full bg-[var(--candy-mint)]/15 px-3 py-1 text-xs font-semibold text-[var(--candy-mint)]">
+                  +{challenge.reward} pts
+                </span>
               </div>
               <div className="mt-3 h-2 overflow-hidden rounded-full bg-gray-100">
                 <div
@@ -81,8 +82,12 @@ export default function HomePage() {
           {seedHistory.map((entry) => (
             <FoodCard
               key={entry.id}
-              product={entry.product}
-              timestamp={formatRelativeTime(entry.scannedAt)}
+              food={{
+                id: entry.product.id,
+                name: entry.product.name,
+                brand: entry.product.brand,
+                verdict: verdictLevelToVerdict(entry.product.level),
+              }}
             />
           ))}
         </div>

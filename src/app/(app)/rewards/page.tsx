@@ -1,4 +1,3 @@
-import { VerdictBadge } from "@/components/ui/verdict-badge";
 import { seedUser } from "@/lib/seed-data";
 
 export default function RewardsPage() {
@@ -44,7 +43,9 @@ export default function RewardsPage() {
                     {challenge.progress}/{challenge.goal} — {challenge.description}
                   </p>
                 </div>
-                <VerdictBadge level="good" label={`+${challenge.reward}`} />
+                <span className="rounded-full bg-[var(--candy-mint)]/15 px-3 py-1 text-xs font-semibold text-[var(--candy-mint)]">
+                  +{challenge.reward} pts
+                </span>
               </div>
               <div className="mt-3 h-2 overflow-hidden rounded-full bg-gray-100">
                 <div

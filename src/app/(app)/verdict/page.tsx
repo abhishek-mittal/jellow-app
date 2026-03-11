@@ -2,7 +2,7 @@ import { ScoreCircle } from "@/components/ui/score-circle";
 import { VerdictBadge } from "@/components/ui/verdict-badge";
 import { FoodCard } from "@/components/ui/food-card";
 import { seedVerdict } from "@/lib/seed-data";
-import { VERDICT_LABELS } from "@/config/constants";
+import { verdictLevelToVerdict } from "@/lib/verdict";
 
 export default function VerdictPage() {
   const v = seedVerdict;
@@ -14,7 +14,12 @@ export default function VerdictPage() {
         <ScoreCircle score={v.score} level={v.level} size={140} />
         <h1 className="mt-4 text-2xl font-bold text-gray-900">Greek Yogurt</h1>
         <p className="text-sm text-gray-500">Organic Valley</p>
-        <VerdictBadge level={v.level} className="mt-2" />
+        <VerdictBadge
+          verdict={verdictLevelToVerdict(v.level)}
+          score={Math.round(v.score / 10)}
+          size="lg"
+          className="mt-2"
+        />
       </header>
 
       {/* Nutrients */}
@@ -57,7 +62,15 @@ export default function VerdictPage() {
         <h2 className="mb-3 text-lg font-bold text-gray-900">Better Alternatives</h2>
         <div className="space-y-3">
           {v.alternatives.map((alt) => (
-            <FoodCard key={alt.id} product={alt} />
+            <FoodCard
+              key={alt.id}
+              food={{
+                id: alt.id,
+                name: alt.name,
+                brand: alt.brand,
+                verdict: verdictLevelToVerdict(alt.level),
+              }}
+            />
           ))}
         </div>
       </section>
