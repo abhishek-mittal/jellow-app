@@ -1,7 +1,7 @@
 name: Enrich Copilot PR (labels · milestone · project)
 
 on:
-  pull_request:
+  pull_request_target:
     types: [opened, ready_for_review]
 
 # ─── Job 1: Fires when a Copilot PR is first opened ──────────────────────────
@@ -149,6 +149,15 @@ jobs:
             -f repo="$REPO" \
             -F pr="$PR_NUMBER" \
             --jq '[.data.repository.pullRequest.closingIssuesReferences.nodes[].number] | @json')
+
+          # Fallback: extract issue number from Copilot branch name (copilot/jellow-<N>-…)
+          if [[ "$LINKED_ISSUES" == "[]" || "$LINKED_ISSUES" == "null" ]]; then
+            BRANCH="${{ github.event.pull_request.head.ref }}"
+            if ISSUE_NUM=$(echo "$BRANCH" | grep -oP '(?<=jellow-)\d+' | head -1) && [[ -n "$ISSUE_NUM" ]]; then
+              LINKED_ISSUES="[$ISSUE_NUM]"
+              echo "ℹ️  Fallback: extracted issue #$ISSUE_NUM from branch $BRANCH"
+            fi
+          fi
 
           if [[ "$LINKED_ISSUES" == "[]" ]]; then
             echo "No linked issues found for PR #$PR_NUMBER — skipping"
