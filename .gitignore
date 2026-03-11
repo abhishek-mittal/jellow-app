@@ -41,3 +41,4 @@ coverage/
 # PWA
 sw.js
 workbox-*.js
+tsconfig.tsbuildinfo

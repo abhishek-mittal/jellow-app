@@ -2,8 +2,9 @@
 
 import { useState } from "react";
 import { cn } from "@/lib/utils";
+import type { IngredientSafety } from "@/lib/types";
 
-export type IngredientSafety = "safe" | "caution" | "harmful";
+export type { IngredientSafety };
 
 export interface IngredientTagProps {
   name: string;
