@@ -120,7 +120,7 @@ jobs:
       PR_NUMBER: ${{ github.event.pull_request.number }}
       REPO: ${{ github.event.repository.name }}
       STATUS_FIELD_ID: PVTSSF_lAHOAiJDAM4BRZ3ezg_Pfp0
-      AGENT_DONE_OPTION_ID: d4d2aa8b
+      AGENT_DONE_OPTION_ID: 4b6eba98
 
     steps:
       - name: Move linked issue cards to Agent Done

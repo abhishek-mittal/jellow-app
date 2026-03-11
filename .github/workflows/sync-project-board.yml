@@ -12,13 +12,13 @@ jobs:
         id: status
         run: |
           if [[ "${{ github.event.action }}" == "closed" && "${{ github.event.pull_request.merged }}" == "true" ]]; then
-            echo "option_id=950e41d0" >> "$GITHUB_OUTPUT"   # Done
+            echo "option_id=2b0a174c" >> "$GITHUB_OUTPUT"   # Done
             echo "label=Done" >> "$GITHUB_OUTPUT"
           elif [[ "${{ github.event.action }}" == "closed" ]]; then
-            echo "option_id=9e173c30" >> "$GITHUB_OUTPUT"   # Todo (closed unmerged → back to queue)
+            echo "option_id=e1abcd48" >> "$GITHUB_OUTPUT"   # Todo (closed unmerged → back to queue)
             echo "label=Todo" >> "$GITHUB_OUTPUT"
           else
-            echo "option_id=47120e7d" >> "$GITHUB_OUTPUT"   # In Progress (opened)
+            echo "option_id=3c7bd20d" >> "$GITHUB_OUTPUT"   # In Progress (opened)
             echo "label=In Progress" >> "$GITHUB_OUTPUT"
           fi
 
