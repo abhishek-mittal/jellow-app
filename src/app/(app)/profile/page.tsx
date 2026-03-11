@@ -1,4 +1,5 @@
 import { seedUser } from "@/lib/seed-data";
+import { Card, CardBody } from "@/components/ui/card";
 
 export default function ProfilePage() {
   return (
@@ -14,18 +15,24 @@ export default function ProfilePage() {
 
       {/* Stats */}
       <div className="grid grid-cols-3 gap-3">
-        <div className="rounded-[var(--r-lg)] border border-j-stone bg-j-warm-white p-3 text-center">
-          <p className="font-[var(--font-heading)] text-xl font-semibold text-j-navy">{seedUser.totalScans}</p>
-          <p className="text-xs text-j-navy-soft">Total Scans</p>
-        </div>
-        <div className="rounded-[var(--r-lg)] border border-j-stone bg-j-warm-white p-3 text-center">
-          <p className="font-[var(--font-heading)] text-xl font-semibold text-j-navy">{seedUser.streakDays}</p>
-          <p className="text-xs text-j-navy-soft">Day Streak</p>
-        </div>
-        <div className="rounded-[var(--r-lg)] border border-j-stone bg-j-warm-white p-3 text-center">
-          <p className="font-[var(--font-heading)] text-xl font-semibold text-j-navy">{seedUser.badges.length}</p>
-          <p className="text-xs text-j-navy-soft">Badges</p>
-        </div>
+        <Card shadow="none" radius="lg" className="border border-j-stone bg-j-warm-white">
+          <CardBody className="p-3 text-center">
+            <p className="font-[var(--font-heading)] text-xl font-semibold text-j-navy">{seedUser.totalScans}</p>
+            <p className="text-xs text-j-navy-soft">Total Scans</p>
+          </CardBody>
+        </Card>
+        <Card shadow="none" radius="lg" className="border border-j-stone bg-j-warm-white">
+          <CardBody className="p-3 text-center">
+            <p className="font-[var(--font-heading)] text-xl font-semibold text-j-navy">{seedUser.streakDays}</p>
+            <p className="text-xs text-j-navy-soft">Day Streak</p>
+          </CardBody>
+        </Card>
+        <Card shadow="none" radius="lg" className="border border-j-stone bg-j-warm-white">
+          <CardBody className="p-3 text-center">
+            <p className="font-[var(--font-heading)] text-xl font-semibold text-j-navy">{seedUser.badges.length}</p>
+            <p className="text-xs text-j-navy-soft">Badges</p>
+          </CardBody>
+        </Card>
       </div>
 
       {/* Settings placeholder */}
@@ -33,13 +40,12 @@ export default function ProfilePage() {
         <h2 className="mb-3 font-[var(--font-heading)] text-lg font-semibold text-j-navy">Settings</h2>
         <div className="space-y-2">
           {["Dietary Preferences", "Notifications", "Privacy", "About Jellow"].map((item) => (
-            <div
-              key={item}
-              className="flex items-center justify-between rounded-[var(--r-lg)] border border-j-stone bg-j-warm-white p-4"
-            >
-              <span className="text-j-navy">{item}</span>
-              <span className="text-j-navy-soft">→</span>
-            </div>
+            <Card key={item} shadow="none" radius="lg" className="border border-j-stone bg-j-warm-white">
+              <CardBody className="flex-row items-center justify-between p-4">
+                <span className="text-j-navy">{item}</span>
+                <span className="text-j-navy-soft">→</span>
+              </CardBody>
+            </Card>
           ))}
         </div>
       </section>

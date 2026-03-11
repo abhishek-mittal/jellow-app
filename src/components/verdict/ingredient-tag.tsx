@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { cn } from "@/lib/utils";
+import { Chip } from "@heroui/chip";
 import type { IngredientSafety } from "@/lib/types";
 
 export type { IngredientSafety };
@@ -14,22 +15,10 @@ export interface IngredientTagProps {
   className?: string;
 }
 
-const safetyConfig: Record<
-  IngredientSafety,
-  { bg: string; text: string }
-> = {
-  safe: {
-    bg: "bg-v-good-bg",
-    text: "text-v-good",
-  },
-  caution: {
-    bg: "bg-v-caution-bg",
-    text: "text-v-caution",
-  },
-  harmful: {
-    bg: "bg-v-avoid-bg",
-    text: "text-v-avoid",
-  },
+const safetyColorMap: Record<IngredientSafety, "success" | "warning" | "danger"> = {
+  safe: "success",
+  caution: "warning",
+  harmful: "danger",
 };
 
 export function IngredientTag({
@@ -40,7 +29,6 @@ export function IngredientTag({
   className,
 }: IngredientTagProps) {
   const [expanded, setExpanded] = useState(false);
-  const config = safetyConfig[safety];
 
   function handlePress() {
     if (description) {
@@ -51,20 +39,20 @@ export function IngredientTag({
 
   return (
     <div className={cn("inline-block", className)}>
-      <button
-        type="button"
+      <Chip
+        as="button"
+        color={safetyColorMap[safety]}
+        variant="flat"
+        size="sm"
         onClick={handlePress}
-        className={cn(
-          "inline-flex max-w-[160px] items-center gap-1 rounded-[var(--r-sm)] px-2.5 py-1 text-xs font-semibold transition-opacity hover:opacity-80",
-          config.bg,
-          config.text
-        )}
+        endContent={description ? <span className="shrink-0 text-[10px] opacity-60">ⓘ</span> : undefined}
+        classNames={{
+          base: "cursor-pointer max-w-[160px] transition-opacity hover:opacity-80",
+          content: "font-semibold text-xs truncate",
+        }}
       >
-        <span className="truncate">{name}</span>
-        {description && (
-          <span className="shrink-0 text-[10px] opacity-60">ⓘ</span>
-        )}
-      </button>
+        {name}
+      </Chip>
 
       {expanded && description && (
         <div className="mt-1 rounded-[var(--r-sm)] border border-j-stone bg-j-warm-white px-3 py-2">

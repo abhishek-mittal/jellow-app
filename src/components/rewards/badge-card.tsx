@@ -1,5 +1,9 @@
+"use client";
+
 import type { ReactNode } from "react";
 import { cn } from "@/lib/utils";
+import { Card, CardBody } from "@heroui/card";
+import { Progress } from "@heroui/progress";
 
 export interface BadgeCardProps {
   name: string;
@@ -24,57 +28,65 @@ export function BadgeCard({
     progress !== undefined ? Math.min(100, Math.max(0, progress)) : undefined;
 
   return (
-    <div
+    <Card
+      shadow="none"
+      radius="lg"
       className={cn(
-        "relative flex flex-col items-center rounded-[var(--r-lg)] p-3 text-center transition-all animate-scale-in",
+        "animate-scale-in transition-all",
         earned
-          ? "bg-j-warm-white border border-j-stone"
+          ? "border border-j-stone bg-j-warm-white"
           : "bg-j-stone/40 opacity-60",
         className
       )}
     >
-      {/* Icon */}
-      <div
-        className={cn(
-          "flex h-12 w-12 items-center justify-center rounded-[var(--r-sm)] text-2xl",
-          !earned && "grayscale"
+      <CardBody className="flex flex-col items-center p-3 text-center">
+        {/* Icon */}
+        <div
+          className={cn(
+            "flex h-12 w-12 items-center justify-center rounded-[var(--r-sm)] text-2xl",
+            !earned && "grayscale"
+          )}
+        >
+          {icon}
+        </div>
+
+        {/* Badge name */}
+        <p
+          className={cn(
+            "mt-2 text-xs font-semibold leading-tight",
+            earned ? "text-j-navy" : "text-j-navy-soft"
+          )}
+        >
+          {name}
+        </p>
+
+        {/* Earned date */}
+        {earned && earnedDate && (
+          <p className="mt-0.5 text-xs text-j-navy-soft">{earnedDate}</p>
         )}
-      >
-        {icon}
-      </div>
 
-      {/* Badge name */}
-      <p
-        className={cn(
-          "mt-2 text-xs font-semibold leading-tight",
-          earned ? "text-j-navy" : "text-j-navy-soft"
-        )}
-      >
-        {name}
-      </p>
-
-      {/* Earned date */}
-      {earned && earnedDate && (
-        <p className="mt-0.5 text-xs text-j-navy-soft">{earnedDate}</p>
-      )}
-
-      {/* Progress bar for locked badges */}
-      {!earned && clampedProgress !== undefined && (
-        <div className="mt-2 w-full">
-          <p className="mb-1 text-xs text-j-navy-soft">{clampedProgress}%</p>
-          <div className="h-0.5 w-full overflow-hidden rounded-full bg-j-stone">
-            <div
-              className="h-full rounded-full bg-j-teal transition-all"
-              style={{ width: `${clampedProgress}%` }}
+        {/* Progress bar for locked badges */}
+        {!earned && clampedProgress !== undefined && (
+          <div className="mt-2 w-full">
+            <p className="mb-1 text-xs text-j-navy-soft">{clampedProgress}%</p>
+            <Progress
+              value={clampedProgress}
+              size="sm"
+              color="primary"
+              aria-label={`${name} progress: ${clampedProgress}%`}
+              classNames={{
+                track: "bg-j-stone h-0.5",
+                indicator: "bg-j-teal",
+              }}
             />
           </div>
-        </div>
-      )}
+        )}
 
-      {/* Unlock criteria */}
-      {unlockCriteria && (
-        <p className="mt-1 text-xs leading-tight text-j-navy-soft">{unlockCriteria}</p>
-      )}
-    </div>
+        {/* Unlock criteria */}
+        {unlockCriteria && (
+          <p className="mt-1 text-xs leading-tight text-j-navy-soft">{unlockCriteria}</p>
+        )}
+      </CardBody>
+    </Card>
   );
 }

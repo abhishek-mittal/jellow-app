@@ -1,4 +1,5 @@
 import { BadgeCard } from "@/components/rewards/badge-card";
+import { Progress } from "@/components/ui/progress";
 import { seedUser } from "@/lib/seed-data";
 import { Flame, Trophy } from "lucide-react";
 
@@ -84,9 +85,15 @@ export default function RewardsPage() {
             </span>
           </div>
           <div className="h-1 overflow-hidden rounded-full bg-j-stone">
-            <div
-              className="h-full rounded-full bg-j-teal transition-all"
-              style={{ width: `${levelProgress}%` }}
+            <Progress
+              value={levelProgress}
+              size="sm"
+              color="primary"
+              aria-label={`Level ${level} progress: ${levelProgress}%`}
+              classNames={{
+                track: "bg-j-stone",
+                indicator: "bg-j-teal",
+              }}
             />
           </div>
           <p className="text-right text-xs text-j-navy-soft">
@@ -169,14 +176,17 @@ export default function RewardsPage() {
                   +{challenge.reward} pts
                 </span>
               </div>
-              <div className="mt-3 h-1 overflow-hidden rounded-full bg-j-stone">
-                <div
-                  className="h-full rounded-full bg-j-teal transition-all"
-                  style={{
-                    width: `${(challenge.progress / challenge.goal) * 100}%`,
-                  }}
-                />
-              </div>
+              <Progress
+                value={(challenge.progress / challenge.goal) * 100}
+                size="sm"
+                color="primary"
+                aria-label={`${challenge.title}: ${challenge.progress}/${challenge.goal}`}
+                classNames={{
+                  base: "mt-3",
+                  track: "bg-j-stone h-1",
+                  indicator: "bg-j-teal",
+                }}
+              />
             </div>
           ))}
         </div>

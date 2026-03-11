@@ -250,7 +250,7 @@ export default function PrescriptionPage() {
               size="lg"
               variant={saved ? "secondary" : "primary"}
               onClick={() => setSaved(true)}
-              disabled={saved}
+              isDisabled={saved}
               aria-label={saved ? "Saved to profile" : "Save to profile"}
             >
               {saved ? "✓ Saved to Profile" : "Save to Profile"}

@@ -1,6 +1,7 @@
 import { ScoreCircle } from "@/components/ui/score-circle";
 import { VerdictBadge } from "@/components/ui/verdict-badge";
 import { FoodCard } from "@/components/ui/food-card";
+import { Chip } from "@/components/ui/chip";
 import { seedVerdict } from "@/lib/seed-data";
 import { verdictLevelToVerdict } from "@/lib/verdict";
 
@@ -43,16 +44,15 @@ export default function VerdictPage() {
         <h2 className="mb-3 font-[var(--font-heading)] text-lg font-semibold text-j-navy">Ingredients</h2>
         <div className="flex flex-wrap gap-2">
           {v.ingredients.map((ing) => (
-            <span
+            <Chip
               key={ing.name}
-              className={`rounded-[var(--r-sm)] px-3 py-1 text-sm font-medium ${
-                ing.isFlagged
-                  ? "bg-v-avoid-bg text-v-avoid"
-                  : "bg-j-stone/40 text-j-navy"
-              }`}
+              color={ing.isFlagged ? "danger" : "default"}
+              variant="flat"
+              size="sm"
+              classNames={{ content: "text-sm font-medium" }}
             >
               {ing.name}
-            </span>
+            </Chip>
           ))}
         </div>
       </section>

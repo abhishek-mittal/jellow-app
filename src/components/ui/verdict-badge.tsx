@@ -1,4 +1,7 @@
+"use client";
+
 import { cn } from "@/lib/utils";
+import { Chip } from "@heroui/chip";
 import {
   VerdictGoodIcon,
   VerdictCautionIcon,
@@ -10,32 +13,24 @@ export type Verdict = "good" | "moderate" | "bad";
 interface VerdictConfig {
   icon: typeof VerdictGoodIcon;
   label: string;
-  bg: string;
-  text: string;
-  border: string;
+  color: "success" | "warning" | "danger";
 }
 
 const verdictConfig: Record<Verdict, VerdictConfig> = {
   good: {
     icon: VerdictGoodIcon,
     label: "Good for You",
-    bg: "bg-v-good-bg",
-    text: "text-v-good",
-    border: "border-v-good/30",
+    color: "success",
   },
   moderate: {
     icon: VerdictCautionIcon,
     label: "Moderate",
-    bg: "bg-v-caution-bg",
-    text: "text-j-navy",
-    border: "border-v-caution/30",
+    color: "warning",
   },
   bad: {
     icon: VerdictAvoidIcon,
     label: "Bad for You",
-    bg: "bg-v-avoid-bg",
-    text: "text-v-avoid",
-    border: "border-v-avoid/30",
+    color: "danger",
   },
 };
 
@@ -59,24 +54,24 @@ export function VerdictBadge({
   const isLarge = size === "lg";
 
   return (
-    <span
-      className={cn(
-        "inline-flex items-center gap-1.5 rounded-[var(--r-sm)] border font-medium tracking-wide uppercase animate-scale-in",
-        isLarge ? "px-4 py-2 text-sm" : "px-3 py-1 text-xs",
-        config.bg,
-        config.text,
-        config.border,
-        isLarge && "justify-center",
-        className
-      )}
+    <Chip
+      color={config.color}
+      variant="flat"
+      size={isLarge ? "lg" : "sm"}
+      startContent={<Icon size={isLarge ? 18 : 14} />}
+      endContent={
+        score !== undefined ? (
+          <span className={cn("font-bold", isLarge ? "ml-1 text-lg" : "ml-0.5 text-xs")}>
+            {score}/10
+          </span>
+        ) : undefined
+      }
+      classNames={{
+        base: cn("uppercase tracking-wide animate-scale-in", isLarge && "justify-center", className),
+        content: "font-medium",
+      }}
     >
-      <Icon size={isLarge ? 18 : 14} />
-      {showLabel && <span>{config.label}</span>}
-      {score !== undefined && (
-        <span className={cn("font-bold", isLarge ? "ml-1 text-lg" : "ml-0.5")}>
-          {score}/10
-        </span>
-      )}
-    </span>
+      {showLabel ? config.label : null}
+    </Chip>
   );
 }

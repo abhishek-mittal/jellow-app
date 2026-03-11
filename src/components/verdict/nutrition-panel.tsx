@@ -1,4 +1,7 @@
+"use client";
+
 import { cn } from "@/lib/utils";
+import { Progress } from "@heroui/progress";
 
 export interface NutritionPanelProps {
   calories: number;
@@ -83,12 +86,16 @@ function MacroBar({ label, grams, pct }: { label: string; grams: number; pct: nu
           {grams}g &middot; {pct}%
         </span>
       </div>
-      <div className="h-1.5 overflow-hidden rounded-full bg-j-stone">
-        <div
-          className="h-full rounded-full bg-j-teal transition-all"
-          style={{ width: `${pct}%` }}
-        />
-      </div>
+      <Progress
+        value={pct}
+        size="sm"
+        color="primary"
+        aria-label={`${label}: ${pct}%`}
+        classNames={{
+          track: "bg-j-stone",
+          indicator: "bg-j-teal",
+        }}
+      />
     </div>
   );
 }
