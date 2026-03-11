@@ -1,0 +1,21 @@
+{
+  "name": "Jellow",
+  "short_name": "Jellow",
+  "description": "Scan, learn, and make healthier food choices",
+  "start_url": "/home",
+  "display": "standalone",
+  "background_color": "#FFFBF0",
+  "theme_color": "#FFD93D",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

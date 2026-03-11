@@ -1,0 +1,44 @@
+{
+  "name": "jellow-app",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage"
+  },
+  "dependencies": {
+    "@hono/node-server": "^1.19.10",
+    "@hono/zod-validator": "^0.7.2",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "hono": "^4.12.4",
+    "lucide-react": "^0.576.0",
+    "next": "^15.5.12",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "tailwind-merge": "^3.5.0",
+    "typescript": "^5.9.3",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.2.1",
+    "@types/node": "^25.3.3",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.1.4",
+    "@vitest/coverage-v8": "^4.0.18",
+    "eslint": "^9.39.4",
+    "eslint-config-next": "^16.1.6",
+    "jsdom": "^28.1.0",
+    "postcss": "^8.5.8",
+    "tailwindcss": "^4.2.1",
+    "vitest": "^4.0.18"
+  }
+}

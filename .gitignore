@@ -1,0 +1,43 @@
+# dependencies
+node_modules/
+.pnpm-store/
+package-lock.json
+
+# next.js
+.next/
+out/
+
+# production
+build/
+dist/
+
+# env files
+.env
+.env.local
+.env.*.local
+
+# vercel
+.vercel
+
+# editor
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# testing
+coverage/
+
+# PWA
+sw.js
+workbox-*.js
