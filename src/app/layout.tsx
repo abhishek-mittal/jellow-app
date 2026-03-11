@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { DM_Sans, Inter } from "next/font/google";
+import { Providers } from "./providers";
 import "./globals.css";
 
 const dmSans = DM_Sans({
@@ -40,9 +41,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${dmSans.variable} ${inter.variable}`}>
+    <html lang="en" className={`light ${dmSans.variable} ${inter.variable}`}>
       <body className="bg-j-cream font-[var(--font-body)] text-j-navy antialiased">
-        {children}
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
