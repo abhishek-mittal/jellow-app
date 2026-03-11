@@ -3,9 +3,15 @@ name: Sync GitHub Project Board Status
 on:
   pull_request_target:
     types: [opened, closed]
+  # Reconciliation: catch issues/board items missed by event-driven jobs
+  # (e.g. locally merged PRs, admin merges, race conditions)
+  schedule:
+    - cron: "0 */6 * * *" # every 6 hours
+  workflow_dispatch: # manual trigger
 
 jobs:
   sync-status:
+    if: github.event_name == 'pull_request_target'
     runs-on: ubuntu-latest
     steps:
       - name: Determine target status option
@@ -141,6 +147,7 @@ jobs:
   close-issues-on-merge:
     name: Close linked issues on merge
     if: >-
+      github.event_name == 'pull_request_target' &&
       github.event.action == 'closed' &&
       github.event.pull_request.merged == true
     runs-on: ubuntu-latest
@@ -196,6 +203,7 @@ jobs:
   delete-copilot-branch:
     name: Delete merged Copilot branch
     if: >-
+      github.event_name == 'pull_request_target' &&
       github.event.action == 'closed' &&
       github.event.pull_request.merged == true &&
       startsWith(github.event.pull_request.head.ref, 'copilot/')
@@ -215,3 +223,126 @@ jobs:
           else
             echo "Branch '$BRANCH' already gone — nothing to do"
           fi
+
+  # ────────────────────────────────────────────────────────────────────────────
+  # Reconciliation job — runs on schedule/dispatch to catch drift.
+  # Handles: locally merged PRs, admin merges, missed events.
+  # 1. Closes any OPEN issue whose linked PR is merged.
+  # 2. Moves any CLOSED issue still not at "Done" on the board to "Done".
+  # 3. Deletes stale copilot/* branches from merged PRs.
+  reconcile:
+    name: Reconcile issues, board & branches
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.GH_PROJECT_TOKEN }}
+      OWNER: abhishek-mittal
+      REPO: jellow-app
+      PROJECT_NUMBER: 5
+      STATUS_FIELD_ID: PVTSSF_lAHOAiJDAM4BRZ3ezg_Pfp0
+      DONE_OPTION_ID: "2b0a174c"
+    steps:
+      - name: Close open issues with merged PRs
+        run: |
+          # Get all merged PRs with their closing issue refs
+          MERGED_PRS=$(gh api graphql --paginate -f query='
+            query($owner: String!, $repo: String!) {
+              repository(owner: $owner, name: $repo) {
+                pullRequests(first: 50, states: MERGED, orderBy: {field: UPDATED_AT, direction: DESC}) {
+                  nodes {
+                    number
+                    closingIssuesReferences(first: 10) {
+                      nodes { number state }
+                    }
+                  }
+                }
+              }
+            }' \
+            -f owner="$OWNER" \
+            -f repo="$REPO" \
+            --jq '.data.repository.pullRequests.nodes')
+
+          # Find open issues that should be closed
+          echo "$MERGED_PRS" | python3 -c "
+          import json, sys, subprocess
+          prs = json.load(sys.stdin)
+          for pr in prs:
+              for issue in pr.get('closingIssuesReferences', {}).get('nodes', []):
+                  if issue.get('state') == 'OPEN':
+                      num = issue['number']
+                      subprocess.run(['gh', 'issue', 'close', str(num),
+                          '--repo', '${OWNER}/${REPO}', '--reason', 'completed'],
+                          check=False)
+                      print(f'Closed issue {num} (linked to merged PR {pr[\"number\"]})')
+          "
+
+      - name: Sync board status for closed issues
+        run: |
+          PROJECT_ID=$(gh api graphql -f query='
+            query($login: String!, $number: Int!) {
+              user(login: $login) { projectV2(number: $number) { id } }
+            }' \
+            -f login="$OWNER" \
+            -F number="$PROJECT_NUMBER" \
+            --jq '.data.user.projectV2.id')
+
+          # Get all project items with their status and issue state
+          ALL_ITEMS=$(gh api graphql -f query='
+            query($login: String!, $number: Int!) {
+              user(login: $login) {
+                projectV2(number: $number) {
+                  items(first: 100) {
+                    nodes {
+                      id
+                      fieldValueByName(name: "Status") {
+                        ... on ProjectV2ItemFieldSingleSelectValue { name }
+                      }
+                      content {
+                        ... on Issue { number state repository { name } }
+                      }
+                    }
+                  }
+                }
+              }
+            }' \
+            -f login="$OWNER" \
+            -F number="$PROJECT_NUMBER" \
+            --jq '.data.user.projectV2.items.nodes')
+
+          echo "$ALL_ITEMS" | python3 -c "
+          import json, sys, subprocess
+          items = json.load(sys.stdin)
+          project_id = '${PROJECT_ID}'
+          field_id = '${STATUS_FIELD_ID}'
+          done_opt = '${DONE_OPTION_ID}'
+          for item in items:
+              c = item.get('content') or {}
+              repo = c.get('repository', {}).get('name')
+              state = c.get('state')
+              num = c.get('number')
+              status = (item.get('fieldValueByName') or {}).get('name')
+              if repo == '${REPO}' and state == 'CLOSED' and status != 'Done' and num:
+                  r = subprocess.run([
+                      'gh', 'api', 'graphql',
+                      '-f', 'query=mutation(\$p:ID!,\$i:ID!,\$f:ID!,\$o:String!){updateProjectV2ItemFieldValue(input:{projectId:\$p,itemId:\$i,fieldId:\$f,value:{singleSelectOptionId:\$o}}){projectV2Item{id}}}',
+                      '-f', f'p={project_id}', '-f', f'i={item[\"id\"]}',
+                      '-f', f'f={field_id}', '-f', f'o={done_opt}'
+                  ], capture_output=True, text=True)
+                  tag = 'Done' if r.returncode == 0 else f'FAILED'
+                  print(f'Issue {num}: {status} -> {tag}')
+          "
+
+      - name: Cleanup stale copilot branches
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          BRANCHES=$(gh api repos/$OWNER/$REPO/branches --paginate --jq '.[].name' | grep '^copilot/' || true)
+          for BRANCH in $BRANCHES; do
+            # Check if the PR for this branch is merged
+            PR_STATE=$(gh pr list --repo $OWNER/$REPO --head "$BRANCH" --state merged --json number --jq '.[0].number // empty')
+            if [[ -n "$PR_STATE" ]]; then
+              gh api repos/$OWNER/$REPO/git/refs/heads/$BRANCH --method DELETE 2>/dev/null && \
+                echo "🗑️  Deleted stale branch: $BRANCH" || \
+                echo "⚠️  Failed to delete: $BRANCH"
+            fi
+          done
