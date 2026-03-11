@@ -28,6 +28,36 @@ export interface Ingredient {
   reason?: string;
 }
 
+export type IngredientSafety = "safe" | "caution" | "harmful";
+
+export interface IngredientDetail {
+  name: string;
+  safety: IngredientSafety;
+  description?: string;
+}
+
+export interface NutritionFacts {
+  calories: number;
+  protein: number;
+  carbs: number;
+  fat: number;
+  fiber: number;
+  sodium: number;
+  servingSize: string;
+}
+
+export interface FoodVerdictDetail {
+  productId: string;
+  name: string;
+  brand: string;
+  score: number;
+  level: VerdictLevel;
+  verdictExplanation: string;
+  nutrition: NutritionFacts;
+  ingredientDetails: IngredientDetail[];
+  alternatives: ProductSummary[];
+}
+
 export interface VerdictResult {
   productId: string;
   score: number;
