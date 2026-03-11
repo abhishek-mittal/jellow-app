@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { NutritionPanel } from "@/components/verdict/nutrition-panel";
 import { IngredientTag } from "@/components/verdict/ingredient-tag";
 import { verdictFixtures } from "@/lib/seed-data";
+import { verdictLevelToVerdict } from "@/lib/verdict";
 
 interface PageProps {
   params: Promise<{ id: string }>;
@@ -39,7 +40,7 @@ export default async function VerdictDetailPage({ params }: PageProps) {
         </div>
         <h1 className="text-2xl font-bold text-gray-900">{verdict.name}</h1>
         <p className="text-sm text-gray-500">{verdict.brand}</p>
-        <VerdictBadge level={verdict.level} className="mt-2 px-4 py-1.5 text-sm" />
+        <VerdictBadge verdict={verdictLevelToVerdict(verdict.level)} className="mt-2 px-4 py-1.5 text-sm" />
       </header>
 
       {/* Health score */}
@@ -110,7 +111,15 @@ export default async function VerdictDetailPage({ params }: PageProps) {
           </h2>
           <div className="space-y-3">
             {verdict.alternatives.map((alt) => (
-              <FoodCard key={alt.id} product={alt} />
+              <FoodCard
+                key={alt.id}
+                food={{
+                  id: alt.id,
+                  name: alt.name,
+                  brand: alt.brand,
+                  verdict: verdictLevelToVerdict(alt.level),
+                }}
+              />
             ))}
           </div>
         </section>

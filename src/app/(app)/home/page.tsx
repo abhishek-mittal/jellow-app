@@ -1,12 +1,9 @@
 import { FoodCard } from "@/components/ui/food-card";
-<<<<<<< HEAD
-=======
 import { StatsCard } from "@/components/ui/stats-card";
 import { HealthScoreRing } from "@/components/ui/health-score-ring";
 import type { HealthVerdict } from "@/components/ui/health-score-ring";
 import { Button } from "@/components/ui/button";
 import { VerdictBadge } from "@/components/ui/verdict-badge";
->>>>>>> origin/copilot/jellow-7-home-dashboard-stats-card
 import { seedHistory, seedUser } from "@/lib/seed-data";
 import { verdictLevelToVerdict } from "@/lib/verdict";
 import Link from "next/link";
@@ -61,7 +58,7 @@ export default function HomePage() {
             {seedUser.jellyPoints.toLocaleString()} Jelly Points
           </span>
         </div>
-        <VerdictBadge level="excellent" label="Level 3" />
+        <VerdictBadge verdict={verdictLevelToVerdict("excellent")} size="sm" />
       </div>
 
       {/* Stats Row */}
@@ -103,7 +100,7 @@ export default function HomePage() {
 
       {/* Quick Actions */}
       <div className="grid grid-cols-2 gap-3">
-        <Link href="/history">
+        <Link href="/verdict">
           <Button variant="secondary" size="sm" className="w-full">
             📋 View History
           </Button>
