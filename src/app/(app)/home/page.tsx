@@ -1,8 +1,24 @@
 import { FoodCard } from "@/components/ui/food-card";
+import { StatsCard } from "@/components/ui/stats-card";
+import { HealthScoreRing } from "@/components/ui/health-score-ring";
+import type { HealthVerdict } from "@/components/ui/health-score-ring";
+import { Button } from "@/components/ui/button";
 import { VerdictBadge } from "@/components/ui/verdict-badge";
 import { seedHistory, seedUser } from "@/lib/seed-data";
 import { formatRelativeTime } from "@/lib/verdict";
 import Link from "next/link";
+
+// Compute mock dashboard stats from seed data
+const weeklyScans = seedUser.totalScans;
+const healthyCount = seedHistory.filter(
+  (e) => e.product.level === "excellent" || e.product.level === "good"
+).length;
+const healthyPercent = Math.round((healthyCount / seedHistory.length) * 100);
+const avgScore100 =
+  seedHistory.reduce((sum, e) => sum + e.product.score, 0) / seedHistory.length;
+const healthScore = Math.round(avgScore100 / 10);
+const healthVerdict: HealthVerdict =
+  healthScore >= 7 ? "good" : healthScore >= 4 ? "moderate" : "bad";
 
 export default function HomePage() {
   return (
@@ -11,30 +27,63 @@ export default function HomePage() {
       <header className="flex items-center justify-between pt-2">
         <div>
           <p className="text-sm text-gray-500">Good morning,</p>
-          <h1 className="text-2xl font-bold text-gray-900">{seedUser.name} 👋</h1>
+          <h1 className="text-2xl font-bold text-gray-900">
+            {seedUser.name} 👋
+          </h1>
+          <div className="mt-1 flex items-center gap-1.5">
+            <span className="text-sm">🔥</span>
+            <span className="text-sm font-semibold text-gray-700">
+              {seedUser.streakDays}-day streak
+            </span>
+          </div>
         </div>
-        <div className="flex items-center gap-2 rounded-full bg-jellow-yellow/20 px-3 py-1.5">
-          <span className="text-sm">🍬</span>
-          <span className="text-sm font-bold text-gray-900">
-            {seedUser.jellyPoints.toLocaleString()}
-          </span>
+        <div className="flex items-center gap-3">
+          <HealthScoreRing
+            score={healthScore}
+            verdict={healthVerdict}
+            size="sm"
+            showLabel={false}
+          />
+          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-jellow-yellow text-base font-bold text-gray-900">
+            {seedUser.name.charAt(0)}
+          </div>
         </div>
       </header>
 
-      {/* Quick Stats */}
+      {/* Jelly Points */}
+      <div className="flex items-center justify-between rounded-2xl bg-jellow-yellow/20 px-4 py-3">
+        <div className="flex items-center gap-2">
+          <span className="text-xl">🍬</span>
+          <span className="font-bold text-gray-900">
+            {seedUser.jellyPoints.toLocaleString()} Jelly Points
+          </span>
+        </div>
+        <VerdictBadge level="excellent" label="Level 3" />
+      </div>
+
+      {/* Stats Row */}
       <div className="grid grid-cols-3 gap-3">
-        <div className="rounded-2xl bg-white p-3 text-center shadow-card">
-          <p className="text-2xl font-bold text-candy-mint">{seedUser.totalScans}</p>
-          <p className="text-xs text-gray-500">Scans</p>
-        </div>
-        <div className="rounded-2xl bg-white p-3 text-center shadow-card">
-          <p className="text-2xl font-bold text-candy-orange">🔥 {seedUser.streakDays}</p>
-          <p className="text-xs text-gray-500">Day Streak</p>
-        </div>
-        <div className="rounded-2xl bg-white p-3 text-center shadow-card">
-          <p className="text-2xl font-bold text-candy-purple">{seedUser.badges.length}</p>
-          <p className="text-xs text-gray-500">Badges</p>
-        </div>
+        <StatsCard
+          label="Weekly Scans"
+          value={weeklyScans}
+          icon={<span className="text-base">📷</span>}
+          trend="up"
+          trendValue="+5"
+        />
+        <StatsCard
+          label="Healthy Choices"
+          value={`${healthyPercent}%`}
+          icon={<span className="text-base">💚</span>}
+          trend="flat"
+          trendValue="this week"
+        />
+        <StatsCard
+          label="Day Streak"
+          value={seedUser.streakDays}
+          icon={<span className="text-base">🔥</span>}
+          trend="up"
+          trendValue="+2 days"
+        />
       </div>
 
       {/* Scan CTA */}
@@ -48,6 +97,20 @@ export default function HomePage() {
           <p className="text-sm text-gray-700">Check if your food is healthy</p>
         </div>
       </Link>
+
+      {/* Quick Actions */}
+      <div className="grid grid-cols-2 gap-3">
+        <Link href="/history">
+          <Button variant="secondary" size="sm" className="w-full">
+            📋 View History
+          </Button>
+        </Link>
+        <Link href="/rewards">
+          <Button variant="secondary" size="sm" className="w-full">
+            🏆 Rewards
+          </Button>
+        </Link>
+      </div>
 
       {/* Active Challenges */}
       <section>
@@ -66,7 +129,9 @@ export default function HomePage() {
               <div className="mt-3 h-2 overflow-hidden rounded-full bg-gray-100">
                 <div
                   className="h-full rounded-full bg-candy-mint transition-all"
-                  style={{ width: `${(challenge.progress / challenge.goal) * 100}%` }}
+                  style={{
+                    width: `${(challenge.progress / challenge.goal) * 100}%`,
+                  }}
                 />
               </div>
             </div>

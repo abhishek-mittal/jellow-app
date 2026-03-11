@@ -2,3 +2,7 @@ export { Button } from "./button";
 export { VerdictBadge } from "./verdict-badge";
 export { ScoreCircle } from "./score-circle";
 export { FoodCard } from "./food-card";
+export { StatsCard } from "./stats-card";
+export type { StatsCardProps, TrendDirection } from "./stats-card";
+export { HealthScoreRing } from "./health-score-ring";
+export type { HealthScoreRingProps, HealthVerdict, RingSize } from "./health-score-ring";
