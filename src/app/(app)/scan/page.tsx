@@ -21,7 +21,7 @@ export default function ScanPage() {
           Enter Barcode
         </Button>
       </div>
-      <Link href="/verdict/p1" className="mt-6 text-sm text-candy-blue underline">
+      <Link href="/verdict" className="mt-6 text-sm text-candy-blue underline">
         Try demo verdict →
       </Link>
     </div>
