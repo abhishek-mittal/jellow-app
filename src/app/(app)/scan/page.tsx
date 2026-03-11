@@ -227,12 +227,6 @@ export default function ScanPage() {
       <div className="relative z-20">
         <BottomNav />
       </div>
-<<<<<<< HEAD
-      <Link href="/verdict" className="mt-6 text-sm text-candy-blue underline">
-        Try demo verdict →
-      </Link>
-=======
->>>>>>> origin/copilot/add-scan-guide-overlay
     </div>
   );
 }
