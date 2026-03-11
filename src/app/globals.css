@@ -1,5 +1,23 @@
 @import "tailwindcss";
 
+/* ─── Register Jellow tokens as Tailwind theme values ─── */
+@theme {
+  --color-jellow-yellow: #FFD93D;
+  --color-candy-pink: #E91E63;
+  --color-candy-orange: #FF6B35;
+  --color-candy-mint: #1ABC9C;
+  --color-candy-purple: #9B59B6;
+  --color-candy-blue: #3498DB;
+  --color-verdict-excellent: #1ABC9C;
+  --color-verdict-good: #3498DB;
+  --color-verdict-caution: #FFD93D;
+  --color-verdict-avoid: #E91E63;
+  --color-coral: #FFB5A7;
+  --color-coral-light: #FCD5CE;
+  --color-background: #FFFBF0;
+  --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
 /* ─── Jellow Design Tokens (from Penpot) ─── */
 :root {
   /* ── Verdict (Penpot primary palette) ── */
