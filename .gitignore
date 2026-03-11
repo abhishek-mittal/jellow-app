@@ -38,6 +38,9 @@ pnpm-debug.log*
 # testing
 coverage/
 
+# TypeScript
+tsconfig.tsbuildinfo
+
 # PWA
 sw.js
 workbox-*.js
