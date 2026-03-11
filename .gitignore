@@ -44,4 +44,9 @@ tsconfig.tsbuildinfo
 # PWA
 sw.js
 workbox-*.js
+<<<<<<< HEAD
+=======
+
+# TypeScript
+>>>>>>> origin/copilot/add-scan-guide-overlay
 tsconfig.tsbuildinfo
