@@ -2,6 +2,11 @@
 
 A health-focused mobile web app that helps users understand the healthiness of foods through an intuitive jelly-inspired UI.
 
+## Project Management
+
+- **Dev Board**: [jellow-app — Dev Board](https://github.com/users/abhishek-mittal/projects/5)
+- **Issues**: [shuhari/issues?label=jellow-app](https://github.com/abhishek-mittal/shuhari/labels/jellow-app)
+
 ## Features
 
 - **Food Scanner** — Scan barcodes to get instant health verdicts
@@ -13,6 +18,7 @@ A health-focused mobile web app that helps users understand the healthiness of f
 ## Tech Stack
 
 - **Framework**: Next.js 15 App Router (React 19)
+- **API**: Hono 4 (catch-all route handler)
 - **Styling**: Tailwind CSS 4
 - **Testing**: Vitest + Playwright
 - **PWA**: Serwist (service worker)
@@ -39,8 +45,9 @@ pnpm build
 src/
 ├── app/          # Next.js App Router pages
 ├── components/   # React components
+├── config/       # App configuration & design tokens
 ├── lib/          # Utilities and helpers
-└── config/       # App configuration
+└── server/       # Hono API routes
 
 docs/
 └── designs/      # Penpot design exports
@@ -53,7 +60,7 @@ tests/
 
 Design tokens and component specs are exported from Penpot and stored in `docs/designs/`.
 
-See `docs/design-tokens.json` for the complete token reference.
+See [`src/config/design-tokens.json`](src/config/design-tokens.json) for the complete token reference.
 
 ## License
 
