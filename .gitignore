@@ -39,5 +39,12 @@ pnpm-debug.log*
 coverage/
 
 # PWA
-sw.js
-workbox-*.js
+public/sw.js
+public/workbox-*.js
+
+# Playwright
+playwright-report/
+test-results/
+
+# TypeScript build cache
+tsconfig.tsbuildinfo
