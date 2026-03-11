@@ -5,7 +5,8 @@ on:
     types: [opened, ready_for_review]
 
 # ─── Job 1: Fires when a Copilot PR is first opened ──────────────────────────
-# Promotes the draft, applies labels/milestone, adds to board.
+# Applies labels/milestone, adds to project board.  PR stays as draft while
+# the agent works — only the agent itself promotes draft → ready for review.
 #
 # ─── Job 2: Fires when the Copilot agent marks the PR ready for review ────────
 # Moves all linked issue cards to "Agent Done" — signalling human review needed.
@@ -26,16 +27,6 @@ jobs:
       PR_BRANCH: ${{ github.event.pull_request.head.ref }}
 
     steps:
-      - name: Promote out of draft
-        run: |
-          IS_DRAFT=$(gh api repos/$OWNER/$REPO/pulls/$PR_NUMBER --jq '.draft')
-          if [[ "$IS_DRAFT" == "true" ]]; then
-            gh pr ready "$PR_NUMBER" --repo "$OWNER/$REPO"
-            echo "Converted draft PR #$PR_NUMBER to ready for review"
-          else
-            echo "PR #$PR_NUMBER is already ready for review"
-          fi
-
       - name: Resolve label from branch name
         id: label
         run: |
