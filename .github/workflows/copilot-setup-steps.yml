@@ -1,0 +1,28 @@
+# Copilot Setup Steps
+#
+# Runs on a BARE runner BEFORE the agent checks out the repository.
+# Only install global tools here (runtimes, CLIs).
+#
+# DO NOT include: pnpm install, env stubs, typecheck, lint, or build.
+# Those require the repo to be checked out and are handled by the
+# agent itself after checkout.
+
+name: Copilot Setup Steps
+
+on:
+  workflow_dispatch:
+
+jobs:
+  copilot-setup-steps:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
