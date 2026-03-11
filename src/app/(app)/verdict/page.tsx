@@ -12,8 +12,8 @@ export default function VerdictPage() {
       {/* Product Header */}
       <header className="flex flex-col items-center pt-4 text-center">
         <ScoreCircle score={v.score} level={v.level} size={140} />
-        <h1 className="mt-4 text-2xl font-bold text-gray-900">Greek Yogurt</h1>
-        <p className="text-sm text-gray-500">Organic Valley</p>
+        <h1 className="mt-4 font-[var(--font-heading)] text-2xl font-semibold text-j-navy">Greek Yogurt</h1>
+        <p className="text-sm text-j-navy-soft">Organic Valley</p>
         <VerdictBadge
           verdict={verdictLevelToVerdict(v.level)}
           score={Math.round(v.score / 10)}
@@ -24,15 +24,15 @@ export default function VerdictPage() {
 
       {/* Nutrients */}
       <section>
-        <h2 className="mb-3 text-lg font-bold text-gray-900">Key Nutrients</h2>
+        <h2 className="mb-3 font-[var(--font-heading)] text-lg font-semibold text-j-navy">Key Nutrients</h2>
         <div className="grid grid-cols-3 gap-3">
           {v.nutrients.map((n) => (
-            <div key={n.name} className="rounded-2xl bg-white p-3 text-center shadow-card">
-              <p className="text-lg font-bold text-gray-900">
+            <div key={n.name} className="rounded-[var(--r-lg)] border border-j-stone bg-j-warm-white p-3 text-center">
+              <p className="font-[var(--font-heading)] text-lg font-semibold text-j-navy">
                 {n.value}
-                <span className="text-xs text-gray-400">{n.unit}</span>
+                <span className="text-xs text-j-navy-soft">{n.unit}</span>
               </p>
-              <p className="text-xs text-gray-500">{n.name}</p>
+              <p className="text-xs text-j-navy-soft">{n.name}</p>
             </div>
           ))}
         </div>
@@ -40,15 +40,15 @@ export default function VerdictPage() {
 
       {/* Ingredients */}
       <section>
-        <h2 className="mb-3 text-lg font-bold text-gray-900">Ingredients</h2>
+        <h2 className="mb-3 font-[var(--font-heading)] text-lg font-semibold text-j-navy">Ingredients</h2>
         <div className="flex flex-wrap gap-2">
           {v.ingredients.map((ing) => (
             <span
               key={ing.name}
-              className={`rounded-full px-3 py-1 text-sm font-medium ${
+              className={`rounded-[var(--r-sm)] px-3 py-1 text-sm font-medium ${
                 ing.isFlagged
-                  ? "bg-verdict-avoid/15 text-verdict-avoid"
-                  : "bg-gray-100 text-gray-700"
+                  ? "bg-v-avoid-bg text-v-avoid"
+                  : "bg-j-stone/40 text-j-navy"
               }`}
             >
               {ing.name}
@@ -59,7 +59,7 @@ export default function VerdictPage() {
 
       {/* Alternatives */}
       <section>
-        <h2 className="mb-3 text-lg font-bold text-gray-900">Better Alternatives</h2>
+        <h2 className="mb-3 font-[var(--font-heading)] text-lg font-semibold text-j-navy">Better Alternatives</h2>
         <div className="space-y-3">
           {v.alternatives.map((alt) => (
             <FoodCard

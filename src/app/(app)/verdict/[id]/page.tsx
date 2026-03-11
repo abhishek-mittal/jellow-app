@@ -27,7 +27,7 @@ export default async function VerdictDetailPage({ params }: PageProps) {
       <nav className="flex items-center gap-2 pt-2">
         <Link
           href="/home"
-          className="flex items-center gap-1 rounded-full bg-white px-3 py-1.5 text-sm font-medium text-gray-600 shadow-card transition-opacity hover:opacity-80"
+          className="flex items-center gap-1 rounded-[var(--r-sm)] border border-j-stone bg-j-warm-white px-3 py-1.5 text-sm font-medium text-j-navy-soft transition-colors hover:border-j-teal"
         >
           ← Back
         </Link>
@@ -35,39 +35,39 @@ export default async function VerdictDetailPage({ params }: PageProps) {
 
       {/* Product header */}
       <header className="flex flex-col items-center text-center">
-        <div className="mb-3 flex h-20 w-20 items-center justify-center rounded-2xl bg-jellow-yellow/20 text-5xl">
-          🥗
+        <div className="mb-3 flex h-20 w-20 items-center justify-center rounded-[var(--r-lg)] bg-j-teal-soft">
+          <ScoreCircle score={verdict.score} level={verdict.level} size={64} />
         </div>
-        <h1 className="text-2xl font-bold text-gray-900">{verdict.name}</h1>
-        <p className="text-sm text-gray-500">{verdict.brand}</p>
+        <h1 className="font-[var(--font-heading)] text-2xl font-semibold text-j-navy">{verdict.name}</h1>
+        <p className="text-sm text-j-navy-soft">{verdict.brand}</p>
         <VerdictBadge verdict={verdictLevelToVerdict(verdict.level)} className="mt-2 px-4 py-1.5 text-sm" />
       </header>
 
       {/* Health score */}
       <section className="flex flex-col items-center gap-2">
         <ScoreCircle score={verdict.score} level={verdict.level} size={140} />
-        <p className="text-sm font-medium text-gray-500">Health Score</p>
+        <p className="text-sm font-medium text-j-navy-soft">Health Score</p>
       </section>
 
       {/* Verdict explanation */}
-      <section className="rounded-2xl bg-white p-4 shadow-card">
-        <h2 className="mb-2 text-base font-bold text-gray-900">
-          💡 Why this verdict?
+      <section className="rounded-[var(--r-lg)] border border-j-stone bg-j-warm-white p-4">
+        <h2 className="mb-2 font-[var(--font-heading)] text-base font-semibold text-j-navy">
+          Why this verdict?
         </h2>
-        <p className="text-sm leading-relaxed text-gray-600">
+        <p className="text-sm leading-relaxed text-j-navy-soft">
           {verdict.verdictExplanation}
         </p>
       </section>
 
       {/* Nutrition panel */}
       <section>
-        <h2 className="mb-3 text-lg font-bold text-gray-900">Nutrition</h2>
+        <h2 className="mb-3 font-[var(--font-heading)] text-lg font-semibold text-j-navy">Nutrition</h2>
         <NutritionPanel {...verdict.nutrition} />
       </section>
 
       {/* Ingredients */}
       <section>
-        <h2 className="mb-3 text-lg font-bold text-gray-900">Ingredients</h2>
+        <h2 className="mb-3 font-[var(--font-heading)] text-lg font-semibold text-j-navy">Ingredients</h2>
         <div className="flex flex-wrap gap-2">
           {verdict.ingredientDetails.map((ing) => (
             <IngredientTag
@@ -78,26 +78,17 @@ export default async function VerdictDetailPage({ params }: PageProps) {
             />
           ))}
         </div>
-        <div className="mt-3 flex items-center gap-4 text-xs text-gray-500">
+        <div className="mt-3 flex items-center gap-4 text-xs text-j-navy-soft">
           <span className="flex items-center gap-1">
-            <span
-              className="inline-block h-2 w-2 rounded-full"
-              style={{ backgroundColor: "var(--verdict-excellent)" }}
-            />
+            <span className="inline-block h-2 w-2 rounded-full bg-v-good" />
             Safe
           </span>
           <span className="flex items-center gap-1">
-            <span
-              className="inline-block h-2 w-2 rounded-full"
-              style={{ backgroundColor: "var(--verdict-caution)" }}
-            />
+            <span className="inline-block h-2 w-2 rounded-full bg-v-caution" />
             Caution
           </span>
           <span className="flex items-center gap-1">
-            <span
-              className="inline-block h-2 w-2 rounded-full"
-              style={{ backgroundColor: "var(--verdict-avoid)" }}
-            />
+            <span className="inline-block h-2 w-2 rounded-full bg-v-avoid" />
             Harmful
           </span>
         </div>
@@ -106,8 +97,8 @@ export default async function VerdictDetailPage({ params }: PageProps) {
       {/* Healthier alternatives */}
       {verdict.alternatives.length > 0 && (
         <section>
-          <h2 className="mb-3 text-lg font-bold text-gray-900">
-            ✨ Healthier Options
+          <h2 className="mb-3 font-[var(--font-heading)] text-lg font-semibold text-j-navy">
+            Healthier Options
           </h2>
           <div className="space-y-3">
             {verdict.alternatives.map((alt) => (
@@ -128,15 +119,15 @@ export default async function VerdictDetailPage({ params }: PageProps) {
       {/* Action buttons */}
       <section className="space-y-3 pb-4">
         <Button variant="primary" size="lg" className="w-full">
-          ❤️ Save to Favourites
+          Save to Favourites
         </Button>
         <div className="grid grid-cols-2 gap-3">
           <Button variant="secondary" size="md" className="w-full">
-            📤 Share
+            Share
           </Button>
           <Link href="/scan" className="block w-full">
-            <Button variant="verdict" size="md" className="w-full">
-              📷 Scan Another
+            <Button variant="primary" size="md" className="w-full">
+              Scan Another
             </Button>
           </Link>
         </div>

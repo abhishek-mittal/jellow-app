@@ -18,15 +18,15 @@ const sizeMap: Record<
   RingSize,
   { px: number; strokeWidth: number; scoreFontSize: string; labelFontSize: string }
 > = {
-  sm: { px: 48, strokeWidth: 4, scoreFontSize: "0.625rem", labelFontSize: "0.5rem" },
-  md: { px: 80, strokeWidth: 6, scoreFontSize: "1rem", labelFontSize: "0.625rem" },
-  lg: { px: 120, strokeWidth: 8, scoreFontSize: "1.5rem", labelFontSize: "0.75rem" },
+  sm: { px: 48, strokeWidth: 3, scoreFontSize: "0.625rem", labelFontSize: "0.5rem" },
+  md: { px: 80, strokeWidth: 3, scoreFontSize: "1rem", labelFontSize: "0.625rem" },
+  lg: { px: 120, strokeWidth: 3, scoreFontSize: "1.5rem", labelFontSize: "0.75rem" },
 };
 
 const verdictColor: Record<HealthVerdict, string> = {
-  good: "var(--candy-mint)",
-  moderate: "var(--verdict-caution)",
-  bad: "var(--candy-pink)",
+  good: "var(--v-good)",
+  moderate: "var(--v-caution)",
+  bad: "var(--v-avoid)",
 };
 
 const verdictLabel: Record<HealthVerdict, string> = {
@@ -67,16 +67,14 @@ export function HealthScoreRing({
       aria-label={`Health score: ${score} out of 10 — ${label}`}
     >
       <svg width={px} height={px} className="-rotate-90">
-        {/* Track */}
         <circle
           cx={px / 2}
           cy={px / 2}
           r={radius}
           fill="none"
-          stroke="var(--gray-100)"
+          stroke="var(--j-stone)"
           strokeWidth={strokeWidth}
         />
-        {/* Progress arc */}
         <circle
           cx={px / 2}
           cy={px / 2}
@@ -84,7 +82,7 @@ export function HealthScoreRing({
           fill="none"
           stroke={color}
           strokeWidth={strokeWidth}
-          strokeLinecap="round"
+          strokeLinecap="square"
           strokeDasharray={circumference}
           strokeDashoffset={dashOffset}
           style={{ transition: "stroke-dashoffset 0.6s ease-out" }}
@@ -92,14 +90,14 @@ export function HealthScoreRing({
       </svg>
       <div className="absolute flex flex-col items-center justify-center">
         <span
-          className="font-bold leading-none"
+          className="font-[var(--font-heading)] font-bold leading-none"
           style={{ fontSize: scoreFontSize, color }}
         >
           {score}
         </span>
         {showLabel && (
           <span
-            className="mt-0.5 font-medium text-[var(--gray-500)]"
+            className="mt-0.5 text-j-navy-soft uppercase tracking-wider"
             style={{ fontSize: labelFontSize }}
           >
             {label}

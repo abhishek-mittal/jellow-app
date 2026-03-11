@@ -1,37 +1,41 @@
 import { cn } from "@/lib/utils";
+import {
+  VerdictGoodIcon,
+  VerdictCautionIcon,
+  VerdictAvoidIcon,
+} from "@/components/icons/verdict-icons";
 
 export type Verdict = "good" | "moderate" | "bad";
 
 interface VerdictConfig {
-  emoji: string;
+  icon: typeof VerdictGoodIcon;
   label: string;
-  styles: string;
-  largeStyles: string;
+  bg: string;
+  text: string;
+  border: string;
 }
 
 const verdictConfig: Record<Verdict, VerdictConfig> = {
   good: {
-    emoji: "🟢",
+    icon: VerdictGoodIcon,
     label: "Good for You",
-    styles:
-      "bg-[var(--verdict-excellent)]/15 text-[var(--verdict-excellent)] border-[var(--verdict-excellent)]/30",
-    largeStyles: "bg-[var(--verdict-excellent)]/15 text-[var(--verdict-excellent)] border-[var(--verdict-excellent)]/30",
+    bg: "bg-v-good-bg",
+    text: "text-v-good",
+    border: "border-v-good/30",
   },
   moderate: {
-    emoji: "🟡",
+    icon: VerdictCautionIcon,
     label: "Moderate",
-    styles:
-      "bg-[var(--verdict-caution)]/15 text-[var(--gray-900)] border-[var(--verdict-caution)]/30",
-    largeStyles:
-      "bg-[var(--verdict-caution)]/15 text-[var(--gray-900)] border-[var(--verdict-caution)]/30",
+    bg: "bg-v-caution-bg",
+    text: "text-j-navy",
+    border: "border-v-caution/30",
   },
   bad: {
-    emoji: "🔴",
+    icon: VerdictAvoidIcon,
     label: "Bad for You",
-    styles:
-      "bg-[var(--verdict-avoid)]/15 text-[var(--verdict-avoid)] border-[var(--verdict-avoid)]/30",
-    largeStyles:
-      "bg-[var(--verdict-avoid)]/15 text-[var(--verdict-avoid)] border-[var(--verdict-avoid)]/30",
+    bg: "bg-v-avoid-bg",
+    text: "text-v-avoid",
+    border: "border-v-avoid/30",
   },
 };
 
@@ -51,21 +55,22 @@ export function VerdictBadge({
   className,
 }: VerdictBadgeProps) {
   const config = verdictConfig[verdict];
+  const Icon = config.icon;
   const isLarge = size === "lg";
 
   return (
     <span
       className={cn(
-        "inline-flex items-center gap-1 rounded-[var(--radius-full)] border font-semibold shadow-[var(--shadow-soft)]",
-        isLarge
-          ? "px-4 py-2 text-base"
-          : "px-3 py-1 text-xs",
-        isLarge ? config.largeStyles : config.styles,
+        "inline-flex items-center gap-1.5 rounded-[var(--r-sm)] border font-medium tracking-wide uppercase animate-scale-in",
+        isLarge ? "px-4 py-2 text-sm" : "px-3 py-1 text-xs",
+        config.bg,
+        config.text,
+        config.border,
         isLarge && "justify-center",
         className
       )}
     >
-      <span aria-hidden="true">{config.emoji}</span>
+      <Icon size={isLarge ? 18 : 14} />
       {showLabel && <span>{config.label}</span>}
       {score !== undefined && (
         <span className={cn("font-bold", isLarge ? "ml-1 text-lg" : "ml-0.5")}>

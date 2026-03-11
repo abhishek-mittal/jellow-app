@@ -1,20 +1,11 @@
 export interface StepIndicatorProps {
-  /** Total number of steps */
   totalSteps: number;
-  /** Zero-based index of the current active step */
   currentStep: number;
-  /** Visual style: dot circles or numbered circles */
   variant?: "dots" | "numbered";
-  /** Whether to render a connecting line between steps */
   showConnector?: boolean;
-  /** Optional click handler — when provided, steps become clickable */
   onStepClick?: (step: number) => void;
 }
 
-/**
- * StepIndicator — pure progress-indicator atom.
- * Props in, JSX out, no side effects.
- */
 export function StepIndicator({
   totalSteps,
   currentStep,
@@ -38,22 +29,22 @@ export function StepIndicator({
         const dotClasses =
           variant === "dots"
             ? isActive
-              ? "h-3 w-3"
+              ? "h-2 w-2"
               : "h-2 w-2"
             : "h-8 w-8 text-xs font-bold";
 
         const colorClasses =
           variant === "dots"
             ? isActive
-              ? "bg-[var(--jellow-yellow)]"
+              ? "bg-j-teal"
               : isCompleted
-                ? "bg-[var(--jellow-yellow)] opacity-50"
-                : "bg-[var(--gray-200)]"
+                ? "bg-j-teal/60"
+                : "bg-j-stone"
             : isActive
-              ? "bg-[var(--jellow-yellow)] text-[var(--gray-900)]"
+              ? "bg-j-teal text-white"
               : isCompleted
-                ? "bg-[var(--candy-mint)] text-white"
-                : "border-2 border-[var(--gray-200)] bg-white text-[var(--gray-500)]";
+                ? "bg-j-teal/60 text-white"
+                : "border-2 border-j-stone bg-transparent text-j-navy-soft";
 
         return (
           <div key={i} className="flex items-center">
@@ -77,7 +68,7 @@ export function StepIndicator({
               <div
                 className={[
                   "h-0.5 w-8 transition-all duration-300",
-                  isCompleted ? "bg-[var(--jellow-yellow)]" : "bg-[var(--gray-200)]",
+                  isCompleted ? "bg-j-teal" : "bg-j-stone",
                 ].join(" ")}
               />
             )}

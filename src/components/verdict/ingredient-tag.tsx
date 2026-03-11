@@ -16,22 +16,19 @@ export interface IngredientTagProps {
 
 const safetyConfig: Record<
   IngredientSafety,
-  { borderColor: string; bgColor: string; textColor: string }
+  { bg: string; text: string }
 > = {
   safe: {
-    borderColor: "var(--verdict-excellent)",
-    bgColor: "rgba(26,188,156,0.10)",
-    textColor: "var(--verdict-excellent)",
+    bg: "bg-v-good-bg",
+    text: "text-v-good",
   },
   caution: {
-    borderColor: "var(--verdict-caution)",
-    bgColor: "rgba(255,217,61,0.15)",
-    textColor: "#B8860B",
+    bg: "bg-v-caution-bg",
+    text: "text-v-caution",
   },
   harmful: {
-    borderColor: "var(--verdict-avoid)",
-    bgColor: "rgba(233,30,99,0.10)",
-    textColor: "var(--verdict-avoid)",
+    bg: "bg-v-avoid-bg",
+    text: "text-v-avoid",
   },
 };
 
@@ -42,30 +39,26 @@ export function IngredientTag({
   onPress,
   className,
 }: IngredientTagProps) {
-  const [showTooltip, setShowTooltip] = useState(false);
+  const [expanded, setExpanded] = useState(false);
   const config = safetyConfig[safety];
 
   function handlePress() {
     if (description) {
-      setShowTooltip((prev) => !prev);
+      setExpanded((prev) => !prev);
     }
     onPress?.();
   }
 
   return (
-    <div className="relative inline-block">
+    <div className={cn("inline-block", className)}>
       <button
         type="button"
         onClick={handlePress}
         className={cn(
-          "inline-flex max-w-[140px] items-center gap-1 rounded-full border-l-[3px] px-3 py-1 text-xs font-semibold transition-opacity hover:opacity-80",
-          className
+          "inline-flex max-w-[160px] items-center gap-1 rounded-[var(--r-sm)] px-2.5 py-1 text-xs font-semibold transition-opacity hover:opacity-80",
+          config.bg,
+          config.text
         )}
-        style={{
-          borderLeftColor: config.borderColor,
-          backgroundColor: config.bgColor,
-          color: config.textColor,
-        }}
       >
         <span className="truncate">{name}</span>
         {description && (
@@ -73,12 +66,10 @@ export function IngredientTag({
         )}
       </button>
 
-      {showTooltip && description && (
-        <div className="absolute bottom-full left-0 z-10 mb-2 w-48 rounded-xl bg-gray-900 p-3 text-white shadow-medium">
-          <p className="text-xs font-semibold">{name}</p>
-          <p className="mt-1 text-[11px] leading-relaxed opacity-80">{description}</p>
-          {/* Arrow */}
-          <div className="absolute -bottom-1 left-4 h-2 w-2 rotate-45 bg-gray-900" />
+      {expanded && description && (
+        <div className="mt-1 rounded-[var(--r-sm)] border border-j-stone bg-j-warm-white px-3 py-2">
+          <p className="text-xs font-semibold text-j-navy">{name}</p>
+          <p className="mt-0.5 text-[11px] leading-relaxed text-j-navy-soft">{description}</p>
         </div>
       )}
     </div>

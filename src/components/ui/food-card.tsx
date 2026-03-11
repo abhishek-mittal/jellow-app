@@ -39,14 +39,14 @@ export function FoodCard({ food, onTap, className }: FoodCardProps) {
           : undefined
       }
       className={cn(
-        "flex items-center gap-3 rounded-[var(--radius-lg)] bg-[var(--panel)] p-4 shadow-[var(--shadow-soft)]",
-        onTap && "cursor-pointer transition-transform hover:scale-[1.01] active:scale-[0.99]",
+        "flex items-center gap-3 rounded-[var(--r-lg)] border border-j-stone bg-j-warm-white p-4 transition-colors duration-200",
+        onTap && "cursor-pointer hover:border-j-teal",
         className
       )}
     >
       {/* Image thumbnail */}
       <div
-        className="flex h-20 w-20 shrink-0 items-center justify-center overflow-hidden rounded-[var(--radius-md)] bg-[var(--gray-100)]"
+        className="flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-[var(--r-sm)] bg-j-stone/30"
         aria-hidden="true"
       >
         {food.imageUrl ? (
@@ -57,19 +57,19 @@ export function FoodCard({ food, onTap, className }: FoodCardProps) {
             className="h-full w-full object-cover"
           />
         ) : (
-          <span className="text-3xl">🥗</span>
+          <span className="text-2xl text-j-navy-soft">🥗</span>
         )}
       </div>
 
       {/* Content */}
       <div className="min-w-0 flex-1">
-        <p className="truncate font-bold text-[var(--gray-900)]">{food.name}</p>
-        <p className="truncate text-sm text-[var(--gray-500)]">{food.brand}</p>
+        <p className="truncate font-semibold text-j-navy">{food.name}</p>
+        <p className="truncate text-sm text-j-navy-soft">{food.brand}</p>
       </div>
 
       {/* Verdict badge */}
       <div className="shrink-0">
-        <VerdictBadge verdict={food.verdict} size="sm" />
+        <VerdictBadge verdict={food.verdict} size="sm" showLabel={false} />
       </div>
     </div>
   );

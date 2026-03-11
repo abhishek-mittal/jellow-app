@@ -2,6 +2,7 @@
 
 import { useRef, type ChangeEvent, type KeyboardEvent } from "react";
 import { cn } from "@/lib/utils";
+import { Upload, Loader2, CheckCircle2, AlertTriangle } from "lucide-react";
 
 export type UploadStatus =
   | "idle"
@@ -68,17 +69,15 @@ export function UploadZone({
       onClick={handleTrigger}
       onKeyDown={handleKeyDown}
       className={cn(
-        "relative flex aspect-video w-full flex-col items-center justify-center rounded-2xl border-2 border-dashed transition-colors select-none",
+        "relative flex aspect-video w-full flex-col items-center justify-center rounded-[var(--r-lg)] border border-dashed transition-colors duration-200 select-none",
         {
-          "border-gray-300 bg-gray-50 cursor-pointer hover:border-[var(--jellow-yellow)] hover:bg-yellow-50":
+          "border-j-stone-dark bg-j-cream cursor-pointer hover:border-j-teal hover:bg-j-teal-soft/30":
             status === "idle",
-          "border-[var(--candy-blue)] bg-blue-50 cursor-not-allowed":
-            status === "uploading",
-          "border-[var(--candy-purple)] bg-purple-50 cursor-not-allowed":
-            status === "processing",
-          "border-[var(--candy-mint)] bg-green-50 cursor-pointer":
+          "border-j-teal bg-j-teal-soft/20 cursor-not-allowed":
+            status === "uploading" || status === "processing",
+          "border-v-good bg-v-good-bg cursor-pointer":
             status === "done",
-          "border-[var(--candy-pink)] bg-red-50 cursor-pointer":
+          "border-v-avoid bg-v-avoid-bg cursor-pointer":
             status === "error",
         }
       )}
@@ -96,10 +95,11 @@ export function UploadZone({
 
       {preview && status !== "error" ? (
         <div className="relative h-full w-full p-1">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={preview}
             alt="Prescription preview"
-            className="h-full w-full rounded-xl object-contain"
+            className="h-full w-full rounded-[var(--r-sm)] object-contain"
           />
           {onRemove && (
             <button
@@ -108,7 +108,7 @@ export function UploadZone({
                 e.stopPropagation();
                 onRemove();
               }}
-              className="absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded-full bg-gray-900/60 text-white hover:bg-gray-900/80 transition-colors"
+              className="absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded-[var(--r-sm)] bg-j-navy/60 text-white hover:bg-j-navy/80 transition-colors"
               aria-label="Remove image"
             >
               ✕
@@ -118,12 +118,10 @@ export function UploadZone({
       ) : (
         <>
           {status === "idle" && (
-            <div className="flex flex-col items-center gap-1 px-4 text-center">
-              <span className="text-4xl" aria-hidden="true">
-                📷
-              </span>
-              <p className="text-sm font-medium text-gray-600">Tap to upload</p>
-              <p className="text-xs text-gray-400">
+            <div className="flex flex-col items-center gap-2 px-4 text-center">
+              <Upload size={32} className="text-j-navy-soft" />
+              <p className="text-sm font-medium text-j-navy">Tap to upload</p>
+              <p className="text-xs text-j-navy-soft">
                 JPEG or PNG · max {maxSizeMB} MB
               </p>
             </div>
@@ -131,26 +129,20 @@ export function UploadZone({
 
           {status === "uploading" && (
             <div className="flex flex-col items-center gap-3 px-4 text-center">
-              <div
-                className="h-10 w-10 animate-spin rounded-full border-4 border-[var(--candy-blue)] border-t-transparent"
-                aria-hidden="true"
-              />
-              <p className="text-sm font-medium text-[var(--candy-blue)]">
+              <Loader2 size={32} className="animate-spin text-j-teal" />
+              <p className="text-sm font-medium text-j-teal">
                 Uploading…
               </p>
-              <div className="h-1.5 w-32 overflow-hidden rounded-full bg-blue-100">
-                <div className="h-full w-1/2 animate-pulse rounded-full bg-[var(--candy-blue)]" />
+              <div className="h-1 w-32 overflow-hidden rounded-full bg-j-stone">
+                <div className="h-full w-1/2 animate-pulse rounded-full bg-j-teal" />
               </div>
             </div>
           )}
 
           {status === "processing" && (
             <div className="flex flex-col items-center gap-3 px-4 text-center">
-              <div
-                className="h-10 w-10 animate-spin rounded-full border-4 border-[var(--candy-purple)] border-t-transparent"
-                aria-hidden="true"
-              />
-              <p className="text-sm font-medium text-[var(--candy-purple)]">
+              <Loader2 size={32} className="animate-spin text-j-teal" />
+              <p className="text-sm font-medium text-j-teal">
                 Analyzing prescription…
               </p>
             </div>
@@ -158,10 +150,8 @@ export function UploadZone({
 
           {status === "done" && (
             <div className="flex flex-col items-center gap-1 px-4 text-center">
-              <span className="text-4xl" aria-hidden="true">
-                ✅
-              </span>
-              <p className="text-sm font-medium text-[var(--candy-mint)]">
+              <CheckCircle2 size={32} className="text-v-good" />
+              <p className="text-sm font-medium text-v-good">
                 Upload complete
               </p>
             </div>
@@ -169,13 +159,11 @@ export function UploadZone({
 
           {status === "error" && (
             <div className="flex flex-col items-center gap-1 px-4 text-center">
-              <span className="text-4xl" aria-hidden="true">
-                ⚠️
-              </span>
-              <p className="text-sm font-medium text-[var(--candy-pink)]">
+              <AlertTriangle size={32} className="text-v-avoid" />
+              <p className="text-sm font-medium text-v-avoid">
                 Upload failed
               </p>
-              <p className="text-xs text-[var(--candy-pink)]">Tap to retry</p>
+              <p className="text-xs text-v-avoid">Tap to retry</p>
             </div>
           )}
         </>

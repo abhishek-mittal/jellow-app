@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { ScanGuide } from "@/components/scanner/scan-guide";
 import { BottomNav } from "@/components/layout/bottom-nav";
 import { Button } from "@/components/ui/button";
+import { Camera, ShieldOff, AlertCircle } from "lucide-react";
 
 type PermissionStatus = "prompt" | "granted" | "denied" | "unsupported";
 
@@ -104,18 +105,18 @@ export default function ScanPage() {
     return (
       <>
         <div className="flex min-h-[80vh] flex-col items-center justify-center gap-6 p-6 text-center">
-          <div className="flex h-24 w-24 items-center justify-center rounded-3xl bg-[var(--jellow-yellow)]/20 text-5xl">
-            📷
+          <div className="flex h-24 w-24 items-center justify-center rounded-[var(--r-lg)] bg-j-teal-soft">
+            <Camera size={40} className="text-j-teal" />
           </div>
           <div>
-            <h1 className="text-2xl font-bold text-gray-900">Scan a Product</h1>
-            <p className="mt-2 text-sm text-gray-500">
+            <h1 className="font-[var(--font-heading)] text-2xl font-semibold text-j-navy">Scan a Product</h1>
+            <p className="mt-2 text-sm text-j-navy-soft">
               Allow camera access to scan barcodes and check nutrition scores.
             </p>
           </div>
 
           {processingError && (
-            <p role="alert" className="text-sm text-red-500">
+            <p role="alert" className="text-sm text-v-avoid">
               {processingError}
             </p>
           )}
@@ -144,9 +145,9 @@ export default function ScanPage() {
     return (
       <>
         <div className="flex min-h-[80vh] flex-col items-center justify-center gap-4 p-6 text-center">
-          <span className="text-5xl">🚫</span>
-          <h1 className="text-xl font-bold text-gray-900">Camera Access Denied</h1>
-          <p className="text-sm text-gray-500">
+          <ShieldOff size={48} className="text-v-avoid" />
+          <h1 className="font-[var(--font-heading)] text-xl font-semibold text-j-navy">Camera Access Denied</h1>
+          <p className="text-sm text-j-navy-soft">
             Please enable camera permission in your browser settings and reload the
             page.
           </p>
@@ -164,9 +165,9 @@ export default function ScanPage() {
     return (
       <>
         <div className="flex min-h-[80vh] flex-col items-center justify-center gap-4 p-6 text-center">
-          <span className="text-5xl">😕</span>
-          <h1 className="text-xl font-bold text-gray-900">Camera Not Supported</h1>
-          <p className="text-sm text-gray-500">
+          <AlertCircle size={48} className="text-v-caution" />
+          <h1 className="font-[var(--font-heading)] text-xl font-semibold text-j-navy">Camera Not Supported</h1>
+          <p className="text-sm text-j-navy-soft">
             Your browser does not support camera access. Try entering the barcode
             manually.
           </p>
@@ -205,7 +206,7 @@ export default function ScanPage() {
         {processingError && (
           <p
             role="alert"
-            className="rounded-xl bg-red-500/90 px-4 py-2 text-center text-sm text-white"
+            className="rounded-[var(--r-lg)] bg-v-avoid/90 px-4 py-2 text-center text-sm text-white"
           >
             {processingError}
           </p>

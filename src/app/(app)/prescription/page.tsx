@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { UploadZone, type UploadStatus } from "@/components/prescription/upload-zone";
 import { cn } from "@/lib/utils";
+import { Search, AlertTriangle, ShieldAlert, Lightbulb } from "lucide-react";
 
 /* ------------------------------------------------------------------ */
 /*  Mock data                                                           */
@@ -127,11 +128,11 @@ export default function PrescriptionPage() {
   const uploadStatus: UploadStatus = status as UploadStatus;
 
   return (
-    <div className="flex min-h-screen flex-col bg-white">
+    <div className="flex min-h-screen flex-col bg-j-cream">
       {/* ── Header ── */}
-      <header className="sticky top-0 z-10 border-b border-gray-100 bg-white/95 px-4 py-3 backdrop-blur-sm">
-        <h1 className="text-xl font-bold text-gray-900">Prescription Upload</h1>
-        <p className="text-sm text-gray-500">
+      <header className="sticky top-0 z-10 border-b border-j-stone bg-j-warm-white/95 px-4 py-3 backdrop-blur-sm">
+        <h1 className="font-[var(--font-heading)] text-xl font-semibold text-j-navy">Prescription Upload</h1>
+        <p className="text-sm text-j-navy-soft">
           Upload a photo to get personalised dietary advice
         </p>
       </header>
@@ -150,25 +151,27 @@ export default function PrescriptionPage() {
 
         {/* ── Size error banner ── */}
         {sizeError && (
-          <div className="rounded-2xl border border-orange-100 bg-orange-50 p-4 text-center">
-            <p className="text-sm font-medium text-orange-600">⚠️ {sizeError}</p>
+          <div className="rounded-[var(--r-lg)] border border-v-caution bg-v-caution-bg p-4 text-center">
+            <p className="flex items-center justify-center gap-2 text-sm font-medium text-v-caution">
+              <AlertTriangle size={16} /> {sizeError}
+            </p>
           </div>
         )}
 
         {/* ── Processing banner ── */}
         {status === "processing" && (
-          <div className="rounded-2xl bg-purple-50 p-4 text-center">
-            <p className="text-sm font-medium text-[var(--candy-purple)]">
-              🔍 Analyzing your prescription…
+          <div className="rounded-[var(--r-lg)] bg-j-teal-soft p-4 text-center">
+            <p className="flex items-center justify-center gap-2 text-sm font-medium text-j-teal">
+              <Search size={16} className="animate-pulse" /> Analyzing your prescription…
             </p>
           </div>
         )}
 
         {/* ── Error banner ── */}
         {status === "error" && (
-          <div className="rounded-2xl border border-red-100 bg-red-50 p-4 text-center">
-            <p className="text-sm font-medium text-[var(--candy-pink)]">
-              ⚠️ Could not process the image. Please try again with a clearer photo.
+          <div className="rounded-[var(--r-lg)] border border-v-avoid bg-v-avoid-bg p-4 text-center">
+            <p className="flex items-center justify-center gap-2 text-sm font-medium text-v-avoid">
+              <AlertTriangle size={16} /> Could not process the image. Please try again with a clearer photo.
             </p>
           </div>
         )}
@@ -178,24 +181,24 @@ export default function PrescriptionPage() {
           <>
             {/* Extracted medications */}
             <section>
-              <h2 className="mb-3 text-base font-semibold text-gray-900">
-                📋 Extracted Medications
+              <h2 className="mb-3 font-[var(--font-heading)] text-base font-semibold text-j-navy">
+                Extracted Medications
               </h2>
               <ul className="space-y-2">
                 {medications.map((med) => (
                   <li
                     key={med.name}
-                    className="rounded-xl border border-gray-100 bg-white p-3 shadow-sm"
+                    className="rounded-[var(--r-lg)] border border-j-stone bg-j-warm-white p-3"
                   >
                     <div className="flex items-center justify-between">
-                      <span className="font-medium text-gray-900">
+                      <span className="font-medium text-j-navy">
                         {med.name} {med.dosage}
                       </span>
-                      <span className="text-xs text-gray-400">
+                      <span className="text-xs text-j-navy-soft">
                         {med.frequency}
                       </span>
                     </div>
-                    <p className="mt-0.5 text-xs text-gray-500">{med.purpose}</p>
+                    <p className="mt-0.5 text-xs text-j-navy-soft">{med.purpose}</p>
                   </li>
                 ))}
               </ul>
@@ -203,35 +206,35 @@ export default function PrescriptionPage() {
 
             {/* Dietary recommendations */}
             <section>
-              <h2 className="mb-3 text-base font-semibold text-gray-900">
-                🥗 Dietary Recommendations
+              <h2 className="mb-3 font-[var(--font-heading)] text-base font-semibold text-j-navy">
+                Dietary Recommendations
               </h2>
               <ul className="space-y-2">
                 {DIETARY_RECOMMENDATIONS.map((rec, idx) => (
                   <li
                     key={idx}
-                    className={cn("rounded-xl border p-3", {
-                      "border-red-100 bg-red-50": rec.type === "warning",
-                      "border-yellow-100 bg-yellow-50": rec.type === "caution",
-                      "border-green-100 bg-green-50": rec.type === "tip",
+                    className={cn("rounded-[var(--r-lg)] border p-3", {
+                      "border-v-avoid bg-v-avoid-bg": rec.type === "warning",
+                      "border-v-caution bg-v-caution-bg": rec.type === "caution",
+                      "border-v-good bg-v-good-bg": rec.type === "tip",
                     })}
                   >
                     <div className="flex items-start gap-2">
-                      <span aria-hidden="true">
+                      <span className="mt-0.5" aria-hidden="true">
                         {rec.type === "warning"
-                          ? "⚠️"
+                          ? <ShieldAlert size={16} className="text-v-avoid" />
                           : rec.type === "caution"
-                            ? "🟡"
-                            : "💡"}
+                            ? <AlertTriangle size={16} className="text-v-caution" />
+                            : <Lightbulb size={16} className="text-v-good" />}
                       </span>
                       <div>
-                        <p className="text-xs font-medium text-gray-400">
+                        <p className="text-xs font-medium text-j-navy-soft">
                           {rec.medication}
                         </p>
-                        <p className="text-sm font-semibold text-gray-900">
+                        <p className="text-sm font-semibold text-j-navy">
                           {rec.text}
                         </p>
-                        <p className="mt-0.5 text-xs text-gray-600">
+                        <p className="mt-0.5 text-xs text-j-navy-soft">
                           {rec.detail}
                         </p>
                       </div>
@@ -254,8 +257,8 @@ export default function PrescriptionPage() {
             </Button>
 
             {/* Privacy notice */}
-            <p className="rounded-xl bg-gray-50 px-3 py-2.5 text-center text-xs text-gray-400">
-              🔒 Your prescription data is handled securely and never sold or
+            <p className="rounded-[var(--r-lg)] bg-j-stone/40 px-3 py-2.5 text-center text-xs text-j-navy-soft">
+              Your prescription data is handled securely and never sold or
               shared with third parties. Review our privacy policy for details.
             </p>
           </>
@@ -263,7 +266,7 @@ export default function PrescriptionPage() {
 
         {/* ── Empty-state hint ── */}
         {status === "idle" && (
-          <p className="text-center text-sm text-gray-400">
+          <p className="text-center text-sm text-j-navy-soft">
             Tap the zone above to photograph or choose an image of your
             prescription
           </p>

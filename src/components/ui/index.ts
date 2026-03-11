@@ -1,13 +1,9 @@
 export { Button } from "./button";
-export { JellyButton } from "./jelly-button";
-export type { JellyButtonProps, JellyButtonVariant, JellyButtonSize } from "./jelly-button";
 export { VerdictBadge } from "./verdict-badge";
 export type { VerdictBadgeProps, Verdict } from "./verdict-badge";
 export { ScoreCircle } from "./score-circle";
 export { FoodCard } from "./food-card";
 export type { FoodItem } from "./food-card";
-export { BottomNav } from "./bottom-nav";
-export type { BottomNavProps, BottomNavTab } from "./bottom-nav";
 export { StatsCard } from "./stats-card";
 export type { StatsCardProps, TrendDirection } from "./stats-card";
 export { HealthScoreRing } from "./health-score-ring";

@@ -4,6 +4,7 @@ import { useState, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { StepIndicator } from "@/components/onboarding/step-indicator";
+import { Leaf, Check, CheckCircle2 } from "lucide-react";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -24,28 +25,28 @@ interface OnboardingState {
 
 // ─── Option lists ─────────────────────────────────────────────────────────────
 
-const DIETARY_OPTIONS: { value: DietaryPreference; label: string; emoji: string }[] = [
-  { value: "omnivore", label: "Omnivore", emoji: "🍖" },
-  { value: "vegetarian", label: "Vegetarian", emoji: "🥦" },
-  { value: "vegan", label: "Vegan", emoji: "🌱" },
-  { value: "pescatarian", label: "Pescatarian", emoji: "🐟" },
+const DIETARY_OPTIONS: { value: DietaryPreference; label: string }[] = [
+  { value: "omnivore", label: "Omnivore" },
+  { value: "vegetarian", label: "Vegetarian" },
+  { value: "vegan", label: "Vegan" },
+  { value: "pescatarian", label: "Pescatarian" },
 ];
 
-const ALLERGY_OPTIONS: { value: Allergy; label: string; emoji: string }[] = [
-  { value: "nuts", label: "Nuts", emoji: "🥜" },
-  { value: "dairy", label: "Dairy", emoji: "🥛" },
-  { value: "gluten", label: "Gluten", emoji: "🌾" },
-  { value: "eggs", label: "Eggs", emoji: "🥚" },
-  { value: "soy", label: "Soy", emoji: "🫘" },
-  { value: "shellfish", label: "Shellfish", emoji: "🦐" },
+const ALLERGY_OPTIONS: { value: Allergy; label: string }[] = [
+  { value: "nuts", label: "Nuts" },
+  { value: "dairy", label: "Dairy" },
+  { value: "gluten", label: "Gluten" },
+  { value: "eggs", label: "Eggs" },
+  { value: "soy", label: "Soy" },
+  { value: "shellfish", label: "Shellfish" },
 ];
 
-const GOAL_OPTIONS: { value: HealthGoal; label: string; emoji: string }[] = [
-  { value: "weight_loss", label: "Weight Loss", emoji: "⚖️" },
-  { value: "muscle_gain", label: "Muscle Gain", emoji: "💪" },
-  { value: "heart_health", label: "Heart Health", emoji: "❤️" },
-  { value: "diabetes_care", label: "Diabetes Care", emoji: "🩺" },
-  { value: "general_wellness", label: "General Wellness", emoji: "✨" },
+const GOAL_OPTIONS: { value: HealthGoal; label: string }[] = [
+  { value: "weight_loss", label: "Weight Loss" },
+  { value: "muscle_gain", label: "Muscle Gain" },
+  { value: "heart_health", label: "Heart Health" },
+  { value: "diabetes_care", label: "Diabetes Care" },
+  { value: "general_wellness", label: "General Wellness" },
 ];
 
 // Steps: 0=Welcome, 1=Dietary, 2=Allergies, 3=Goals, 4=GetStarted
@@ -149,18 +150,14 @@ export default function OnboardingPage() {
   };
 
   return (
-    <div
-      className="mx-auto flex min-h-screen max-w-md flex-col"
-      style={{ background: "var(--bg)" }}
-    >
+    <div className="mx-auto flex min-h-screen max-w-md flex-col bg-j-cream">
       {/* Top bar — shown for preference steps */}
       {currentStep > 0 && currentStep < TOTAL_STEPS - 1 && (
         <div className="flex items-center justify-between px-6 pt-12">
           <button
             type="button"
             onClick={handleBack}
-            className="text-sm font-medium"
-            style={{ color: "var(--gray-500)" }}
+            className="text-sm font-medium text-j-navy-soft"
           >
             ← Back
           </button>
@@ -175,8 +172,7 @@ export default function OnboardingPage() {
           <button
             type="button"
             onClick={handleSkip}
-            className="text-sm font-medium"
-            style={{ color: "var(--gray-500)" }}
+            className="text-sm font-medium text-j-navy-soft"
           >
             Skip
           </button>
@@ -199,19 +195,18 @@ export default function OnboardingPage() {
 function WelcomeStep({ onNext, onSkip }: { onNext: () => void; onSkip: () => void }) {
   return (
     <div className="flex flex-1 flex-col items-center justify-center p-8 text-center">
-      {/* Animated mascot */}
-      <div className="mb-4 animate-bounce text-8xl" aria-hidden>
-        🍏
+      <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-j-teal-soft" aria-hidden>
+        <Leaf size={40} className="text-j-teal" />
       </div>
 
-      <h1 className="mb-2 text-4xl font-extrabold" style={{ color: "var(--gray-900)" }}>
+      <h1 className="mb-2 font-[var(--font-heading)] text-4xl font-bold text-j-navy">
         Jellow
       </h1>
-      <p className="mb-3 text-lg font-semibold" style={{ color: "var(--candy-orange)" }}>
-        Know your food 🍬
+      <p className="mb-3 text-lg font-semibold text-j-teal">
+        Know your food
       </p>
-      <p className="mb-12 max-w-xs text-sm leading-relaxed" style={{ color: "var(--gray-500)" }}>
-        Scan products, discover what&apos;s inside, and make smarter choices with your playful
+      <p className="mb-12 max-w-xs text-sm leading-relaxed text-j-navy-soft">
+        Scan products, discover what&apos;s inside, and make smarter choices with your
         health companion.
       </p>
 
@@ -222,8 +217,7 @@ function WelcomeStep({ onNext, onSkip }: { onNext: () => void; onSkip: () => voi
         <button
           type="button"
           onClick={onSkip}
-          className="w-full py-2 text-sm font-medium"
-          style={{ color: "var(--gray-500)" }}
+          className="w-full py-2 text-sm font-medium text-j-navy-soft"
         >
           Skip onboarding
         </button>
@@ -243,10 +237,10 @@ function DietaryStep({
 }) {
   return (
     <div className="flex flex-1 flex-col p-6 pt-8">
-      <h2 className="mb-2 text-2xl font-bold" style={{ color: "var(--gray-900)" }}>
-        What&apos;s your diet? 🥗
+      <h2 className="mb-2 font-[var(--font-heading)] text-2xl font-semibold text-j-navy">
+        What&apos;s your diet?
       </h2>
-      <p className="mb-8 text-sm leading-relaxed" style={{ color: "var(--gray-500)" }}>
+      <p className="mb-8 text-sm leading-relaxed text-j-navy-soft">
         We&apos;ll personalize your food scores based on your preferences.
       </p>
 
@@ -258,23 +252,17 @@ function DietaryStep({
               key={opt.value}
               type="button"
               onClick={() => onSelect(opt.value)}
-              className="flex w-full items-center gap-4 rounded-2xl border-2 p-4 text-left transition-all duration-200"
-              style={{
-                borderColor: isActive ? "var(--jellow-yellow)" : "var(--gray-200)",
-                background: isActive ? "rgba(255,217,61,0.10)" : "var(--panel)",
-              }}
+              className={`flex w-full items-center gap-4 rounded-[var(--r-lg)] border p-4 text-left transition-colors duration-200 ${
+                isActive
+                  ? "border-j-teal bg-j-teal-soft/30"
+                  : "border-j-stone bg-j-warm-white"
+              }`}
             >
-              <span className="text-3xl">{opt.emoji}</span>
-              <span className="font-semibold" style={{ color: "var(--gray-900)" }}>
+              <span className="font-semibold text-j-navy">
                 {opt.label}
               </span>
               {isActive && (
-                <span
-                  className="ml-auto text-lg font-bold"
-                  style={{ color: "var(--gray-900)" }}
-                >
-                  ✓
-                </span>
+                <Check size={18} className="ml-auto text-j-teal" />
               )}
             </button>
           );
@@ -301,10 +289,10 @@ function AllergiesStep({
 }) {
   return (
     <div className="flex flex-1 flex-col p-6 pt-8">
-      <h2 className="mb-2 text-2xl font-bold" style={{ color: "var(--gray-900)" }}>
-        Any allergies? 🚨
+      <h2 className="mb-2 font-[var(--font-heading)] text-2xl font-semibold text-j-navy">
+        Any allergies?
       </h2>
-      <p className="mb-8 text-sm leading-relaxed" style={{ color: "var(--gray-500)" }}>
+      <p className="mb-8 text-sm leading-relaxed text-j-navy-soft">
         Select all that apply — we&apos;ll always flag allergens in your scans.
       </p>
 
@@ -316,16 +304,18 @@ function AllergiesStep({
               key={opt.value}
               type="button"
               onClick={() => onToggle(opt.value)}
-              className="flex items-center gap-3 rounded-2xl border-2 p-4 text-left transition-all duration-200"
-              style={{
-                borderColor: isActive ? "var(--candy-pink)" : "var(--gray-200)",
-                background: isActive ? "rgba(233,30,99,0.06)" : "var(--panel)",
-              }}
+              className={`flex items-center gap-3 rounded-[var(--r-lg)] border p-4 text-left transition-colors duration-200 ${
+                isActive
+                  ? "border-j-teal bg-j-teal-soft/30"
+                  : "border-j-stone bg-j-warm-white"
+              }`}
             >
-              <span className="text-2xl">{opt.emoji}</span>
-              <span className="text-sm font-semibold" style={{ color: "var(--gray-900)" }}>
+              <span className="text-sm font-semibold text-j-navy">
                 {opt.label}
               </span>
+              {isActive && (
+                <Check size={16} className="ml-auto text-j-teal" />
+              )}
             </button>
           );
         })}
@@ -351,10 +341,10 @@ function GoalsStep({
 }) {
   return (
     <div className="flex flex-1 flex-col p-6 pt-8">
-      <h2 className="mb-2 text-2xl font-bold" style={{ color: "var(--gray-900)" }}>
-        Your health goals 🎯
+      <h2 className="mb-2 font-[var(--font-heading)] text-2xl font-semibold text-j-navy">
+        Your health goals
       </h2>
-      <p className="mb-8 text-sm leading-relaxed" style={{ color: "var(--gray-500)" }}>
+      <p className="mb-8 text-sm leading-relaxed text-j-navy-soft">
         Choose what matters most to you right now.
       </p>
 
@@ -366,23 +356,17 @@ function GoalsStep({
               key={opt.value}
               type="button"
               onClick={() => onToggle(opt.value)}
-              className="flex w-full items-center gap-4 rounded-2xl border-2 p-4 text-left transition-all duration-200"
-              style={{
-                borderColor: isActive ? "var(--candy-mint)" : "var(--gray-200)",
-                background: isActive ? "rgba(26,188,156,0.08)" : "var(--panel)",
-              }}
+              className={`flex w-full items-center gap-4 rounded-[var(--r-lg)] border p-4 text-left transition-colors duration-200 ${
+                isActive
+                  ? "border-j-teal bg-j-teal-soft/30"
+                  : "border-j-stone bg-j-warm-white"
+              }`}
             >
-              <span className="text-3xl">{opt.emoji}</span>
-              <span className="font-semibold" style={{ color: "var(--gray-900)" }}>
+              <span className="font-semibold text-j-navy">
                 {opt.label}
               </span>
               {isActive && (
-                <span
-                  className="ml-auto text-lg font-bold"
-                  style={{ color: "var(--candy-mint)" }}
-                >
-                  ✓
-                </span>
+                <Check size={18} className="ml-auto text-j-teal" />
               )}
             </button>
           );
@@ -412,42 +396,39 @@ function GetStartedStep({
 
   return (
     <div className="flex flex-1 flex-col items-center justify-center p-8 text-center">
-      <div className="mb-4 text-7xl" aria-hidden>
-        🎉
+      <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-j-teal-soft" aria-hidden>
+        <CheckCircle2 size={40} className="text-j-teal" />
       </div>
-      <h2 className="mb-3 text-3xl font-extrabold" style={{ color: "var(--gray-900)" }}>
+      <h2 className="mb-3 font-[var(--font-heading)] text-3xl font-bold text-j-navy">
         You&apos;re all set!
       </h2>
-      <p className="mb-8 max-w-xs text-sm leading-relaxed" style={{ color: "var(--gray-500)" }}>
+      <p className="mb-8 max-w-xs text-sm leading-relaxed text-j-navy-soft">
         Jellow is ready to help you make smarter food choices. Time to start scanning!
       </p>
 
       {/* Preferences summary */}
       {hasPreferences && (
-        <div
-          className="mb-8 w-full max-w-xs rounded-2xl p-5 text-left"
-          style={{ background: "var(--panel)", boxShadow: "var(--shadow-soft)" }}
-        >
+        <div className="mb-8 w-full max-w-xs rounded-[var(--r-lg)] border border-j-stone bg-j-warm-white p-5 text-left">
           {state.dietaryPreference && (
             <p className="mb-2 text-sm">
-              <span style={{ color: "var(--gray-500)" }}>Diet: </span>
-              <span className="font-semibold capitalize" style={{ color: "var(--gray-900)" }}>
+              <span className="text-j-navy-soft">Diet: </span>
+              <span className="font-semibold capitalize text-j-navy">
                 {state.dietaryPreference}
               </span>
             </p>
           )}
           {state.allergies.size > 0 && (
             <p className="mb-2 text-sm">
-              <span style={{ color: "var(--gray-500)" }}>Allergies: </span>
-              <span className="font-semibold capitalize" style={{ color: "var(--gray-900)" }}>
+              <span className="text-j-navy-soft">Allergies: </span>
+              <span className="font-semibold capitalize text-j-navy">
                 {Array.from(state.allergies).join(", ")}
               </span>
             </p>
           )}
           {state.goals.size > 0 && (
             <p className="text-sm">
-              <span style={{ color: "var(--gray-500)" }}>Goals: </span>
-              <span className="font-semibold" style={{ color: "var(--gray-900)" }}>
+              <span className="text-j-navy-soft">Goals: </span>
+              <span className="font-semibold text-j-navy">
                 {Array.from(state.goals)
                   .map((g) => g.replace(/_/g, " "))
                   .join(", ")}
@@ -458,7 +439,7 @@ function GetStartedStep({
       )}
 
       <Button size="lg" className="w-full max-w-xs" onClick={onComplete}>
-        Start Scanning 📷
+        Start Scanning
       </Button>
     </div>
   );

@@ -1,18 +1,11 @@
 import { cn } from "@/lib/utils";
 import type { VerdictLevel } from "@/lib/types";
 
-const levelColors: Record<VerdictLevel, string> = {
-  excellent: "text-verdict-excellent",
-  good: "text-verdict-good",
-  caution: "text-verdict-caution",
-  avoid: "text-verdict-avoid",
-};
-
-const trackColors: Record<VerdictLevel, string> = {
-  excellent: "stroke-verdict-excellent",
-  good: "stroke-verdict-good",
-  caution: "stroke-verdict-caution",
-  avoid: "stroke-verdict-avoid",
+const levelStroke: Record<VerdictLevel, string> = {
+  excellent: "var(--v-good)",
+  good: "var(--v-good)",
+  caution: "var(--v-caution)",
+  avoid: "var(--v-avoid)",
 };
 
 interface ScoreCircleProps {
@@ -23,10 +16,11 @@ interface ScoreCircleProps {
 }
 
 export function ScoreCircle({ score, level, size = 120, className }: ScoreCircleProps) {
-  const strokeWidth = 8;
+  const strokeWidth = 3;
   const radius = (size - strokeWidth) / 2;
   const circumference = 2 * Math.PI * radius;
   const offset = circumference - (score / 100) * circumference;
+  const color = levelStroke[level];
 
   return (
     <div className={cn("relative inline-flex items-center justify-center", className)}>
@@ -36,27 +30,25 @@ export function ScoreCircle({ score, level, size = 120, className }: ScoreCircle
           cy={size / 2}
           r={radius}
           fill="none"
-          stroke="currentColor"
+          stroke="var(--j-stone)"
           strokeWidth={strokeWidth}
-          className="text-gray-100"
         />
         <circle
           cx={size / 2}
           cy={size / 2}
           r={radius}
           fill="none"
+          stroke={color}
           strokeWidth={strokeWidth}
-          strokeLinecap="round"
+          strokeLinecap="square"
           strokeDasharray={circumference}
           strokeDashoffset={offset}
-          className={trackColors[level]}
+          style={{ transition: "stroke-dashoffset 0.6s ease-out" }}
         />
       </svg>
       <span
-        className={cn(
-          "absolute text-2xl font-bold",
-          levelColors[level]
-        )}
+        className="absolute font-[var(--font-heading)] text-2xl font-bold"
+        style={{ color }}
       >
         {score}
       </span>

@@ -1,5 +1,19 @@
 import type { Metadata, Viewport } from "next";
+import { DM_Sans, Inter } from "next/font/google";
 import "./globals.css";
+
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  variable: "--font-heading",
+  display: "swap",
+  weight: ["600", "700"],
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-body",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Jellow - Know Your Food",
@@ -17,7 +31,7 @@ export const viewport: Viewport = {
   initialScale: 1,
   maximumScale: 1,
   userScalable: false,
-  themeColor: "#FFD93D",
+  themeColor: "#F5F2EC",
 };
 
 export default function RootLayout({
@@ -26,8 +40,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className="bg-background font-sans antialiased">
+    <html lang="en" className={`${dmSans.variable} ${inter.variable}`}>
+      <body className="bg-j-cream font-[var(--font-body)] text-j-navy antialiased">
         {children}
       </body>
     </html>

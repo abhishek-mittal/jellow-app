@@ -26,33 +26,28 @@ export function BadgeCard({
   return (
     <div
       className={cn(
-        "relative flex flex-col items-center rounded-2xl p-3 text-center transition-all",
+        "relative flex flex-col items-center rounded-[var(--r-lg)] p-3 text-center transition-all animate-scale-in",
         earned
-          ? "bg-white shadow-[0_0_14px_rgba(255,217,61,0.45)]"
-          : "bg-gray-100",
+          ? "bg-j-warm-white border border-j-stone"
+          : "bg-j-stone/40 opacity-60",
         className
       )}
     >
       {/* Icon */}
       <div
         className={cn(
-          "flex h-12 w-12 items-center justify-center rounded-xl text-2xl",
-          !earned && "grayscale opacity-50"
+          "flex h-12 w-12 items-center justify-center rounded-[var(--r-sm)] text-2xl",
+          !earned && "grayscale"
         )}
       >
         {icon}
       </div>
 
-      {/* Lock indicator for locked badges */}
-      {!earned && (
-        <span className="absolute right-2 top-2 text-xs">🔒</span>
-      )}
-
       {/* Badge name */}
       <p
         className={cn(
           "mt-2 text-xs font-semibold leading-tight",
-          earned ? "text-gray-900" : "text-gray-400"
+          earned ? "text-j-navy" : "text-j-navy-soft"
         )}
       >
         {name}
@@ -60,16 +55,16 @@ export function BadgeCard({
 
       {/* Earned date */}
       {earned && earnedDate && (
-        <p className="mt-0.5 text-xs text-gray-400">{earnedDate}</p>
+        <p className="mt-0.5 text-xs text-j-navy-soft">{earnedDate}</p>
       )}
 
       {/* Progress bar for locked badges */}
       {!earned && clampedProgress !== undefined && (
         <div className="mt-2 w-full">
-          <p className="mb-1 text-xs text-gray-400">{clampedProgress}% to unlock</p>
-          <div className="h-1 w-full overflow-hidden rounded-full bg-gray-200">
+          <p className="mb-1 text-xs text-j-navy-soft">{clampedProgress}%</p>
+          <div className="h-0.5 w-full overflow-hidden rounded-full bg-j-stone">
             <div
-              className="h-full rounded-full bg-candy-mint transition-all"
+              className="h-full rounded-full bg-j-teal transition-all"
               style={{ width: `${clampedProgress}%` }}
             />
           </div>
@@ -78,7 +73,7 @@ export function BadgeCard({
 
       {/* Unlock criteria */}
       {unlockCriteria && (
-        <p className="mt-1 text-xs leading-tight text-gray-400">{unlockCriteria}</p>
+        <p className="mt-1 text-xs leading-tight text-j-navy-soft">{unlockCriteria}</p>
       )}
     </div>
   );
