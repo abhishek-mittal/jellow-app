@@ -1,11 +1,10 @@
 import { FoodCard } from "@/components/ui/food-card";
-import { StatsCard } from "@/components/ui/stats-card";
-import { HealthScoreRing } from "@/components/ui/health-score-ring";
 import type { HealthVerdict } from "@/components/ui/health-score-ring";
-import { Button } from "@/components/ui/button";
+import { HealthScoreRing } from "@/components/ui/health-score-ring";
+import { StatsCard } from "@/components/ui/stats-card";
 import { seedHistory, seedUser } from "@/lib/seed-data";
 import { verdictLevelToVerdict } from "@/lib/verdict";
-import { ScanBarcode, Heart, Flame } from "lucide-react";
+import { Flame, Heart, ScanBarcode } from "lucide-react";
 import Link from "next/link";
 
 // Compute mock dashboard stats from seed data
