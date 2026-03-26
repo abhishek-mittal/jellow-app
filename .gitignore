@@ -50,3 +50,7 @@ test-results/
 
 # TypeScript build cache
 tsconfig.tsbuildinfo
+
+# RNA Method — runtime state (managed by agents during sessions)
+_memory/
+
