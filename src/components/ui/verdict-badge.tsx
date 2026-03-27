@@ -1,30 +1,77 @@
-import { cn } from "@/lib/utils";
-import type { VerdictLevel } from "@/lib/types";
-import { VERDICT_LABELS } from "@/config/constants";
+"use client";
 
-const levelStyles: Record<VerdictLevel, string> = {
-  excellent: "bg-verdict-excellent/15 text-verdict-excellent border-verdict-excellent/30",
-  good: "bg-verdict-good/15 text-verdict-good border-verdict-good/30",
-  caution: "bg-verdict-caution/15 text-verdict-caution-dark border-verdict-caution/30",
-  avoid: "bg-verdict-avoid/15 text-verdict-avoid border-verdict-avoid/30",
+import { cn } from "@/lib/utils";
+import { Chip } from "@heroui/chip";
+import {
+  VerdictGoodIcon,
+  VerdictCautionIcon,
+  VerdictAvoidIcon,
+} from "@/components/icons/verdict-icons";
+
+export type Verdict = "good" | "moderate" | "bad";
+
+interface VerdictConfig {
+  icon: typeof VerdictGoodIcon;
+  label: string;
+  color: "success" | "warning" | "danger";
+}
+
+const verdictConfig: Record<Verdict, VerdictConfig> = {
+  good: {
+    icon: VerdictGoodIcon,
+    label: "Good for You",
+    color: "success",
+  },
+  moderate: {
+    icon: VerdictCautionIcon,
+    label: "Moderate",
+    color: "warning",
+  },
+  bad: {
+    icon: VerdictAvoidIcon,
+    label: "Bad for You",
+    color: "danger",
+  },
 };
 
-interface VerdictBadgeProps {
-  level: VerdictLevel;
-  label?: string;
+export interface VerdictBadgeProps {
+  verdict: Verdict;
+  score?: number;
+  size?: "sm" | "lg";
+  showLabel?: boolean;
   className?: string;
 }
 
-export function VerdictBadge({ level, label, className }: VerdictBadgeProps) {
+export function VerdictBadge({
+  verdict,
+  score,
+  size = "sm",
+  showLabel = true,
+  className,
+}: VerdictBadgeProps) {
+  const config = verdictConfig[verdict];
+  const Icon = config.icon;
+  const isLarge = size === "lg";
+
   return (
-    <span
-      className={cn(
-        "inline-flex items-center rounded-full border px-3 py-1 text-xs font-semibold",
-        levelStyles[level],
-        className
-      )}
+    <Chip
+      color={config.color}
+      variant="flat"
+      size={isLarge ? "lg" : "sm"}
+      startContent={<Icon size={isLarge ? 18 : 14} />}
+      endContent={
+        score !== undefined ? (
+          <span className={cn("font-bold", isLarge ? "ml-1 text-lg" : "ml-0.5 text-xs")}>
+            {score}/10
+          </span>
+        ) : undefined
+      }
+      classNames={{
+        base: cn("uppercase tracking-wide animate-scale-in", isLarge && "justify-center", className),
+        content: "font-medium",
+      }}
     >
-      {label ?? VERDICT_LABELS[level]}
-    </span>
+      {showLabel ? config.label : null}
+    </Chip>
   );
 }

@@ -4,8 +4,8 @@
   "description": "Scan, learn, and make healthier food choices",
   "start_url": "/home",
   "display": "standalone",
-  "background_color": "#FFFBF0",
-  "theme_color": "#FFD93D",
+  "background_color": "#F5F2EC",
+  "theme_color": "#5BBAB3",
   "icons": [
     {
       "src": "/icon-192.png",

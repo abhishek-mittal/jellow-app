@@ -1,34 +1,66 @@
+"use client";
+
 import { cn } from "@/lib/utils";
-import type { ProductSummary } from "@/lib/types";
-import { VerdictBadge } from "@/components/ui/verdict-badge";
+import { Card, CardBody } from "@heroui/card";
+import { VerdictBadge, type Verdict } from "@/components/ui/verdict-badge";
+
+export interface FoodItem {
+  id: string;
+  name: string;
+  brand: string;
+  imageUrl?: string;
+  verdict: Verdict;
+}
 
 interface FoodCardProps {
-  product: ProductSummary;
-  timestamp?: string;
+  food: FoodItem;
+  onTap?: (id: string) => void;
   className?: string;
 }
 
-export function FoodCard({ product, timestamp, className }: FoodCardProps) {
+export function FoodCard({ food, onTap, className }: FoodCardProps) {
   return (
-    <div
+    <Card
+      isPressable={!!onTap}
+      onPress={() => onTap?.(food.id)}
+      aria-label={onTap ? `View details for ${food.name}` : undefined}
+      shadow="none"
+      radius="lg"
       className={cn(
-        "flex items-center gap-3 rounded-2xl bg-white p-4 shadow-card",
+        "bg-white shadow-md transition-all duration-200",
+        onTap && "hover:shadow-lift active:scale-[0.98]",
         className
       )}
     >
-      <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-jellow-yellow/20 text-2xl">
-        🥗
-      </div>
-      <div className="flex-1 min-w-0">
-        <p className="font-semibold text-gray-900 truncate">{product.name}</p>
-        <p className="text-sm text-gray-500">{product.brand}</p>
-      </div>
-      <div className="flex flex-col items-end gap-1">
-        <VerdictBadge level={product.level} label={`${product.score}/100`} />
-        {timestamp && (
-          <span className="text-xs text-gray-400">{timestamp}</span>
-        )}
-      </div>
-    </div>
+      <CardBody className="flex-row items-center gap-3 p-4">
+        {/* Image thumbnail */}
+        <div
+          className="flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-[var(--r-lg)] bg-gray-200/30"
+          aria-hidden="true"
+        >
+          {food.imageUrl ? (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={food.imageUrl}
+              alt={food.name}
+              className="h-full w-full object-cover"
+            />
+          ) : (
+            <span className="text-2xl text-s-dark-gray">🥗</span>
+          )}
+        </div>
+
+        {/* Content */}
+        <div className="min-w-0 flex-1">
+          <p className="truncate font-[var(--font-heading)] font-bold text-s-dark-gray">{food.name}</p>
+          <p className="truncate text-sm text-s-dark-gray">{food.brand}</p>
+        </div>
+
+        {/* Verdict badge */}
+        <div className="shrink-0">
+          <VerdictBadge verdict={food.verdict} size="sm" showLabel={false} />
+        </div>
+      </CardBody>
+    </Card>
   );
 }

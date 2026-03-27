@@ -38,6 +38,19 @@ pnpm-debug.log*
 # testing
 coverage/
 
+tsconfig.tsbuildinfo
+
 # PWA
-sw.js
-workbox-*.js
+public/sw.js
+public/workbox-*.js
+
+# Playwright
+playwright-report/
+test-results/
+
+# TypeScript build cache
+tsconfig.tsbuildinfo
+
+# RNA Method — runtime state (managed by agents during sessions)
+_memory/
+

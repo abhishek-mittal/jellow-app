@@ -3,38 +3,75 @@
 import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
+import { motion } from "framer-motion";
+import { Plus } from "lucide-react";
+import { spring } from "@/components/motion";
+import { IconHome, IconBot, IconNews, IconUser } from "@/components/icons/nav-icons";
 
 const navItems = [
-  { href: "/home", label: "Home", icon: "🏠" },
-  { href: "/scan", label: "Scan", icon: "📷" },
-  { href: "/rewards", label: "Rewards", icon: "🏆" },
-  { href: "/profile", label: "Profile", icon: "👤" },
-] as const;
+  { href: "/home" as const, label: "Home", Icon: IconHome },
+  { href: "/ai" as const, label: "sandow AI", Icon: IconBot },
+  { href: "/scan" as const, label: "", Icon: Plus, isAction: true },
+  { href: "/resources" as const, label: "Resources", Icon: IconNews },
+  { href: "/profile" as const, label: "Profile", Icon: IconUser },
+];
 
 export function BottomNav() {
   const pathname = usePathname();
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 z-50 border-t border-gray-100 bg-white/95 backdrop-blur-sm safe-area-pb">
-      <div className="mx-auto flex max-w-md items-center justify-around py-2">
-        {navItems.map((item) => {
-          const isActive = pathname?.startsWith(item.href);
-          return (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={cn(
-                "flex flex-col items-center gap-0.5 px-3 py-1 text-xs transition-colors",
-                isActive
-                  ? "text-jellow-yellow font-semibold"
-                  : "text-gray-400 hover:text-gray-600"
-              )}
-            >
-              <span className="text-xl">{item.icon}</span>
-              <span>{item.label}</span>
-            </Link>
-          );
-        })}
+    <nav className="fixed bottom-0 left-0 right-0 z-50">
+      <div className="mx-auto max-w-md bg-white border border-black/[0.04] shadow-[0_-8px_30px_rgba(0,0,0,0.04)] pb-[env(safe-area-inset-bottom,24px)] rounded-[36px]">
+        <div className="flex items-center justify-around px-2 pb-2 pt-4">
+          {navItems.map((item) => {
+            const isActive = pathname?.startsWith(item.href);
+
+            if (item.isAction) {
+              return (
+                <Link key={item.href} href={item.href as any} className="relative z-10 flex flex-col items-center justify-center -mt-[18px]">
+                  <motion.div
+                    whileTap={{ scale: 0.92 }}
+                    whileHover={{ scale: 1.05 }}
+                    transition={spring.bouncy}
+                    className="flex h-[56px] w-[56px] items-center justify-center rounded-full bg-[#EE7F46] shadow-[0_8px_16px_rgba(238,127,70,0.3)]"
+                  >
+                    <Plus size={30} strokeWidth={2.5} className="text-white" />
+                  </motion.div>
+                </Link>
+              );
+            }
+
+            return (
+              <Link
+                key={item.href}
+                href={item.href as any}
+                className="relative flex w-[64px] flex-col items-center gap-[5px]"
+              >
+                <motion.div
+                  whileTap={{ scale: 0.9 }}
+                  transition={spring.snappy}
+                >
+                  <item.Icon
+                    size={26}
+                    strokeWidth={isActive ? 2.5 : 2}
+                    className={cn(
+                      "transition-colors duration-200",
+                      isActive ? "text-[#EE7F46]" : "text-[#9BA0A6]"
+                    )}
+                  />
+                </motion.div>
+                <span
+                  className={cn(
+                    "text-[10px] leading-none transition-colors duration-200 whitespace-nowrap",
+                    isActive ? "font-medium text-[#EE7F46]" : "font-normal text-[#9BA0A6]"
+                  )}
+                >
+                  {item.label}
+                </span>
+              </Link>
+            );
+          })}
+        </div>
       </div>
     </nav>
   );
