@@ -72,7 +72,7 @@ export function HealthScoreRing({
           cy={px / 2}
           r={radius}
           fill="none"
-          stroke="var(--j-stone)"
+          stroke="#E5E7EB"
           strokeWidth={strokeWidth}
         />
         <circle
@@ -82,7 +82,7 @@ export function HealthScoreRing({
           fill="none"
           stroke={color}
           strokeWidth={strokeWidth}
-          strokeLinecap="square"
+          strokeLinecap="round"
           strokeDasharray={circumference}
           strokeDashoffset={dashOffset}
           style={{ transition: "stroke-dashoffset 0.6s ease-out" }}
@@ -97,7 +97,7 @@ export function HealthScoreRing({
         </span>
         {showLabel && (
           <span
-            className="mt-0.5 text-j-navy-soft uppercase tracking-wider"
+            className="mt-0.5 text-s-dark-gray uppercase tracking-wider"
             style={{ fontSize: labelFontSize }}
           >
             {label}

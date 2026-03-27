@@ -71,9 +71,9 @@ export function UploadZone({
       className={cn(
         "relative flex aspect-video w-full flex-col items-center justify-center rounded-[var(--r-lg)] border border-dashed transition-colors duration-200 select-none",
         {
-          "border-j-stone-dark bg-j-cream cursor-pointer hover:border-j-teal hover:bg-j-teal-soft/30":
+          "border-gray-300 bg-s-gray cursor-pointer hover:border-s-orange hover:bg-s-orange/20/30":
             status === "idle",
-          "border-j-teal bg-j-teal-soft/20 cursor-not-allowed":
+          "border-s-orange bg-s-orange/20/20 cursor-not-allowed":
             status === "uploading" || status === "processing",
           "border-v-good bg-v-good-bg cursor-pointer":
             status === "done",
@@ -108,7 +108,7 @@ export function UploadZone({
                 e.stopPropagation();
                 onRemove();
               }}
-              className="absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded-[var(--r-sm)] bg-j-navy/60 text-white hover:bg-j-navy/80 transition-colors"
+              className="absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded-[var(--r-sm)] bg-s-dark-gray/60 text-white hover:bg-s-dark-gray/80 transition-colors"
               aria-label="Remove image"
             >
               ✕
@@ -119,9 +119,9 @@ export function UploadZone({
         <>
           {status === "idle" && (
             <div className="flex flex-col items-center gap-2 px-4 text-center">
-              <Upload size={32} className="text-j-navy-soft" />
-              <p className="text-sm font-medium text-j-navy">Tap to upload</p>
-              <p className="text-xs text-j-navy-soft">
+              <Upload size={32} className="text-s-dark-gray" />
+              <p className="text-sm font-medium text-s-dark-gray">Tap to upload</p>
+              <p className="text-xs text-s-dark-gray">
                 JPEG or PNG · max {maxSizeMB} MB
               </p>
             </div>
@@ -129,20 +129,20 @@ export function UploadZone({
 
           {status === "uploading" && (
             <div className="flex flex-col items-center gap-3 px-4 text-center">
-              <Loader2 size={32} className="animate-spin text-j-teal" />
-              <p className="text-sm font-medium text-j-teal">
+              <Loader2 size={32} className="animate-spin text-s-orange" />
+              <p className="text-sm font-medium text-s-orange">
                 Uploading…
               </p>
-              <div className="h-1 w-32 overflow-hidden rounded-full bg-j-stone">
-                <div className="h-full w-1/2 animate-pulse rounded-full bg-j-teal" />
+              <div className="h-1 w-32 overflow-hidden rounded-full bg-gray-200">
+                <div className="h-full w-1/2 animate-pulse rounded-full bg-s-orange" />
               </div>
             </div>
           )}
 
           {status === "processing" && (
             <div className="flex flex-col items-center gap-3 px-4 text-center">
-              <Loader2 size={32} className="animate-spin text-j-teal" />
-              <p className="text-sm font-medium text-j-teal">
+              <Loader2 size={32} className="animate-spin text-s-orange" />
+              <p className="text-sm font-medium text-s-orange">
                 Analyzing prescription…
               </p>
             </div>

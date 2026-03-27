@@ -4,14 +4,16 @@ import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Home, ScanBarcode, Trophy, User } from "lucide-react";
+import { Plus } from "lucide-react";
 import { spring } from "@/components/motion";
+import { IconHome, IconBot, IconNews, IconUser } from "@/components/icons/nav-icons";
 
 const navItems = [
-  { href: "/home" as const, label: "Home", Icon: Home },
-  { href: "/scan" as const, label: "Scan", Icon: ScanBarcode, isScan: true },
-  { href: "/rewards" as const, label: "Rewards", Icon: Trophy },
-  { href: "/profile" as const, label: "Profile", Icon: User },
+  { href: "/home" as const, label: "Home", Icon: IconHome },
+  { href: "/ai" as const, label: "sandow AI", Icon: IconBot },
+  { href: "/scan" as const, label: "", Icon: Plus, isAction: true },
+  { href: "/resources" as const, label: "Resources", Icon: IconNews },
+  { href: "/profile" as const, label: "Profile", Icon: IconUser },
 ];
 
 export function BottomNav() {
@@ -19,31 +21,22 @@ export function BottomNav() {
 
   return (
     <nav className="fixed bottom-0 left-0 right-0 z-50">
-      <div className="mx-auto max-w-md bg-white/95 backdrop-blur-xl border-t border-black/[0.04] shadow-nav pb-[env(safe-area-inset-bottom,24px)]">
-        <div className="flex items-center justify-around px-1 pb-1 pt-2">
+      <div className="mx-auto max-w-md bg-white border border-black/[0.04] shadow-[0_-8px_30px_rgba(0,0,0,0.04)] pb-[env(safe-area-inset-bottom,24px)] rounded-[36px]">
+        <div className="flex items-center justify-around px-2 pb-2 pt-4">
           {navItems.map((item) => {
             const isActive = pathname?.startsWith(item.href);
 
-            if (item.isScan) {
+            if (item.isAction) {
               return (
-                <Link key={item.href} href={item.href} className="relative -mt-5 flex flex-col items-center">
+                <Link key={item.href} href={item.href as any} className="relative z-10 flex flex-col items-center justify-center -mt-[18px]">
                   <motion.div
                     whileTap={{ scale: 0.92 }}
                     whileHover={{ scale: 1.05 }}
                     transition={spring.bouncy}
-                    className={cn(
-                      "flex h-14 w-14 items-center justify-center rounded-full shadow-teal",
-                      "gradient-scan-cta"
-                    )}
+                    className="flex h-[56px] w-[56px] items-center justify-center rounded-full bg-[#EE7F46] shadow-[0_8px_16px_rgba(238,127,70,0.3)]"
                   >
-                    <ScanBarcode size={24} className="text-white" strokeWidth={2} />
+                    <Plus size={30} strokeWidth={2.5} className="text-white" />
                   </motion.div>
-                  <span className={cn(
-                    "mt-1 block text-center text-[10px] font-semibold",
-                    isActive ? "text-j-teal" : "text-j-navy-soft"
-                  )}>
-                    {item.label}
-                  </span>
                 </Link>
               );
             }
@@ -51,37 +44,30 @@ export function BottomNav() {
             return (
               <Link
                 key={item.href}
-                href={item.href}
-                className="relative flex min-w-[56px] flex-col items-center gap-0.5 py-1.5"
+                href={item.href as any}
+                className="relative flex w-[64px] flex-col items-center gap-[5px]"
               >
                 <motion.div
                   whileTap={{ scale: 0.9 }}
                   transition={spring.snappy}
                 >
                   <item.Icon
-                    size={22}
-                    strokeWidth={isActive ? 2.5 : 1.5}
+                    size={26}
+                    strokeWidth={isActive ? 2.5 : 2}
                     className={cn(
                       "transition-colors duration-200",
-                      isActive ? "text-j-teal" : "text-j-navy-soft"
+                      isActive ? "text-[#EE7F46]" : "text-[#9BA0A6]"
                     )}
                   />
                 </motion.div>
                 <span
                   className={cn(
-                    "text-[10px] leading-none transition-colors duration-200",
-                    isActive ? "font-semibold text-j-teal" : "font-medium text-j-navy-soft"
+                    "text-[10px] leading-none transition-colors duration-200 whitespace-nowrap",
+                    isActive ? "font-medium text-[#EE7F46]" : "font-normal text-[#9BA0A6]"
                   )}
                 >
                   {item.label}
                 </span>
-                {isActive && (
-                  <motion.div
-                    layoutId="nav-indicator"
-                    className="absolute -bottom-0.5 h-1 w-5 rounded-full bg-j-teal"
-                    transition={spring.bouncy}
-                  />
-                )}
               </Link>
             );
           })}

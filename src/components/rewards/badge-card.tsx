@@ -32,10 +32,10 @@ export function BadgeCard({
       shadow="none"
       radius="lg"
       className={cn(
-        "animate-scale-in transition-all",
+        "transition-all",
         earned
-          ? "border border-j-stone bg-j-warm-white"
-          : "bg-j-stone/40 opacity-60",
+          ? "bg-white shadow-md"
+          : "bg-gray-200/40 opacity-60",
         className
       )}
     >
@@ -43,8 +43,8 @@ export function BadgeCard({
         {/* Icon */}
         <div
           className={cn(
-            "flex h-12 w-12 items-center justify-center rounded-[var(--r-sm)] text-2xl",
-            !earned && "grayscale"
+            "flex h-12 w-12 items-center justify-center rounded-[var(--r-lg)] text-2xl",
+            earned ? "bg-s-orange/20" : "bg-gray-200/40 grayscale"
           )}
         >
           {icon}
@@ -54,7 +54,7 @@ export function BadgeCard({
         <p
           className={cn(
             "mt-2 text-xs font-semibold leading-tight",
-            earned ? "text-j-navy" : "text-j-navy-soft"
+            earned ? "text-s-dark-gray" : "text-s-dark-gray"
           )}
         >
           {name}
@@ -62,21 +62,21 @@ export function BadgeCard({
 
         {/* Earned date */}
         {earned && earnedDate && (
-          <p className="mt-0.5 text-xs text-j-navy-soft">{earnedDate}</p>
+          <p className="mt-0.5 text-xs text-s-dark-gray">{earnedDate}</p>
         )}
 
         {/* Progress bar for locked badges */}
         {!earned && clampedProgress !== undefined && (
           <div className="mt-2 w-full">
-            <p className="mb-1 text-xs text-j-navy-soft">{clampedProgress}%</p>
+            <p className="mb-1 text-xs text-s-dark-gray">{clampedProgress}%</p>
             <Progress
               value={clampedProgress}
               size="sm"
               color="primary"
               aria-label={`${name} progress: ${clampedProgress}%`}
               classNames={{
-                track: "bg-j-stone h-0.5",
-                indicator: "bg-j-teal",
+                track: "bg-gray-200 h-0.5",
+                indicator: "bg-s-orange",
               }}
             />
           </div>
@@ -84,7 +84,7 @@ export function BadgeCard({
 
         {/* Unlock criteria */}
         {unlockCriteria && (
-          <p className="mt-1 text-xs leading-tight text-j-navy-soft">{unlockCriteria}</p>
+          <p className="mt-1 text-xs leading-tight text-s-dark-gray">{unlockCriteria}</p>
         )}
       </CardBody>
     </Card>

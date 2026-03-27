@@ -40,23 +40,23 @@ describe("ScanGuide", () => {
 
   it("renders flash-off icon when flashEnabled is false", () => {
     const html = renderToString(<ScanGuide {...defaultProps} flashEnabled={false} />);
-    // Flash-off torch emoji
-    expect(html).toContain("🔦");
+    // Lucide FlashlightOff icon renders as SVG; verify via aria-label
+    expect(html).toContain("Turn on flash");
   });
 
   it("renders flash-on icon when flashEnabled is true", () => {
     const html = renderToString(<ScanGuide {...defaultProps} flashEnabled={true} />);
-    // Flash emoji
-    expect(html).toContain("⚡");
+    // Lucide Flashlight icon renders as SVG; verify via aria-label
+    expect(html).toContain("Turn off flash");
   });
 
   it("renders all four corner-bracket elements", () => {
     const html = renderToString(<ScanGuide {...defaultProps} />);
     // Each bracket has a unique combination of border direction classes
-    expect(html).toContain("border-l-4 border-t-4"); // top-left
-    expect(html).toContain("border-r-4 border-t-4"); // top-right
-    expect(html).toContain("border-b-4 border-l-4"); // bottom-left
-    expect(html).toContain("border-b-4 border-r-4"); // bottom-right
+    expect(html).toContain("border-l-2 border-t-2"); // top-left
+    expect(html).toContain("border-r-2 border-t-2"); // top-right
+    expect(html).toContain("border-b-2 border-l-2"); // bottom-left
+    expect(html).toContain("border-b-2 border-r-2"); // bottom-right
   });
 
   it("applies animate-pulse to brackets when isScanning is true", () => {

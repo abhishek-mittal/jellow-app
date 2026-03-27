@@ -28,7 +28,19 @@
     "deploymentTarget": "local",
     "triggerPrefix": "/",
     "platform": "copilot",
-    "generatedAt": "2026-03-26T08:48:29.363Z"
+    "generatedAt": "2026-03-26T08:48:29.363Z",
+    "design": {
+      "theme": "Sandow UI Kit",
+      "colors": [
+        "#FF6B00",
+        "#2F6BFF",
+        "#2D2D2D",
+        "#111111",
+        "#F8F9FA"
+      ],
+      "typography": "Work Sans (Alternatives: Archivo, Epilogue)",
+      "characteristics": "Bulky, expansive UI elements, 100% Corner Smoothing, energetic, dynamic, fortitude"
+    }
   },
   "outputFormat": "verbose",
   "resilience": {
@@ -78,21 +90,36 @@
         "frontend"
       ],
       "autoActivate": false,
-      "systemPrompt": "You are the Developer agent for Jellow, a food & product health scanner PWA. Stack: Next.js 15 (App Router) + Tailwind v4 + HeroUI + Hono API + Zod v4 + Serwist. Design system: 'Bauhaus × Japandi' with brand teal (#5BBAB3), navy (#1B2A4A), cream (#F5F2EC). Domain types: Product, VerdictResult, NutritionFacts, Ingredient, Badge, Challenge. Key patterns: verdict scoring (0-100 → excellent/good/caution/avoid), seed data for mock state, Hono routes under /api/v1. Follow project development standards."
+      "systemPrompt": "You are the Developer agent for Jellow, a food & product health scanner PWA. Stack: Next.js 15 (App Router) + Tailwind v4 + HeroUI + Hono API + Zod v4 + Serwist. Design system: 'Sandow UI Kit' with brand teal (#5BBAB3), navy (#1B2A4A), cream (#F5F2EC). Domain types: Product, VerdictResult, NutritionFacts, Ingredient, Badge, Challenge. Key patterns: verdict scoring (0-100 → excellent/good/caution/avoid), seed data for mock state, Hono routes under /api/v1. Follow project development standards."
     },
     {
       "id": "designer",
       "name": "Designer",
       "role": "UI/UX & Design System",
-      "persona": "Detail-oriented visual thinker with Bauhaus × Japandi aesthetics",
+      "persona": "Detail-oriented visual thinker with Sandow UI Kit aesthetics",
       "command": "/designer",
       "model": "balanced",
-      "triggerEvents": ["entry-created"],
-      "matchCategories": ["ui-design", "design-tokens", "component-styling", "visual-qa"],
-      "matchPriorities": ["high", "medium"],
-      "capabilities": ["ui-design", "design-tokens", "component-styling", "visual-qa"],
+      "triggerEvents": [
+        "entry-created"
+      ],
+      "matchCategories": [
+        "ui-design",
+        "design-tokens",
+        "component-styling",
+        "visual-qa"
+      ],
+      "matchPriorities": [
+        "high",
+        "medium"
+      ],
+      "capabilities": [
+        "ui-design",
+        "design-tokens",
+        "component-styling",
+        "visual-qa"
+      ],
       "autoActivate": false,
-      "systemPrompt": "You are the Designer agent for Jellow. Design language: Bauhaus × Japandi. Brand: teal #5BBAB3, navy #1B2A4A, cream #F5F2EC. Tokens in globals.css :root + @theme. Components: HeroUI + custom Jellow UI. Typography: Nunito."
+      "systemPrompt": "You are the Designer agent for Jellow. Design language: Sandow UI Kit. Brand: teal #5BBAB3, navy #1B2A4A, cream #F5F2EC. Tokens in globals.css :root + @theme. Components: HeroUI + custom Jellow UI. Typography: Work Sans."
     },
     {
       "id": "architect",
@@ -101,10 +128,24 @@
       "persona": "Strategic thinker balancing pragmatism with scalability",
       "command": "/architect",
       "model": "balanced",
-      "triggerEvents": ["entry-created"],
-      "matchCategories": ["api-design", "architecture", "db-schema"],
-      "matchPriorities": ["critical", "high"],
-      "capabilities": ["api-design", "architecture", "db-schema", "optimization"],
+      "triggerEvents": [
+        "entry-created"
+      ],
+      "matchCategories": [
+        "api-design",
+        "architecture",
+        "db-schema"
+      ],
+      "matchPriorities": [
+        "critical",
+        "high"
+      ],
+      "capabilities": [
+        "api-design",
+        "architecture",
+        "db-schema",
+        "optimization"
+      ],
       "autoActivate": false,
       "systemPrompt": "You are the Architect for Jellow. Current: Next.js 15 App Router + Hono API (/api/v1) + seed data. Domain: Product → VerdictResult → NutritionFacts + Ingredients."
     },
@@ -115,10 +156,24 @@
       "persona": "Thorough, constructive critic focused on correctness and security",
       "command": "/reviewer",
       "model": "balanced",
-      "triggerEvents": ["entry-updated"],
-      "matchCategories": ["code-review", "security-review", "pr-creation"],
-      "matchPriorities": ["critical", "high", "medium"],
-      "capabilities": ["code-review", "security-review", "pr-creation"],
+      "triggerEvents": [
+        "entry-updated"
+      ],
+      "matchCategories": [
+        "code-review",
+        "security-review",
+        "pr-creation"
+      ],
+      "matchPriorities": [
+        "critical",
+        "high",
+        "medium"
+      ],
+      "capabilities": [
+        "code-review",
+        "security-review",
+        "pr-creation"
+      ],
       "autoActivate": false,
       "systemPrompt": "You are the Reviewer for Jellow. Enforce: Zod validation on API inputs, no XSS, TypeScript strict mode, Testing Library patterns."
     },
@@ -129,10 +184,24 @@
       "persona": "Calm strategic coordinator who unblocks and prioritizes",
       "command": "/director",
       "model": "balanced",
-      "triggerEvents": ["entry-created", "entry-updated"],
-      "matchCategories": ["orchestrate", "route", "join", "team-intelligence"],
-      "matchPriorities": ["critical"],
-      "capabilities": ["sprint-planning", "agent-coordination", "blocker-resolution"],
+      "triggerEvents": [
+        "entry-created",
+        "entry-updated"
+      ],
+      "matchCategories": [
+        "orchestrate",
+        "route",
+        "join",
+        "team-intelligence"
+      ],
+      "matchPriorities": [
+        "critical"
+      ],
+      "capabilities": [
+        "sprint-planning",
+        "agent-coordination",
+        "blocker-resolution"
+      ],
       "autoActivate": false,
       "systemPrompt": "You are the Director for Jellow. Team: Developer, Designer, Architect, Reviewer, Researcher, Ops. Current phase: Foundation. You do not write code."
     },
@@ -143,10 +212,23 @@
       "persona": "Curious investigator who synthesizes findings into actionable briefs",
       "command": "/researcher",
       "model": "balanced",
-      "triggerEvents": ["entry-created"],
-      "matchCategories": ["research", "web-research", "library-comparison"],
-      "matchPriorities": ["medium", "low"],
-      "capabilities": ["technical-research", "library-evaluation", "documentation-review"],
+      "triggerEvents": [
+        "entry-created"
+      ],
+      "matchCategories": [
+        "research",
+        "web-research",
+        "library-comparison"
+      ],
+      "matchPriorities": [
+        "medium",
+        "low"
+      ],
+      "capabilities": [
+        "technical-research",
+        "library-evaluation",
+        "documentation-review"
+      ],
       "autoActivate": false,
       "systemPrompt": "You are the Researcher for Jellow. Domain: food health scoring, barcode scanning, nutritional analysis, gamification."
     },
@@ -157,10 +239,22 @@
       "persona": "Reliable operator who automates and monitors",
       "command": "/ops",
       "model": "balanced",
-      "triggerEvents": ["entry-created"],
-      "matchCategories": ["daily-ops", "automation", "status-reports"],
-      "matchPriorities": ["medium"],
-      "capabilities": ["deployment", "automation", "monitoring"],
+      "triggerEvents": [
+        "entry-created"
+      ],
+      "matchCategories": [
+        "daily-ops",
+        "automation",
+        "status-reports"
+      ],
+      "matchPriorities": [
+        "medium"
+      ],
+      "capabilities": [
+        "deployment",
+        "automation",
+        "monitoring"
+      ],
       "autoActivate": false,
       "systemPrompt": "You are Ops for Jellow. Build: pnpm build. Dev: pnpm dev. Test: pnpm test. PWA: Serwist. Lighthouse: lighthouserc.json."
     }

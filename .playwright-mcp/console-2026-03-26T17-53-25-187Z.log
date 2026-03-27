@@ -1,0 +1,3818 @@
+[  502008ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  502214ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  502265ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  502320ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  502379ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  502434ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  502497ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  502552ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  502614ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  502681ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  502744ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  502803ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  502852ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  502906ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  502957ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  503008ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  503057ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  503102ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  503158ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  503220ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  503285ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  503340ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  503398ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  503447ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  503491ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  503561ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  503632ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  503696ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  503750ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  503800ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  503852ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  503901ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  503951ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  504015ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  504067ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  504118ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  504168ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  504216ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  504266ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  504316ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  504366ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  504414ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  504462ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  504511ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  504559ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  504614ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  504666ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  504715ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  504764ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  504815ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  504865ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  504911ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  504960ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  505005ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  505055ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  505107ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  505160ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  505211ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  505261ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  505311ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  505361ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  505411ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  505459ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  505507ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  505556ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  505605ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  505653ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  505703ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  505752ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  505791ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  505840ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  505885ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  505933ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  505983ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  506032ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  506082ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  506120ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  506168ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  506215ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  506263ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  506311ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  506359ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  506410ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  506458ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  506505ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  506550ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  506588ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  506636ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  506683ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  506723ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  506771ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  506820ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  506868ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  506915ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  506960ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  507008ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  507057ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  507105ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  507153ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  507200ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  507247ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  507292ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  507340ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  507388ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  507436ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  507483ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  507532ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  507580ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  507624ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  507669ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  507716ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  507758ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  507800ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  507847ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  507888ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  507935ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  507986ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  508027ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  508078ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  508131ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  508180ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  508231ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  508280ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  508327ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  508378ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  508427ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  508474ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  508520ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  508568ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  508615ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  508663ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  508710ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  508772ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  508905ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  508988ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  509038ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  509086ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  509125ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  509174ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  509222ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  509270ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  509307ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  509358ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  509407ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  509455ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  509505ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  509554ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  509603ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  509652ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  509695ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  509742ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  509790ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  509837ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  509885ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  509922ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  509971ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  510017ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  510059ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  510109ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  510163ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  510210ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  510256ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  510304ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  510351ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  510398ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359
+[  510444ms] [ERROR] ./projects/jellow-app/src/app/(app)/rewards/page.tsx:148:21
+Parsing ecmascript source code failed
+  146 |                 <p className="mt-1 text-xs font-medium text-j-navy-soft">Best Streak</p>
+  147 |               </div>
+> 148 |           </section>
+      |                     ^
+> 149 |         </MotionItem>
+      | ^^^^^^^^^
+  150 |
+  151 |         {/* ── Badges grid ── */}
+  152 |         <MotionItem>
+
+Expected '</', got 'jsx text (
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component Browser]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Client Component SSR]
+    ./projects/jellow-app/src/app/(app)/rewards/page.tsx [Server Component] @ http://localhost:3003/_next/static/chunks/9fcc9_next_dist_1abf1782._.js:2359

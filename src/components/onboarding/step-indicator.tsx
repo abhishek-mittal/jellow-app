@@ -29,22 +29,22 @@ export function StepIndicator({
         const dotClasses =
           variant === "dots"
             ? isActive
-              ? "h-2 w-2"
+              ? "h-2 w-6"
               : "h-2 w-2"
             : "h-8 w-8 text-xs font-bold";
 
         const colorClasses =
           variant === "dots"
             ? isActive
-              ? "bg-j-teal"
+              ? "bg-s-orange"
               : isCompleted
-                ? "bg-j-teal/60"
-                : "bg-j-stone"
+                ? "bg-s-orange/60"
+                : "bg-gray-200"
             : isActive
-              ? "bg-j-teal text-white"
+              ? "bg-s-orange text-white"
               : isCompleted
-                ? "bg-j-teal/60 text-white"
-                : "border-2 border-j-stone bg-transparent text-j-navy-soft";
+                ? "bg-s-orange/60 text-white"
+                : "border-2 border-gray-200 bg-transparent text-s-dark-gray";
 
         return (
           <div key={i} className="flex items-center">
@@ -68,7 +68,7 @@ export function StepIndicator({
               <div
                 className={[
                   "h-0.5 w-8 transition-all duration-300",
-                  isCompleted ? "bg-j-teal" : "bg-j-stone",
+                  isCompleted ? "bg-s-orange" : "bg-gray-200",
                 ].join(" ")}
               />
             )}

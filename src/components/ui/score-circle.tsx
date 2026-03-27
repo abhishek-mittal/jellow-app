@@ -1,3 +1,6 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import type { VerdictLevel } from "@/lib/types";
 
@@ -16,21 +19,34 @@ interface ScoreCircleProps {
 }
 
 export function ScoreCircle({ score, level, size = 120, className }: ScoreCircleProps) {
-  const strokeWidth = 3;
+  const strokeWidth = 4;
   const radius = (size - strokeWidth) / 2;
   const circumference = 2 * Math.PI * radius;
-  const offset = circumference - (score / 100) * circumference;
+  const targetOffset = circumference - (score / 100) * circumference;
   const color = levelStroke[level];
 
+  const [dashOffset, setDashOffset] = useState(circumference);
+
+  useEffect(() => {
+    const raf = requestAnimationFrame(() => {
+      setDashOffset(targetOffset);
+    });
+    return () => cancelAnimationFrame(raf);
+  }, [targetOffset]);
+
   return (
-    <div className={cn("relative inline-flex items-center justify-center", className)}>
+    <div
+      className={cn("relative inline-flex items-center justify-center", className)}
+      role="img"
+      aria-label={`Score: ${score} out of 100`}
+    >
       <svg width={size} height={size} className="-rotate-90">
         <circle
           cx={size / 2}
           cy={size / 2}
           r={radius}
           fill="none"
-          stroke="var(--j-stone)"
+          stroke="#E5E7EB"
           strokeWidth={strokeWidth}
         />
         <circle
@@ -40,10 +56,10 @@ export function ScoreCircle({ score, level, size = 120, className }: ScoreCircle
           fill="none"
           stroke={color}
           strokeWidth={strokeWidth}
-          strokeLinecap="square"
+          strokeLinecap="round"
           strokeDasharray={circumference}
-          strokeDashoffset={offset}
-          style={{ transition: "stroke-dashoffset 0.6s ease-out" }}
+          strokeDashoffset={dashOffset}
+          style={{ transition: "stroke-dashoffset 0.8s ease-out" }}
         />
       </svg>
       <span

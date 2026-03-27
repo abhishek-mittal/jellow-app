@@ -67,7 +67,7 @@ describe("HealthScoreRing", () => {
         verdict: "good",
       })
     );
-    expect(html).toContain("var(--candy-mint)");
+    expect(html).toContain("var(--v-good)");
   });
 
   it("uses yellow color for moderate verdict", () => {
@@ -77,7 +77,7 @@ describe("HealthScoreRing", () => {
         verdict: "moderate",
       })
     );
-    expect(html).toContain("var(--verdict-caution)");
+    expect(html).toContain("var(--v-caution)");
   });
 
   it("uses red color for bad verdict", () => {
@@ -87,7 +87,7 @@ describe("HealthScoreRing", () => {
         verdict: "bad",
       })
     );
-    expect(html).toContain("var(--candy-pink)");
+    expect(html).toContain("var(--v-avoid)");
   });
 
   it("renders an SVG element", () => {

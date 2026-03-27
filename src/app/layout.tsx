@@ -1,16 +1,16 @@
 import type { Metadata, Viewport } from "next";
-import { DM_Sans, Inter } from "next/font/google";
+import { Work_Sans, Archivo } from "next/font/google";
 import { Providers } from "./providers";
 import "./globals.css";
 
-const dmSans = DM_Sans({
+const workSans = Work_Sans({
   subsets: ["latin"],
   variable: "--font-heading",
   display: "swap",
-  weight: ["600", "700"],
+  weight: ["500", "600", "700", "800"],
 });
 
-const inter = Inter({
+const archivo = Archivo({
   subsets: ["latin"],
   variable: "--font-body",
   display: "swap",
@@ -32,7 +32,7 @@ export const viewport: Viewport = {
   initialScale: 1,
   maximumScale: 1,
   userScalable: false,
-  themeColor: "#F5F2EC",
+  themeColor: "#F7F8FA",
 };
 
 export default function RootLayout({
@@ -41,8 +41,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`light ${dmSans.variable} ${inter.variable}`}>
-      <body className="bg-j-cream font-[var(--font-body)] text-j-navy antialiased">
+    <html lang="en" className={`light ${workSans.variable} ${archivo.variable}`}>
+      <body className={`bg-gray-50 font-[var(--font-heading)] text-gray-900 antialiased`}>
         <Providers>{children}</Providers>
       </body>
     </html>

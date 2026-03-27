@@ -55,9 +55,9 @@ export function IngredientTag({
       </Chip>
 
       {expanded && description && (
-        <div className="mt-1 rounded-[var(--r-sm)] border border-j-stone bg-j-warm-white px-3 py-2">
-          <p className="text-xs font-semibold text-j-navy">{name}</p>
-          <p className="mt-0.5 text-[11px] leading-relaxed text-j-navy-soft">{description}</p>
+        <div className="mt-1 rounded-[var(--r-lg)] bg-white px-3 py-2 shadow-md">
+          <p className="text-xs font-bold text-s-dark-gray">{name}</p>
+          <p className="mt-0.5 text-[11px] leading-relaxed text-s-dark-gray">{description}</p>
         </div>
       )}
     </div>

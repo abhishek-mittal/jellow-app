@@ -35,19 +35,19 @@ export function NutritionPanel({
   const fatPct = calcMacroPct(fat, 9, totalMacroCals);
 
   return (
-    <div className={cn("rounded-[var(--r-lg)] border border-j-stone bg-j-warm-white p-4", className)}>
+    <div className={cn("rounded-[var(--r-xl)] bg-white p-4 shadow-md", className)}>
       {/* Header */}
       <div className="mb-4 flex items-center justify-between">
-        <h3 className="font-[var(--font-heading)] font-bold text-j-navy">Nutrition Facts</h3>
-        <span className="rounded-[var(--r-sm)] bg-j-stone/40 px-2 py-0.5 text-xs text-j-navy-soft">
+        <h3 className="font-[var(--font-heading)] font-bold text-s-dark-gray">Nutrition Facts</h3>
+        <span className="rounded-full bg-gray-200/40 px-2.5 py-0.5 text-xs font-medium text-s-dark-gray">
           Per {servingSize}
         </span>
       </div>
 
       {/* Calorie highlight */}
-      <div className="mb-4 rounded-[var(--r-sm)] bg-j-cream py-3 text-center">
-        <span className="font-[var(--font-heading)] text-4xl font-bold text-j-navy">{calories}</span>
-        <span className="ml-1 text-sm text-j-navy-soft">kcal</span>
+      <div className="mb-4 rounded-[var(--r-lg)] bg-s-gray py-3 text-center">
+        <span className="font-[var(--font-heading)] text-4xl font-bold text-s-dark-gray">{calories}</span>
+        <span className="ml-1 text-sm text-s-dark-gray">kcal</span>
       </div>
 
       {/* Macro bars */}
@@ -58,7 +58,7 @@ export function NutritionPanel({
       </div>
 
       {/* Divider */}
-      <div className="my-3 border-t border-j-stone" />
+      <div className="my-3 border-t border-black/[0.06]" />
 
       {/* Key nutrients */}
       <div className="space-y-2">
@@ -67,7 +67,7 @@ export function NutritionPanel({
       </div>
 
       {/* % Daily Value */}
-      <div className="mt-3 border-t border-j-stone pt-3 space-y-2">
+      <div className="mt-3 border-t border-black/[0.06] pt-3 space-y-2">
         <NutrientRow label="Protein (% DV)" value={`${Math.round((protein / 50) * 100)}%`} />
         <NutrientRow label="Total Carbs (% DV)" value={`${Math.round((carbs / 275) * 100)}%`} />
         <NutrientRow label="Dietary Fiber (% DV)" value={`${Math.round((fiber / 28) * 100)}%`} />
@@ -81,8 +81,8 @@ function MacroBar({ label, grams, pct }: { label: string; grams: number; pct: nu
   return (
     <div>
       <div className="mb-1 flex items-center justify-between text-xs">
-        <span className="font-semibold text-j-navy">{label}</span>
-        <span className="text-j-navy-soft">
+        <span className="font-semibold text-s-dark-gray">{label}</span>
+        <span className="text-s-dark-gray">
           {grams}g &middot; {pct}%
         </span>
       </div>
@@ -92,8 +92,8 @@ function MacroBar({ label, grams, pct }: { label: string; grams: number; pct: nu
         color="primary"
         aria-label={`${label}: ${pct}%`}
         classNames={{
-          track: "bg-j-stone",
-          indicator: "bg-j-teal",
+          track: "bg-gray-200",
+          indicator: "bg-s-orange",
         }}
       />
     </div>
@@ -103,8 +103,8 @@ function MacroBar({ label, grams, pct }: { label: string; grams: number; pct: nu
 function NutrientRow({ label, value }: { label: string; value: string }) {
   return (
     <div className="flex items-center justify-between text-sm">
-      <span className="text-j-navy-soft">{label}</span>
-      <span className="font-semibold text-j-navy">{value}</span>
+      <span className="text-s-dark-gray">{label}</span>
+      <span className="font-semibold text-s-dark-gray">{value}</span>
     </div>
   );
 }

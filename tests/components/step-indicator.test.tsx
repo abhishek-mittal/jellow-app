@@ -20,8 +20,8 @@ describe("StepIndicator", () => {
       const html = renderToStaticMarkup(
         StepIndicator({ totalSteps: 3, currentStep: 1 }),
       );
-      // Active step should reference the jellow-yellow token
-      expect(html).toContain("jellow-yellow");
+      // Active step should reference the s-orange token
+      expect(html).toContain("s-orange");
     });
 
     it("marks the active button with aria-current='step'", () => {
@@ -31,11 +31,11 @@ describe("StepIndicator", () => {
       expect(html).toContain('aria-current="step"');
     });
 
-    it("active dot is larger (h-3 w-3) and inactive dots are smaller (h-2 w-2)", () => {
+    it("active dot is wider (h-2 w-6) and inactive dots are smaller (h-2 w-2)", () => {
       const html = renderToStaticMarkup(
         StepIndicator({ totalSteps: 3, currentStep: 0 }),
       );
-      expect(html).toContain("h-3 w-3");
+      expect(html).toContain("h-2 w-6");
       expect(html).toContain("h-2 w-2");
     });
 
@@ -62,14 +62,14 @@ describe("StepIndicator", () => {
       const html = renderToStaticMarkup(
         StepIndicator({ totalSteps: 3, currentStep: 1, variant: "numbered" }),
       );
-      expect(html).toContain("jellow-yellow");
+      expect(html).toContain("s-orange");
     });
 
-    it("marks completed steps with the mint colour", () => {
+    it("marks completed steps with the teal colour", () => {
       const html = renderToStaticMarkup(
         StepIndicator({ totalSteps: 3, currentStep: 2, variant: "numbered" }),
       );
-      expect(html).toContain("candy-mint");
+      expect(html).toContain("s-orange/60");
     });
   });
 
@@ -91,11 +91,11 @@ describe("StepIndicator", () => {
     });
 
     it("fills connectors for completed steps", () => {
-      // Step 2 active → step 0 connector should be filled (jellow-yellow)
+      // Step 2 active → step 0 connector should be filled (s-orange)
       const html = renderToStaticMarkup(
         StepIndicator({ totalSteps: 3, currentStep: 2, showConnector: true }),
       );
-      expect(html).toContain("jellow-yellow");
+      expect(html).toContain("s-orange");
     });
   });
 

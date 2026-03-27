@@ -10,7 +10,7 @@
 | Description | Jellow — a playful food & product health scanner PWA. Scan barcodes, get health verdicts, track nutrition, earn rewards. |
 | Domain | health-tech-pwa |
 | Stack | TypeScript · Next.js 15 (App Router) · Tailwind v4 · HeroUI · Hono · Zod v4 · Serwist |
-| Design | Bauhaus × Japandi — teal `#5BBAB3`, navy `#1B2A4A`, cream `#F5F2EC` |
+| Design | Sandow UI Kit — Bulky, expansive UI, 100% Corner Smoothing. Font: Work Sans (Alt: Archivo). Colors: Bold Orange, Tech Blue, Dynamic Dark Gray, Black |
 | Testing | Vitest · Playwright · Testing Library |
 | Deployment | local |
 

@@ -57,35 +57,35 @@ export function ScanGuide({
           {/* Top-left */}
           <div
             className={cn(
-              "absolute left-0 top-0 h-8 w-8 border-l-2 border-t-2 border-j-teal",
+              "absolute left-0 top-0 h-8 w-8 border-l-2 border-t-2 border-s-orange",
               isScanning && "animate-pulse"
             )}
           />
           {/* Top-right */}
           <div
             className={cn(
-              "absolute right-0 top-0 h-8 w-8 border-r-2 border-t-2 border-j-teal",
+              "absolute right-0 top-0 h-8 w-8 border-r-2 border-t-2 border-s-orange",
               isScanning && "animate-pulse"
             )}
           />
           {/* Bottom-left */}
           <div
             className={cn(
-              "absolute bottom-0 left-0 h-8 w-8 border-b-2 border-l-2 border-j-teal",
+              "absolute bottom-0 left-0 h-8 w-8 border-b-2 border-l-2 border-s-orange",
               isScanning && "animate-pulse"
             )}
           />
           {/* Bottom-right */}
           <div
             className={cn(
-              "absolute bottom-0 right-0 h-8 w-8 border-b-2 border-r-2 border-j-teal",
+              "absolute bottom-0 right-0 h-8 w-8 border-b-2 border-r-2 border-s-orange",
               isScanning && "animate-pulse"
             )}
           />
 
           {/* Scan line animation */}
           {isScanning && (
-            <div className="absolute left-2 right-2 top-1/2 h-0.5 bg-j-teal/60 animate-scan-line" />
+            <div className="absolute left-2 right-2 top-1/2 h-0.5 bg-s-orange/60 animate-scan-line" />
           )}
         </div>
 

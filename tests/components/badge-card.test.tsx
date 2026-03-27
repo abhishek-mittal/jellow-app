@@ -82,7 +82,7 @@ describe("BadgeCard", () => {
       expect(html).toContain("Sugar Slayer");
     });
 
-    it("shows lock icon when not earned", () => {
+    it("applies grayscale styling when not earned", () => {
       const html = renderToString(
         createElement(BadgeCard, {
           name: "Sugar Slayer",
@@ -91,7 +91,7 @@ describe("BadgeCard", () => {
           unlockCriteria: "Avoid 5 high-sugar items",
         })
       );
-      expect(html).toContain("🔒");
+      expect(html).toContain("grayscale");
     });
 
     it("shows progress percentage when progress is provided", () => {
@@ -104,8 +104,8 @@ describe("BadgeCard", () => {
           progress: 47,
         })
       );
-      expect(html).toContain("47%");
-      expect(html).toContain("to unlock");
+      expect(html).toContain("47");
+      expect(html).toContain("%");
     });
 
     it("clamps progress to 0 when negative", () => {

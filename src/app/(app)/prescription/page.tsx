@@ -128,16 +128,16 @@ export default function PrescriptionPage() {
   const uploadStatus: UploadStatus = status as UploadStatus;
 
   return (
-    <div className="flex min-h-screen flex-col bg-j-cream">
+    <div className="flex min-h-screen flex-col">
       {/* ── Header ── */}
-      <header className="sticky top-0 z-10 border-b border-j-stone bg-j-warm-white/95 px-4 py-3 backdrop-blur-sm">
-        <h1 className="font-[var(--font-heading)] text-xl font-semibold text-j-navy">Prescription Upload</h1>
-        <p className="text-sm text-j-navy-soft">
+      <header className="sticky top-0 z-10 border-b border-black/[0.04] bg-white/95 px-5 py-3 backdrop-blur-sm">
+        <h1 className="font-[var(--font-heading)] text-xl font-semibold text-s-dark-gray">Prescription Upload</h1>
+        <p className="text-sm text-s-dark-gray">
           Upload a photo to get personalised dietary advice
         </p>
       </header>
 
-      <div className="flex-1 space-y-5 overflow-y-auto p-4 pb-28">
+      <div className="flex-1 space-y-5 overflow-y-auto px-5 pt-4 pb-28">
         {/* ── Upload zone ── */}
         <UploadZone
           onFileSelect={handleFileSelect}
@@ -160,8 +160,8 @@ export default function PrescriptionPage() {
 
         {/* ── Processing banner ── */}
         {status === "processing" && (
-          <div className="rounded-[var(--r-lg)] bg-j-teal-soft p-4 text-center">
-            <p className="flex items-center justify-center gap-2 text-sm font-medium text-j-teal">
+          <div className="rounded-[var(--r-lg)] bg-s-orange/20 p-4 text-center">
+            <p className="flex items-center justify-center gap-2 text-sm font-medium text-s-orange">
               <Search size={16} className="animate-pulse" /> Analyzing your prescription…
             </p>
           </div>
@@ -181,24 +181,24 @@ export default function PrescriptionPage() {
           <>
             {/* Extracted medications */}
             <section>
-              <h2 className="mb-3 font-[var(--font-heading)] text-base font-semibold text-j-navy">
+              <h2 className="mb-3 font-[var(--font-heading)] text-base font-semibold text-s-dark-gray">
                 Extracted Medications
               </h2>
               <ul className="space-y-2">
                 {medications.map((med) => (
                   <li
                     key={med.name}
-                    className="rounded-[var(--r-lg)] border border-j-stone bg-j-warm-white p-3"
+                    className="rounded-[var(--r-lg)] bg-white p-3 shadow-md"
                   >
                     <div className="flex items-center justify-between">
-                      <span className="font-medium text-j-navy">
+                      <span className="font-medium text-s-dark-gray">
                         {med.name} {med.dosage}
                       </span>
-                      <span className="text-xs text-j-navy-soft">
+                      <span className="text-xs text-s-dark-gray">
                         {med.frequency}
                       </span>
                     </div>
-                    <p className="mt-0.5 text-xs text-j-navy-soft">{med.purpose}</p>
+                    <p className="mt-0.5 text-xs text-s-dark-gray">{med.purpose}</p>
                   </li>
                 ))}
               </ul>
@@ -206,7 +206,7 @@ export default function PrescriptionPage() {
 
             {/* Dietary recommendations */}
             <section>
-              <h2 className="mb-3 font-[var(--font-heading)] text-base font-semibold text-j-navy">
+              <h2 className="mb-3 font-[var(--font-heading)] text-base font-semibold text-s-dark-gray">
                 Dietary Recommendations
               </h2>
               <ul className="space-y-2">
@@ -228,13 +228,13 @@ export default function PrescriptionPage() {
                             : <Lightbulb size={16} className="text-v-good" />}
                       </span>
                       <div>
-                        <p className="text-xs font-medium text-j-navy-soft">
+                        <p className="text-xs font-medium text-s-dark-gray">
                           {rec.medication}
                         </p>
-                        <p className="text-sm font-semibold text-j-navy">
+                        <p className="text-sm font-semibold text-s-dark-gray">
                           {rec.text}
                         </p>
-                        <p className="mt-0.5 text-xs text-j-navy-soft">
+                        <p className="mt-0.5 text-xs text-s-dark-gray">
                           {rec.detail}
                         </p>
                       </div>
@@ -257,7 +257,7 @@ export default function PrescriptionPage() {
             </Button>
 
             {/* Privacy notice */}
-            <p className="rounded-[var(--r-lg)] bg-j-stone/40 px-3 py-2.5 text-center text-xs text-j-navy-soft">
+            <p className="rounded-[var(--r-lg)] bg-gray-200/40 px-3 py-2.5 text-center text-xs text-s-dark-gray">
               Your prescription data is handled securely and never sold or
               shared with third parties. Review our privacy policy for details.
             </p>
@@ -266,7 +266,7 @@ export default function PrescriptionPage() {
 
         {/* ── Empty-state hint ── */}
         {status === "idle" && (
-          <p className="text-center text-sm text-j-navy-soft">
+          <p className="text-center text-sm text-s-dark-gray">
             Tap the zone above to photograph or choose an image of your
             prescription
           </p>

@@ -3,9 +3,10 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { ScanGuide } from "@/components/scanner/scan-guide";
-import { BottomNav } from "@/components/layout/bottom-nav";
 import { Button } from "@/components/ui/button";
-import { Camera, ShieldOff, AlertCircle } from "lucide-react";
+import { Camera, ShieldOff, AlertCircle, Keyboard } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { spring, MotionPage, MotionItem, MotionPress } from "@/components/motion";
 
 type PermissionStatus = "prompt" | "granted" | "denied" | "unsupported";
 
@@ -103,80 +104,105 @@ export default function ScanPage() {
   // ── Permission: prompt ────────────────────────────────────────────────────
   if (permission === "prompt") {
     return (
-      <>
-        <div className="flex min-h-[80vh] flex-col items-center justify-center gap-6 p-6 text-center">
-          <div className="flex h-24 w-24 items-center justify-center rounded-[var(--r-lg)] bg-j-teal-soft">
-            <Camera size={40} className="text-j-teal" />
-          </div>
+      <MotionPage className="flex min-h-[80vh] flex-col items-center justify-center gap-6 p-6 text-center">
+        <MotionItem>
+          <motion.div
+            initial={{ scale: 0.7, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={spring.bouncy}
+            className="flex h-28 w-28 items-center justify-center rounded-[var(--r-2xl)] bg-gradient-to-br from-s-orange to-s-orange shadow-orange"
+          >
+            <Camera size={48} className="text-white" />
+          </motion.div>
+        </MotionItem>
+        <MotionItem>
           <div>
-            <h1 className="font-[var(--font-heading)] text-2xl font-semibold text-j-navy">Scan a Product</h1>
-            <p className="mt-2 text-sm text-j-navy-soft">
-              Allow camera access to scan barcodes and check nutrition scores.
+            <h1 className="font-[var(--font-heading)] text-2xl font-bold text-s-dark-gray">Scan a Product</h1>
+            <p className="mt-2 text-sm leading-relaxed text-s-dark-gray">
+              Allow camera access to scan barcodes and check nutrition scores instantly.
             </p>
           </div>
+        </MotionItem>
 
-          {processingError && (
-            <p role="alert" className="text-sm text-v-avoid">
-              {processingError}
-            </p>
-          )}
+        {processingError && (
+          <p role="alert" className="text-sm text-v-avoid">
+            {processingError}
+          </p>
+        )}
 
+        <MotionItem>
           <div className="flex w-full max-w-xs flex-col gap-3">
-            <Button size="lg" className="w-full" onClick={requestCamera}>
-              Allow Camera Access
-            </Button>
-            <Button
-              variant="secondary"
-              size="lg"
-              className="w-full"
-              onClick={handleManualEntry}
-            >
-              Enter Barcode Manually
-            </Button>
+            <MotionPress>
+              <Button size="lg" className="w-full" onClick={requestCamera}>
+                Allow Camera Access
+              </Button>
+            </MotionPress>
+            <MotionPress>
+              <Button
+                variant="secondary"
+                size="lg"
+                className="w-full"
+                onClick={handleManualEntry}
+              >
+                <Keyboard size={18} className="mr-2" />
+                Enter Barcode Manually
+              </Button>
+            </MotionPress>
           </div>
-        </div>
-        <BottomNav />
-      </>
+        </MotionItem>
+      </MotionPage>
     );
   }
 
   // ── Permission: denied ────────────────────────────────────────────────────
   if (permission === "denied") {
     return (
-      <>
-        <div className="flex min-h-[80vh] flex-col items-center justify-center gap-4 p-6 text-center">
-          <ShieldOff size={48} className="text-v-avoid" />
-          <h1 className="font-[var(--font-heading)] text-xl font-semibold text-j-navy">Camera Access Denied</h1>
-          <p className="text-sm text-j-navy-soft">
-            Please enable camera permission in your browser settings and reload the
-            page.
+      <MotionPage className="flex min-h-[80vh] flex-col items-center justify-center gap-4 p-6 text-center">
+        <MotionItem>
+          <div className="flex h-20 w-20 items-center justify-center rounded-full bg-v-avoid/10">
+            <ShieldOff size={40} className="text-v-avoid" />
+          </div>
+        </MotionItem>
+        <MotionItem>
+          <h1 className="font-[var(--font-heading)] text-xl font-bold text-s-dark-gray">Camera Access Denied</h1>
+          <p className="mt-2 text-sm text-s-dark-gray">
+            Please enable camera permission in your browser settings and reload the page.
           </p>
-          <Button variant="secondary" size="md" onClick={() => setPermission("prompt")}>
-            Try Again
-          </Button>
-        </div>
-        <BottomNav />
-      </>
+        </MotionItem>
+        <MotionItem>
+          <MotionPress>
+            <Button variant="secondary" size="md" onClick={() => setPermission("prompt")}>
+              Try Again
+            </Button>
+          </MotionPress>
+        </MotionItem>
+      </MotionPage>
     );
   }
 
   // ── Permission: unsupported ───────────────────────────────────────────────
   if (permission === "unsupported") {
     return (
-      <>
-        <div className="flex min-h-[80vh] flex-col items-center justify-center gap-4 p-6 text-center">
-          <AlertCircle size={48} className="text-v-caution" />
-          <h1 className="font-[var(--font-heading)] text-xl font-semibold text-j-navy">Camera Not Supported</h1>
-          <p className="text-sm text-j-navy-soft">
-            Your browser does not support camera access. Try entering the barcode
-            manually.
+      <MotionPage className="flex min-h-[80vh] flex-col items-center justify-center gap-4 p-6 text-center">
+        <MotionItem>
+          <div className="flex h-20 w-20 items-center justify-center rounded-full bg-v-caution/10">
+            <AlertCircle size={40} className="text-v-caution" />
+          </div>
+        </MotionItem>
+        <MotionItem>
+          <h1 className="font-[var(--font-heading)] text-xl font-bold text-s-dark-gray">Camera Not Supported</h1>
+          <p className="mt-2 text-sm text-s-dark-gray">
+            Your browser does not support camera access. Try entering the barcode manually.
           </p>
-          <Button size="md" onClick={handleManualEntry}>
-            Enter Manually
-          </Button>
-        </div>
-        <BottomNav />
-      </>
+        </MotionItem>
+        <MotionItem>
+          <MotionPress>
+            <Button size="md" onClick={handleManualEntry}>
+              Enter Manually
+            </Button>
+          </MotionPress>
+        </MotionItem>
+      </MotionPage>
     );
   }
 
@@ -204,30 +230,48 @@ export default function ScanPage() {
       {/* Scan / loading button */}
       <div className="absolute bottom-24 left-0 right-0 z-20 flex flex-col items-center gap-3 px-6">
         {processingError && (
-          <p
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
             role="alert"
-            className="rounded-[var(--r-lg)] bg-v-avoid/90 px-4 py-2 text-center text-sm text-white"
+            className="rounded-[var(--r-lg)] bg-v-avoid/90 px-4 py-2 text-center text-sm text-white backdrop-blur-sm"
           >
             {processingError}
-          </p>
+          </motion.p>
         )}
 
-        {!isScanning ? (
-          <Button size="lg" onClick={startScan} className="w-full max-w-xs">
-            Scan Barcode
-          </Button>
-        ) : (
-          <div className="flex items-center gap-2 rounded-full bg-black/50 px-5 py-2.5 text-sm text-white backdrop-blur-sm">
-            <span className="inline-block h-3 w-3 animate-spin rounded-full border-2 border-white/40 border-t-white" />
-            Processing…
-          </div>
-        )}
+        <AnimatePresence mode="wait">
+          {!isScanning ? (
+            <motion.div
+              key="scan-btn"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={spring.gentle}
+              className="w-full max-w-xs"
+            >
+              <MotionPress>
+                <Button size="lg" onClick={startScan} className="w-full shadow-orange">
+                  Scan Barcode
+                </Button>
+              </MotionPress>
+            </motion.div>
+          ) : (
+            <motion.div
+              key="scanning"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              transition={spring.gentle}
+              className="flex items-center gap-2.5 rounded-full bg-black/60 px-6 py-3 text-sm font-medium text-white backdrop-blur-md"
+            >
+              <span className="inline-block h-3 w-3 animate-spin rounded-full border-2 border-white/40 border-t-white" />
+              Processing…
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
 
-      {/* BottomNav with Scan tab active */}
-      <div className="relative z-20">
-        <BottomNav />
-      </div>
     </div>
   );
 }

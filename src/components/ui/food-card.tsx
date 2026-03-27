@@ -27,15 +27,15 @@ export function FoodCard({ food, onTap, className }: FoodCardProps) {
       shadow="none"
       radius="lg"
       className={cn(
-        "border border-j-stone bg-j-warm-white transition-colors duration-200",
-        onTap && "hover:border-j-teal",
+        "bg-white shadow-md transition-all duration-200",
+        onTap && "hover:shadow-lift active:scale-[0.98]",
         className
       )}
     >
       <CardBody className="flex-row items-center gap-3 p-4">
         {/* Image thumbnail */}
         <div
-          className="flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-[var(--r-sm)] bg-j-stone/30"
+          className="flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-[var(--r-lg)] bg-gray-200/30"
           aria-hidden="true"
         >
           {food.imageUrl ? (
@@ -46,14 +46,14 @@ export function FoodCard({ food, onTap, className }: FoodCardProps) {
               className="h-full w-full object-cover"
             />
           ) : (
-            <span className="text-2xl text-j-navy-soft">🥗</span>
+            <span className="text-2xl text-s-dark-gray">🥗</span>
           )}
         </div>
 
         {/* Content */}
         <div className="min-w-0 flex-1">
-          <p className="truncate font-semibold text-j-navy">{food.name}</p>
-          <p className="truncate text-sm text-j-navy-soft">{food.brand}</p>
+          <p className="truncate font-[var(--font-heading)] font-bold text-s-dark-gray">{food.name}</p>
+          <p className="truncate text-sm text-s-dark-gray">{food.brand}</p>
         </div>
 
         {/* Verdict badge */}

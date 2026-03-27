@@ -6,60 +6,61 @@
 @custom-variant dark (&:is(.dark *));
 
 /* ═══════════════════════════════════════════════════════════
-   Jellow — Bauhaus × Japandi Design System
-   Geometric precision · Intentional whitespace (ma/間)
-   Warm natural tones · Brand teal anchor
+   Jellow — Sandow UI Kit Design System
+   Dynamic, energy & persistence
+   Bulky, expansive UI elements with 100% corner smoothing
+   Fortitude and growth
    ═══════════════════════════════════════════════════════════ */
 
 /* ─── Core Tokens ─── */
 :root {
   /* ── Brand ── */
-  --j-teal: #5BBAB3;
-  --j-teal-soft: #D4EDEB;
-  --j-teal-deep: #3D8F8A;
-  --j-navy: #1B2A4A;
-  --j-navy-soft: #4A5568;
+  --s-orange: #FF6B00;
+  --s-blue: #3B82F6;
+  
+  /* ── Grayscale ── */
+  --s-black: #111111;
+  --s-dark-gray: #2D2D2D;
+  --s-gray: #F8F9FA;
+  --s-white: #FFFFFF;
 
-  /* ── Surfaces ── */
-  --j-cream: #F5F2EC;
-  --j-warm-white: #FAFAF7;
-  --j-stone: #E8E4DE;
-  --j-stone-dark: #C4BFB7;
-  --j-charcoal: #2D2D2D;
+  /* ── Semantic ── */
+  --success: #10B981;
+  --warning: #F59E0B;
+  --error: #EF4444;
 
-  /* ── Verdict — Japandi-muted ── */
-  --v-good: #5BBAB3;
-  --v-good-bg: #E8F5F3;
-  --v-caution: #E8B44D;
-  --v-caution-bg: #FDF3E0;
-  --v-avoid: #C65D5D;
-  --v-avoid-bg: #FBEAEA;
+  /* ── Services / Verdict (Matching semantic tones with branding) ── */
+  --v-good: var(--success);
+  --v-good-bg: #D1FAE5;
+  --v-caution: var(--warning);
+  --v-caution-bg: #FEF3C7;
+  --v-avoid: var(--error);
+  --v-avoid-bg: #FEE2E2;
 
-  /* ── Radius — Bauhaus sharp + Japandi soft ── */
-  --r-sm: 4px;
-  --r-lg: 12px;
-
-  /* ── Shadow — Japandi minimal depth ── */
-  --shadow-rest: 0 1px 3px rgba(0, 0, 0, 0.04);
-  --shadow-lift: 0 4px 12px rgba(0, 0, 0, 0.06);
+  /* ── Geometry ── */
+  --border-radius-sm: 8px;
+  --border-radius-md: 16px;
+  --border-radius-lg: 24px;
+  --border-radius-xl: 32px;
+  --border-radius-full: 9999px;
 }
 
 /* ─── Tailwind v4 Theme Extension ─── */
 @theme {
-  /* Brand */
-  --color-j-teal: var(--j-teal);
-  --color-j-teal-soft: var(--j-teal-soft);
-  --color-j-teal-deep: var(--j-teal-deep);
-  --color-j-navy: var(--j-navy);
-  --color-j-navy-soft: var(--j-navy-soft);
+  /* Fonts */
+  --font-sans: var(--font-work-sans), sans-serif;
+  --font-heading: var(--font-archivo), sans-serif;
 
-  /* Surfaces */
-  --color-j-cream: var(--j-cream);
-  --color-j-warm-white: var(--j-warm-white);
-  --color-j-stone: var(--j-stone);
-  --color-j-stone-dark: var(--j-stone-dark);
-  --color-j-charcoal: var(--j-charcoal);
-  --color-background: var(--j-cream);
+  /* Brand */
+  --color-s-orange: var(--s-orange);
+  --color-s-blue: var(--s-blue);
+
+  /* Grayscale */
+  --color-s-black: var(--s-black);
+  --color-s-dark-gray: var(--s-dark-gray);
+  --color-s-gray: var(--s-gray);
+  --color-s-white: var(--s-white);
+  --color-background: var(--s-gray);
 
   /* Verdict */
   --color-v-good: var(--v-good);
@@ -69,13 +70,6 @@
   --color-v-avoid: var(--v-avoid);
   --color-v-avoid-bg: var(--v-avoid-bg);
 
-  /* Radius */
-  --radius-sm: var(--r-sm);
-  --radius-lg: var(--r-lg);
-
-  /* Shadows */
-  --shadow-rest: var(--shadow-rest);
-  --shadow-lift: var(--shadow-lift);
 }
 
 /* ─── Micro-Animation Keyframes ─── */
@@ -176,8 +170,8 @@
 
 @layer base {
   body {
-    background: var(--j-cream);
-    color: var(--j-navy);
+    background: var(--s-gray);
+    color: var(--s-dark-gray);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }

@@ -8,6 +8,10 @@ export { StatsCard } from "./stats-card";
 export type { StatsCardProps, TrendDirection } from "./stats-card";
 export { HealthScoreRing } from "./health-score-ring";
 export type { HealthScoreRingProps, HealthVerdict, RingSize } from "./health-score-ring";
+export { WeeklyMiniChart } from "./weekly-mini-chart";
+export type { WeeklyMiniChartProps, WeeklyDataPoint } from "./weekly-mini-chart";
+export { MetricCard } from "./metric-card";
+export type { MetricCardProps } from "./metric-card";
 
 // HeroUI wrappers
 export {

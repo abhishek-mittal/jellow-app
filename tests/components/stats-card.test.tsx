@@ -65,7 +65,7 @@ describe("StatsCard", () => {
     );
     expect(html).toContain("↓");
     expect(html).toContain("-1");
-    expect(html).toContain("var(--candy-pink)");
+    expect(html).toContain("text-v-avoid");
   });
 
   it("renders flat trend arrow in gray class", () => {
@@ -80,7 +80,7 @@ describe("StatsCard", () => {
     );
     expect(html).toContain("→");
     expect(html).toContain("no change");
-    expect(html).toContain("var(--gray-500)");
+    expect(html).toContain("text-s-dark-gray");
   });
 
   it("does not render trend indicator when trendValue is missing", () => {
