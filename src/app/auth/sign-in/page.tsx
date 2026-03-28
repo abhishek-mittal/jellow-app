@@ -1,8 +1,7 @@
 'use client';
 
-import React, { useState } from 'react';
-import { Input } from '@heroui/input';
-import { Mail, Lock, Eye, EyeOff, Instagram, Facebook, Linkedin, Plus } from 'lucide-react';
+import { Instagram, Facebook, Linkedin, Plus } from 'lucide-react';
+import { EmailInput, PasswordInput } from '@/components/ui/auth-input';
 import {
   AuthShell,
   AuthHero,
@@ -24,10 +23,6 @@ const LogoMark = (
 );
 
 export default function SignInPage() {
-  const [isVisible, setIsVisible] = useState(false);
-
-  const handleToggleVisibility = () => setIsVisible(!isVisible);
-
   return (
     <AuthShell withHero>
       <AuthHero
@@ -45,57 +40,15 @@ export default function SignInPage() {
 
         {/* Form Container */}
         <div className="w-full max-w-sm space-y-5">
-          {/* Email Input */}
-          <div className="space-y-1.5 ">
-            <label className="text-[15px] font-bold text-slate-900 ml-1">
-              Email Address
-            </label>
-            <Input
-              type="email"
-              placeholder="elementary221b@gmail.com"
-              startContent={
-                <Mail className="text-slate-800 flex-shrink-0" strokeWidth={2.5} size={20} />
-              }
-              classNames={{
-                inputWrapper:
-                  "bg-[#F3F4F6] border-transparent hover:bg-slate-200 focus-within:!bg-white focus-within:!border-[#ff6b00] border-2 shadow-none rounded-[22px] h-[60px] px-4 transition-colors",
-                input: "text-slate-900 placeholder:text-slate-500 text-[16px] font-medium ml-2",
-              }}
-            />
-          </div>
+          <EmailInput
+            label="Email Address"
+            placeholder="elementary221b@gmail.com"
+          />
 
-          {/* Password Input */}
-          <div className="space-y-1.5">
-            <label className="text-[15px] font-bold text-slate-900 ml-1">
-              Password
-            </label>
-            <Input
-              type={isVisible ? "text" : "password"}
-              placeholder="***********"
-              startContent={
-                <Lock className="text-slate-800 flex-shrink-0" strokeWidth={2.5} size={20} />
-              }
-              endContent={
-                <button
-                  className="focus:outline-none"
-                  type="button"
-                  onClick={handleToggleVisibility}
-                  aria-label="toggle password visibility"
-                >
-                  {isVisible ? (
-                    <EyeOff className="text-slate-400" strokeWidth={2.5} size={22} />
-                  ) : (
-                    <Eye className="text-slate-400" strokeWidth={2.5} size={22} />
-                  )}
-                </button>
-              }
-              classNames={{
-                inputWrapper:
-                  "bg-[#F3F4F6] border-transparent hover:bg-slate-200 focus-within:!bg-white focus-within:!border-transparent border-2 shadow-none rounded-[22px] h-[60px] px-4 transition-colors",
-                input: "text-slate-900 placeholder:text-slate-600 text-[16px] font-medium ml-2 tracking-widest",
-              }}
-            />
-          </div>
+          <PasswordInput
+            label="Password"
+            placeholder="***********"
+          />
 
           {/* Sign In Button */}
           <AuthCtaButton className="mt-6">

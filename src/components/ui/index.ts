@@ -1,4 +1,6 @@
 export { Button } from "./button";
+export { AuthInput, EmailInput, PasswordInput, ConfirmPasswordInput } from "./auth-input";
+export type { AuthInputProps } from "./auth-input";
 export { VerdictBadge } from "./verdict-badge";
 export type { VerdictBadgeProps, Verdict } from "./verdict-badge";
 export { ScoreCircle } from "./score-circle";
