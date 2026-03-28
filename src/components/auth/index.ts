@@ -25,3 +25,9 @@ export type { AuthLinkProps } from "./auth-link";
 export { SignInScreen } from "./sign-in-screen";
 export { SignUpScreen } from "./sign-up-screen";
 export { ResetPasswordScreen } from "./reset-password-screen";
+
+export { PasswordSentCard } from "./password-sent-card";
+export type { PasswordSentCardProps } from "./password-sent-card";
+
+export { PasswordSentScreen } from "./password-sent-screen";
+export type { PasswordSentScreenProps } from "./password-sent-screen";
