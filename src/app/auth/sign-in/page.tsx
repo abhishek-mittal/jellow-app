@@ -5,36 +5,36 @@ import Link from 'next/link';
 import { Input } from '@heroui/input';
 import { Button } from '@heroui/button';
 import { Mail, Lock, Eye, EyeOff, ArrowRight, Instagram, Facebook, Linkedin, Plus } from 'lucide-react';
+import { AuthShell, AuthHero, AuthBody, AuthTitle, AuthSubtitle } from '@/components/auth';
+
+const HERO_IMAGE =
+  'https://images.unsplash.com/photo-1540497077202-7c8a3999166f?q=80&w=1000&auto=format&fit=crop';
+
+const LogoMark = (
+  <div className="w-16 h-16 bg-[#ff6b00] rounded-[18px] flex items-center justify-center shadow-md">
+    <Plus size={36} className="text-white" strokeWidth={3.5} />
+  </div>
+);
 
 export default function SignInPage() {
   const [isVisible, setIsVisible] = useState(false);
 
-  const toggleVisibility = () => setIsVisible(!isVisible);
+  const handleToggleVisibility = () => setIsVisible(!isVisible);
 
   return (
-    <div className="flex flex-col min-h-screen bg-white font-sans">
-      {/* Top Banner/Image Section */}
-      <div className="relative h-[300px] w-full flex-shrink-0 bg-gradient-to-b from-gray-200 to-white overflow-hidden">
-        {/* Placeholder for gym equipment background */}
-        <div 
-          className="absolute inset-0 opacity-50 bg-[url('https://images.unsplash.com/photo-1540497077202-7c8a3999166f?q=80&w=1000&auto=format&fit=crop')] bg-cover bg-top mix-blend-multiply" 
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-white/10 via-white/40 to-white" />
-        
-        {/* Orange Plus Icon */}
-        <div className="absolute bottom-[20px] left-1/2 -translate-x-1/2 w-16 h-16 bg-[#ff6b00] rounded-[18px] flex items-center justify-center shadow-md z-10">
-          <Plus size={36} className="text-white" strokeWidth={3.5} />
-        </div>
-      </div>
+    <AuthShell withHero>
+      <AuthHero
+        imageSrc={HERO_IMAGE}
+        imageAlt="Gym equipment background"
+        logoMark={LogoMark}
+      />
 
       {/* Main Content */}
-      <div className="flex-1 px-6 pt-4 pb-8 flex flex-col items-center">
-        <h1 className="text-[32px] leading-tight font-extrabold text-slate-900 mb-1 mt-2 text-center tracking-tight">
-          Sign In To Sandow
-        </h1>
-        <p className="text-base text-slate-500 mb-10 text-center px-4 font-medium">
+      <AuthBody>
+        <AuthTitle className="mb-1">Sign In To Sandow</AuthTitle>
+        <AuthSubtitle className="mb-10">
           Let's personalize your fitness with AI
-        </p>
+        </AuthSubtitle>
 
         {/* Form Container */}
         <div className="w-full max-w-sm space-y-5">
@@ -72,7 +72,7 @@ export default function SignInPage() {
                 <button
                   className="focus:outline-none"
                   type="button"
-                  onClick={toggleVisibility}
+                  onClick={handleToggleVisibility}
                   aria-label="toggle password visibility"
                 >
                   {isVisible ? (
@@ -136,7 +136,7 @@ export default function SignInPage() {
             </Link>
           </div>
         </div>
-      </div>
-    </div>
+      </AuthBody>
+    </AuthShell>
   );
 }
