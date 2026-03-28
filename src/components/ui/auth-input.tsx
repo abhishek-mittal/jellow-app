@@ -33,6 +33,8 @@ export type AuthInputProps = {
   inputClassName?: string;
   /** Accessible label override (defaults to `label`). */
   "aria-label"?: string;
+  /** Called when the input loses focus. */
+  onBlur?: () => void;
 };
 
 /**
@@ -53,6 +55,7 @@ export function AuthInput({
   className,
   inputClassName,
   "aria-label": ariaLabel,
+  onBlur,
 }: AuthInputProps) {
   const [isVisible, setIsVisible] = useState(false);
 
@@ -93,6 +96,7 @@ export function AuthInput({
         endContent={endContent}
         isInvalid={isInvalid}
         isDisabled={disabled}
+        onBlur={onBlur}
         aria-label={ariaLabel ?? label}
         classNames={{
           inputWrapper: cn(
