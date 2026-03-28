@@ -1,7 +1,26 @@
-import { describe, it, expect, vi } from "vitest";
-import { render, screen } from "@testing-library/react";
+import { describe, it, expect, vi, beforeEach } from "vitest";
+import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { SignUpScreen } from "@/components/auth/sign-up-screen";
+
+// Mock next/navigation
+const mockPush = vi.fn();
+vi.mock("next/navigation", () => ({
+  useRouter: () => ({ push: mockPush }),
+}));
+
+// Default fetch mock — successful sign-up
+const mockFetch = vi.fn();
+
+beforeEach(() => {
+  mockPush.mockClear();
+  mockFetch.mockClear();
+  mockFetch.mockResolvedValue({
+    ok: true,
+    json: async () => ({ user: { email: "a@b.com" } }),
+  });
+  vi.stubGlobal("fetch", mockFetch);
+});
 
 // Helper: fill all three fields
 async function fillForm(
@@ -115,5 +134,16 @@ describe("SignUpScreen", () => {
   it("does not show a Forgot Password link", () => {
     render(<SignUpScreen />);
     expect(screen.queryByText(/forgot password/i)).not.toBeInTheDocument();
+  });
+
+  it("navigates to /home after a successful sign-up", async () => {
+    const user = userEvent.setup();
+    render(<SignUpScreen />);
+    await fillForm(user, "a@b.com", "pass123!", "pass123!");
+    const ctaBtn = screen.getByRole("button", { name: /sign up/i });
+    await user.click(ctaBtn);
+    await waitFor(() => {
+      expect(mockPush).toHaveBeenCalledWith("/home");
+    });
   });
 });

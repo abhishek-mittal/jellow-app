@@ -10,8 +10,17 @@ vi.mock("next/navigation", () => ({
   useRouter: () => ({ push: mockPush }),
 }));
 
+// Default fetch mock — successful sign-in
+const mockFetch = vi.fn();
+
 beforeEach(() => {
   mockPush.mockClear();
+  mockFetch.mockClear();
+  mockFetch.mockResolvedValue({
+    ok: true,
+    json: async () => ({ user: { email: "test@example.com" } }),
+  });
+  vi.stubGlobal("fetch", mockFetch);
 });
 
 describe("SignInScreen", () => {
@@ -71,7 +80,7 @@ describe("SignInScreen", () => {
     expect(screen.getByText("Password is required")).toBeInTheDocument();
   });
 
-  it("navigates to home on successful submit", async () => {
+  it("navigates to /home on successful submit", async () => {
     const user = userEvent.setup();
     render(<SignInScreen />);
 
@@ -85,7 +94,7 @@ describe("SignInScreen", () => {
     await user.click(ctaBtn);
 
     await waitFor(() => {
-      expect(mockPush).toHaveBeenCalledWith("/");
+      expect(mockPush).toHaveBeenCalledWith("/home");
     });
   });
 
@@ -106,5 +115,29 @@ describe("SignInScreen", () => {
     await user.click(ctaBtn);
     expect(screen.queryByText("Email is required")).not.toBeInTheDocument();
     expect(screen.getByText("Password is required")).toBeInTheDocument();
+  });
+
+  it("shows API error message on invalid credentials", async () => {
+    mockFetch.mockResolvedValueOnce({
+      ok: false,
+      json: async () => ({ error: "Invalid email or password" }),
+    });
+
+    const user = userEvent.setup();
+    render(<SignInScreen />);
+
+    const emailInput = screen.getByPlaceholderText("you@example.com");
+    await user.type(emailInput, "wrong@example.com");
+
+    const passwordInput = document.querySelector("input[type='password']") as HTMLInputElement;
+    await user.type(passwordInput, "wrongpass");
+
+    const ctaBtn = screen.getByRole("button", { name: "Sign In" });
+    await user.click(ctaBtn);
+
+    await waitFor(() => {
+      expect(screen.getByText("Invalid email or password")).toBeInTheDocument();
+    });
+    expect(mockPush).not.toHaveBeenCalled();
   });
 });

@@ -7,7 +7,7 @@
  */
 
 import { describe, it, expect, vi, beforeEach } from "vitest";
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import React from "react";
 import { SignInScreen } from "@/components/auth/sign-in-screen";
@@ -20,8 +20,16 @@ vi.mock("next/navigation", () => ({
   useRouter: () => ({ push: mockPush }),
 }));
 
+const mockFetch = vi.fn();
+
 beforeEach(() => {
   mockPush.mockClear();
+  mockFetch.mockClear();
+  mockFetch.mockResolvedValue({
+    ok: true,
+    json: async () => ({}),
+  });
+  vi.stubGlobal("fetch", mockFetch);
 });
 
 // ─── Navigation chain: sign-in → sign-up ────────────────────────────────────
@@ -66,7 +74,9 @@ describe("Auth flow navigation — sign-in → reset-password → password-sent"
     const cta = screen.getByRole("button", { name: /reset password/i });
     await user.click(cta);
 
-    expect(mockPush).toHaveBeenCalledWith("/auth/password-sent");
+    await waitFor(() => {
+      expect(mockPush).toHaveBeenCalledWith("/auth/password-sent");
+    });
   });
 
   it("password-sent screen dismiss button navigates to /auth/sign-in", async () => {

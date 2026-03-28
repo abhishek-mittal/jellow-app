@@ -1,5 +1,6 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { seedUser } from "@/lib/seed-data";
 import { Button } from "@/components/ui/button";
 import {
@@ -78,6 +79,20 @@ function SettingsRow({
 /* ─── Page ────────────────────────────────────────────────────────── */
 
 export default function ProfilePage() {
+  const router = useRouter();
+
+  /** Calls the sign-out API, then redirects to the sign-in page.
+   * We redirect regardless of API errors: if the server-side cookie clear
+   * fails the middleware will redirect the user back to sign-in anyway. */
+  async function handleSignOut() {
+    try {
+      await fetch("/api/v1/auth/sign-out", { method: "POST" });
+    } catch {
+      // Continue regardless — middleware enforces the guard
+    }
+    router.push("/auth/sign-in");
+  }
+
   return (
     <MotionPage className="min-h-screen">
       {/* ── Gradient Hero with Avatar ── */}
@@ -191,7 +206,12 @@ export default function ProfilePage() {
         {/* ── Sign Out ── */}
         <MotionItem>
           <MotionPress>
-            <Button variant="ghost" size="md" className="w-full text-v-avoid">
+            <Button
+              variant="ghost"
+              size="md"
+              className="w-full text-v-avoid"
+              onClick={handleSignOut}
+            >
               <LogOut size={16} className="mr-2" />
               Sign Out
             </Button>

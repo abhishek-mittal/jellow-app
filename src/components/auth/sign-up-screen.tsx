@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { Plus } from 'lucide-react';
 import { EmailInput, PasswordInput, ConfirmPasswordInput } from '@/components/ui/auth-input';
 import {
@@ -29,16 +30,21 @@ const LogoMark = (
  * Composes AuthShell, AuthHero, three AuthInput fields (email, password,
  * confirm-password), an AuthCTA, and a footer AuthLink.
  * Validates password match on confirm-password blur and on CTA press.
+ * Calls POST /api/v1/auth/sign-up on valid submit and navigates to /home.
  */
 export function SignUpScreen() {
+  const router = useRouter();
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [confirmError, setConfirmError] = useState('');
+  const [submitError, setSubmitError] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
   const passwordsMatch = password === confirmPassword;
   const allFieldsFilled = email.trim() !== '' && password !== '' && confirmPassword !== '';
-  const isCtaDisabled = !allFieldsFilled || !passwordsMatch;
+  const isCtaDisabled = !allFieldsFilled || !passwordsMatch || isLoading;
 
   const handleConfirmBlur = () => {
     if (confirmPassword !== '' && !passwordsMatch) {
@@ -48,13 +54,34 @@ export function SignUpScreen() {
     }
   };
 
-  const handleSignUp = () => {
+  /** Calls the sign-up API and navigates to /home on success. */
+  const handleSignUp = async () => {
     if (!passwordsMatch) {
       setConfirmError(PASSWORD_MISMATCH_ERROR);
       return;
     }
     setConfirmError('');
-    // Stub: real auth wired at integration tier (#43)
+    setSubmitError('');
+    setIsLoading(true);
+
+    try {
+      const res = await fetch('/api/v1/auth/sign-up', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password }),
+      });
+
+      if (res.ok) {
+        router.push('/home');
+      } else {
+        const data = (await res.json()) as { error?: string };
+        setSubmitError(data.error ?? 'Sign up failed');
+      }
+    } catch {
+      setSubmitError('Network error — please try again');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -101,9 +128,16 @@ export function SignUpScreen() {
             onBlur={handleConfirmBlur}
           />
 
+          {submitError && (
+            <p role="alert" className="text-sm text-red-600 text-center">
+              {submitError}
+            </p>
+          )}
+
           <AuthCtaButton
             className="mt-6"
             isDisabled={isCtaDisabled}
+            isLoading={isLoading}
             onClick={handleSignUp}
           >
             Sign Up
