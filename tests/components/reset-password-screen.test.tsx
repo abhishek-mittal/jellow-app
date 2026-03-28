@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { createElement } from "react";
 import { ResetPasswordScreen } from "@/components/auth/reset-password-screen";
@@ -13,8 +13,16 @@ vi.mock("next/navigation", () => ({
   }),
 }));
 
+const mockFetch = vi.fn();
+
 beforeEach(() => {
   mockPush.mockClear();
+  mockFetch.mockClear();
+  mockFetch.mockResolvedValue({
+    ok: true,
+    json: async () => ({ ok: true, method: "email" }),
+  });
+  vi.stubGlobal("fetch", mockFetch);
 });
 
 describe("ResetPasswordScreen", () => {
@@ -127,6 +135,20 @@ describe("ResetPasswordScreen", () => {
       render(createElement(ResetPasswordScreen));
       await user.click(screen.getByRole("button", { name: /go back/i }));
       expect(mockPush).toHaveBeenCalledWith("/auth/sign-in");
+    });
+  });
+
+  describe("CTA navigation", () => {
+    it("navigates to /auth/password-sent after selecting a method and clicking CTA", async () => {
+      const user = userEvent.setup();
+      render(createElement(ResetPasswordScreen));
+      const emailCard = screen.getByText("Send via Email").closest("button")!;
+      await user.click(emailCard);
+      const cta = screen.getByRole("button", { name: /reset password/i });
+      await user.click(cta);
+      await waitFor(() => {
+        expect(mockPush).toHaveBeenCalledWith("/auth/password-sent");
+      });
     });
   });
 });

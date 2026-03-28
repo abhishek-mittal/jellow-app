@@ -59,13 +59,26 @@ export function SignInScreen() {
     return valid;
   }
 
-  /** Stub sign-in handler — real auth wired at integration tier. */
+  /** Calls the sign-in API and navigates to /home on success. */
   async function handleSignIn() {
     if (!validate()) return;
 
     setIsLoading(true);
     try {
-      router.push("/");
+      const res = await fetch("/api/v1/auth/sign-in", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      });
+
+      if (res.ok) {
+        router.push("/home");
+      } else {
+        const data = (await res.json()) as { error?: string };
+        setEmailError(data.error ?? "Sign in failed");
+      }
+    } catch {
+      setEmailError("Network error — please try again");
     } finally {
       setIsLoading(false);
     }

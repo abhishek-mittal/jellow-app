@@ -3,6 +3,12 @@ import { atom } from 'jotai';
 // Example types for user preferences
 export type ThemePreference = 'light' | 'dark' | 'system';
 
+/** Authenticated user shape stored in the auth atom. */
+export type AuthUser = { email: string };
+
+/** Tracks the currently signed-in user, or null when signed out. */
+export const authAtom = atom<AuthUser | null>(null);
+
 interface UserPreferences {
   theme: ThemePreference;
   notificationsEnabled: boolean;

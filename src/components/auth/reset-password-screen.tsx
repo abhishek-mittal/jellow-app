@@ -43,6 +43,7 @@ const RESET_METHODS: ResetMethod[] = [
 export function ResetPasswordScreen() {
   const router = useRouter();
   const [selectedMethod, setSelectedMethod] = useState<ResetMethodVariant | null>(null);
+  const [resetError, setResetError] = useState<string>("");
 
   /** Select the given reset method card. */
   function handleSelectMethod(variant: ResetMethodVariant) {
@@ -50,11 +51,27 @@ export function ResetPasswordScreen() {
   }
 
   /**
-   * Stub: navigates to /auth/password-sent.
-   * Real dispatch logic will be wired at organism/integration level.
+   * Calls POST /api/v1/auth/reset-password then navigates to
+   * /auth/password-sent on success.
    */
-  function handleResetPassword() {
+  async function handleResetPassword() {
     if (!selectedMethod) return;
+    setResetError("");
+    try {
+      const res = await fetch("/api/v1/auth/reset-password", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ method: selectedMethod }),
+      });
+      if (!res.ok) {
+        const data = (await res.json()) as { error?: string };
+        setResetError(data.error ?? "Reset failed — please try again");
+        return;
+      }
+    } catch {
+      setResetError("Network error — please try again");
+      return;
+    }
     router.push("/auth/password-sent");
   }
 
@@ -95,6 +112,11 @@ export function ResetPasswordScreen() {
 
         {/* CTA — disabled until a method is chosen */}
         <div className="mt-auto w-full pt-8">
+          {resetError && (
+            <p role="alert" className="mb-4 text-sm text-red-600 text-center">
+              {resetError}
+            </p>
+          )}
           <AuthCtaButton
             isDisabled={selectedMethod === null}
             onClick={handleResetPassword}
