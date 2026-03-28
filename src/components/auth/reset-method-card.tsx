@@ -14,6 +14,8 @@ export interface ResetMethodCardProps {
   title: string;
   /** Descriptive body text shown below the title. */
   body: string;
+  /** Whether this card is currently selected. */
+  selected?: boolean;
   /** Callback fired when the card is pressed. */
   onClick?: () => void;
   className?: string;
@@ -64,6 +66,7 @@ export function ResetMethodCard({
   variant,
   title,
   body,
+  selected = false,
   onClick,
   className,
 }: ResetMethodCardProps) {
@@ -71,9 +74,11 @@ export function ResetMethodCard({
     <button
       type="button"
       onClick={onClick}
+      aria-pressed={selected}
       className={cn(
         "flex w-full items-center gap-4 rounded-[var(--r-xl)] bg-white p-4 shadow-md",
-        "transition-all duration-200 hover:shadow-lg active:scale-[0.98]",
+        "transition-all duration-150 hover:shadow-lg active:scale-[0.98]",
+        selected ? "ring-2 ring-[#EE7F46]" : "ring-1 ring-transparent",
         className
       )}
     >
