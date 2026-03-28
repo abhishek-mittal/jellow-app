@@ -35,10 +35,41 @@ A comprehensive reference for interaction design, UX psychology, animation patte
 | adobe/react-spectrum | 13k+ | React Aria — accessibility engine |
 | framer/motion | 27k+ | Production animation library |
 | motiondivision/motion | 10k+ | Lightweight animation (successor to Framer Motion) |
+| emilkowalski/sonner | 11k+ | Toast stack choreography, swipe gestures, DX-first API |
+| emilkowalski/vaul | 12k+ | Mobile drawer behavior, momentum gestures, snap points |
 | formkit/auto-animate | 13k+ | Zero-config layout animations |
 | gvergnaud/ts-pattern | 13k+ | Pattern matching for state design |
 | adobe/leonardo | 2k+ | Adaptive color / contrast tool |
 | dequelabs/axe-core | 6k+ | Accessibility testing engine |
+
+## Emil Kowalski Playbook (2026 Update)
+
+For deeper rationale and code snippets, see [Emil Kowalski Reference](./references/emil-kowalski-playbook.md).
+
+### Motion Decision Rules
+
+1. **Start with purpose**: every animation must clarify state, provide feedback, or preserve spatial continuity.
+2. **Check frequency before adding delight**: if an interaction happens dozens of times per day, reduce or remove animation.
+3. **Use speed as a quality metric**: most product UI motion should stay below `300ms`.
+4. **Prefer continuity over spectacle**: animate from where interaction starts (origin-aware transform origins).
+5. **Favor interruptible motion**: for dynamic lists/stacking states, prefer transitions/springs over non-interruptible keyframes.
+6. **Avoid hard pop-in**: do not animate from `scale(0)`; start around `0.93`–`0.97`.
+
+### Practical Defaults (Jellow)
+
+- Press feedback: `scale(0.97)`, `80ms`–`120ms`
+- Menus/tooltips/popovers: `140ms`–`220ms`, enter with strong `ease-out`
+- Page/sheet/modal transitions: `180ms`–`280ms`
+- Repeated keyboard interactions: no animation
+- Subsequent tooltip transitions in same group: no delay, no animation
+
+### Advanced Techniques to Use Intentionally
+
+- `clip-path` reveals/masks for no-layout-shift transitions
+- Layout + color sync fixes using duplicated layers + clipping (tabs/highlight patterns)
+- Pointer capture for gesture continuity when pointer leaves target bounds
+- Velocity-based dismiss (`distance OR velocity`) for natural swipe behavior
+- Pause transient timers (toasts, snackbars) when `document.hidden` is true
 
 ## UX Laws & Principles
 
@@ -321,8 +352,9 @@ Camera → [Scanning animation] → Result card (swipe up for detail)
 1. **Identify the user task** — What is the user trying to accomplish?
 2. **Apply relevant UX laws** — Fitts's, Hick's, Miller's as appropriate
 3. **Choose interaction pattern** — Loading, empty, error states
-4. **Design the motion** — Use the timing/easing tables above
-5. **Check accessibility** — Run through the WCAG checklist
-6. **Validate contrast** — Use the Jellow contrast table
-7. **Add screen reader support** — aria-labels, live regions, landmarks
-8. **Test reduced motion** — Verify `prefers-reduced-motion` fallbacks
+4. **Run frequency audit** — Decide if this should animate, be fast, or stay static
+5. **Design the motion** — Use the timing/easing tables above
+6. **Check accessibility** — Run through the WCAG checklist
+7. **Validate contrast** — Use the Jellow contrast table
+8. **Add screen reader support** — aria-labels, live regions, landmarks
+9. **Test reduced motion** — Verify `prefers-reduced-motion` fallbacks

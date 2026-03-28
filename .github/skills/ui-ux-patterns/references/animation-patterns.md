@@ -1,5 +1,34 @@
 # Animation Patterns — Framer Motion Reference
 
+## Emil-Inspired Motion Heuristics
+
+### Purpose + Frequency Matrix
+
+| Interaction | Frequency | Animate? | Guidance |
+|-------------|-----------|----------|----------|
+| Keyboard command navigation | Very high | Usually no | Keep highlight/state changes instant |
+| List item hover in dense views | High | Minimal | Prefer subtle color change over movement |
+| Primary button press | High | Yes, tiny | `scale(0.97)` on press, <= `120ms` |
+| Drawer/modal open | Medium | Yes | Fast transition, clear spatial origin |
+| Scan result reveal | Low/meaningful | Yes | Heavier choreography acceptable |
+
+### Timing Budget
+
+- Default product UI: `120ms`–`240ms`
+- Hard upper bound for most interactions: `< 300ms`
+- Prefer strong `ease-out` for enter motion
+- Do not start scale animations at `0`; use `0.93`–`0.97`
+
+### Origin-Aware Rule
+
+Use trigger-aware transform origins for popovers/tooltips so movement originates from where the user clicked.
+
+```css
+.popover {
+  transform-origin: var(--radix-popover-content-transform-origin);
+}
+```
+
 ## Layout Animations
 
 ### List Item Enter/Exit (Stagger)
@@ -58,9 +87,9 @@ const item = {
 
 ```tsx
 <motion.button
-  whileTap={{ scale: 0.95 }}
+  whileTap={{ scale: 0.97 }}
   whileHover={{ scale: 1.02 }}
-  transition={{ duration: 0.1 }}
+  transition={{ duration: 0.1, ease: [0.22, 1, 0.36, 1] }}
 />
 ```
 
@@ -215,6 +244,69 @@ function AnimatedNumber({ value }: { value: number }) {
   exit={{ y: 100, opacity: 0 }}
   transition={{ type: "spring", damping: 20, stiffness: 300 }}
 />
+```
+
+### Interruptible Toast Stack (Transition-First)
+
+```tsx
+// Transition-based transforms retarget smoothly as list order changes.
+// This avoids keyframe jumps during rapid enqueue/dequeue.
+<li
+  style={{
+    transform: `translateY(${offsetY}px) scale(${1 - index * 0.05})`,
+    transition: "transform 400ms cubic-bezier(0.22, 1, 0.36, 1)",
+  }}
+/>
+```
+
+### Swipe Dismiss (Distance or Velocity)
+
+```tsx
+const shouldDismiss = Math.abs(offsetY) >= SWIPE_THRESHOLD || Math.abs(velocityY) > 0.11;
+if (shouldDismiss) dismiss();
+```
+
+### Pause Timers On Hidden Tabs
+
+```tsx
+useEffect(() => {
+  const onVisibility = () => setIsHidden(document.hidden);
+  document.addEventListener("visibilitychange", onVisibility);
+  return () => document.removeEventListener("visibilitychange", onVisibility);
+}, []);
+
+useEffect(() => {
+  if (isHidden) pauseToastTimers();
+  else resumeToastTimers();
+}, [isHidden]);
+```
+
+## Clip-Path Techniques
+
+### Reveal Without Layout Shift
+
+```css
+.image-reveal {
+  clip-path: inset(0 0 100% 0);
+  animation: reveal 1s forwards cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+@keyframes reveal {
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+```
+
+### Tab Color + Indicator Sync
+
+```tsx
+// Duplicate layer technique:
+// 1) Base layer = inactive tabs
+// 2) Active-styled duplicate layer clipped to active tab rect
+// 3) Animate clip-path instead of text color transition
+const clip = `inset(0 ${100 - rightPct}% 0 ${leftPct}% round 17px)`;
+activeLayer.style.clipPath = clip;
 ```
 
 ## Celebration & Delight

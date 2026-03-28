@@ -1,0 +1,164 @@
+name: Auto-merge Agent Done into agent-dev
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Trigger: fires when the Copilot agent marks a PR as ready for review.
+# At this point enrich-copilot-pr.yml has already moved the board card to
+# "Agent Done". This workflow takes over and merges the code into agent-dev.
+#
+# Conflict resolution strategy (in order):
+#  1. Merge cleanly — if mergeable, squash directly.
+#  2. Rebase + theirs — rebase PR branch on top of agent-dev, favouring
+#     the agent's changes for all conflicts, then squash merge.
+#  3. Label for human — if rebase still conflicts, add merge-conflict label
+#     and comment with manual steps.
+# ─────────────────────────────────────────────────────────────────────────────
+
+on:
+  pull_request_target:
+    types: [ready_for_review]
+    branches: [agent-dev]
+
+concurrency:
+  group: auto-merge-${{ github.event.pull_request.number }}
+  cancel-in-progress: false
+
+jobs:
+  auto-merge:
+    name: Auto-merge Copilot PR into agent-dev
+    if: github.event.pull_request.user.login == 'copilot-swe-agent[bot]'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+
+    env:
+      GH_TOKEN: ${{ secrets.GH_PROJECT_TOKEN }}
+      OWNER: ${{ github.event.repository.owner.login }}
+      REPO:  ${{ github.event.repository.name }}
+      PR_NUMBER: ${{ github.event.pull_request.number }}
+      PR_BRANCH:  ${{ github.event.pull_request.head.ref }}
+
+    steps:
+      # ── 1. Poll mergeability ────────────────────────────────────────────────
+      # GitHub computes mergeability lazily; give it up to 30 s.
+      - name: Poll mergeability
+        id: check
+        run: |
+          MERGEABLE="unknown"
+          STATE="unknown"
+          for attempt in 1 2 3 4 5 6; do
+            DATA=$(gh api "repos/$OWNER/$REPO/pulls/$PR_NUMBER" \
+              --jq '{mergeable: .mergeable, state: .mergeable_state}')
+            MERGEABLE=$(echo "$DATA" | jq -r '.mergeable')
+            STATE=$(echo "$DATA"    | jq -r '.state')
+            echo "Attempt $attempt — mergeable=$MERGEABLE  state=$STATE"
+            if [[ "$MERGEABLE" == "true" || "$MERGEABLE" == "false" ]]; then
+              break
+            fi
+            sleep 5
+          done
+          {
+            echo "mergeable=$MERGEABLE"
+            echo "state=$STATE"
+          } >> "$GITHUB_OUTPUT"
+
+      # ── 2a. Clean merge ─────────────────────────────────────────────────────
+      - name: Merge (no conflicts)
+        id: merge-clean
+        if: steps.check.outputs.mergeable == 'true'
+        run: |
+          TITLE=$(gh pr view "$PR_NUMBER" \
+            --repo "$OWNER/$REPO" \
+            --json title \
+            --jq '.title')
+          gh pr merge "$PR_NUMBER" \
+            --repo "$OWNER/$REPO" \
+            --squash \
+            --delete-branch \
+            --subject "$TITLE (#$PR_NUMBER) [agent-auto-merge]"
+          echo "outcome=merged" >> "$GITHUB_OUTPUT"
+          echo "✅ Merged PR #$PR_NUMBER into agent-dev"
+
+      # ── 2b. Rebase to resolve conflicts ────────────────────────────────────
+      - name: Resolve conflicts via rebase
+        id: rebase
+        if: steps.check.outputs.mergeable == 'false'
+        run: |
+          git config --global user.name  "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+          git clone \
+            "https://x-access-token:${GH_TOKEN}@github.com/${OWNER}/${REPO}.git" \
+            workspace
+          cd workspace
+
+          git fetch origin "$PR_BRANCH"
+          git fetch origin agent-dev
+
+          # Check out the PR branch and rebase on top of agent-dev.
+          # -X theirs: when a conflict occurs favour the incoming agent changes.
+          git checkout -b "resolve/$PR_NUMBER" "origin/$PR_BRANCH"
+
+          if git rebase "origin/agent-dev" --strategy-option=theirs; then
+            git push origin "HEAD:refs/heads/$PR_BRANCH" --force-with-lease
+            echo "outcome=rebased" >> "$GITHUB_OUTPUT"
+            echo "✅ Rebase succeeded — pushed resolved $PR_BRANCH"
+          else
+            git rebase --abort
+            echo "outcome=blocked" >> "$GITHUB_OUTPUT"
+            echo "⚠️  Rebase failed — escalating to manual review"
+          fi
+
+      # ── 2c. Merge after successful rebase ──────────────────────────────────
+      - name: Merge after successful rebase
+        if: steps.rebase.outputs.outcome == 'rebased'
+        run: |
+          # Give GitHub a moment to recompute mergeability after force push.
+          sleep 8
+          TITLE=$(gh pr view "$PR_NUMBER" \
+            --repo "$OWNER/$REPO" \
+            --json title \
+            --jq '.title')
+          gh pr merge "$PR_NUMBER" \
+            --repo "$OWNER/$REPO" \
+            --squash \
+            --delete-branch \
+            --subject "$TITLE (#$PR_NUMBER) [agent-auto-merge]"
+          echo "✅ Merged PR #$PR_NUMBER after conflict resolution"
+
+      # ── 3. Escalate unresolvable conflicts ─────────────────────────────────
+      - name: Flag conflict — manual review required
+        if: steps.rebase.outputs.outcome == 'blocked'
+        run: |
+          # Create label if it doesn't exist.
+          gh api "repos/$OWNER/$REPO/labels" \
+            --method POST \
+            --field name="merge-conflict" \
+            --field color="d93f0b" \
+            --field description="Auto-merge blocked — manual conflict resolution required" \
+            2>/dev/null || true
+
+          gh pr edit "$PR_NUMBER" \
+            --repo "$OWNER/$REPO" \
+            --add-label "merge-conflict"
+
+          PR_BRANCH_ESCAPED="${{ env.PR_BRANCH }}"
+
+          gh pr comment "$PR_NUMBER" \
+            --repo "$OWNER/$REPO" \
+            --body "## ⚠️ Auto-merge Blocked — Unresolvable Conflicts
+
+Auto-rebase against \`agent-dev\` failed. Manual resolution required.
+
+**Steps to resolve:**
+\`\`\`bash
+git fetch origin
+git checkout $PR_BRANCH_ESCAPED
+git rebase origin/agent-dev
+# Resolve conflicts in your editor, then:
+git add .
+git rebase --continue
+git push origin $PR_BRANCH_ESCAPED --force-with-lease
+\`\`\`
+
+After pushing the resolved branch, re-mark this PR as **Ready for review** to trigger auto-merge again."

@@ -42,6 +42,44 @@ Expert knowledge for building scalable, maintainable design systems — from tok
 | salesforce/theo | 2k+ | Design token transformer |
 | tokens-studio/figma-plugin | 2k+ | Figma ↔ token sync |
 | nextui-org/heroui | 25k+ | React Aria + Tailwind (Jellow's base) |
+| emilkowalski/sonner | 11k+ | Motion quality and DX-driven component API |
+| emilkowalski/vaul | 12k+ | Drawer interaction model and gesture contracts |
+
+## Interaction Quality Contracts (Emil-Informed)
+
+Use these contracts when defining component behavior in your design system APIs.
+
+### Motion Token Baseline
+
+```css
+:root {
+  --motion-duration-press: 100ms;
+  --motion-duration-fast: 160ms;
+  --motion-duration-base: 220ms;
+  --motion-duration-slow: 280ms;
+
+  --motion-ease-enter: cubic-bezier(0.22, 1, 0.36, 1);
+  --motion-ease-exit: cubic-bezier(0.4, 0, 1, 1);
+  --motion-ease-move: cubic-bezier(0.4, 0, 0.2, 1);
+}
+```
+
+### API-Level Rules
+
+- Expose `reduceMotion`-safe variants for every animated primitive.
+- Prefer interruptible transitions for list/stack movement.
+- For gesture components, support distance-or-velocity dismissal.
+- Keep default product interaction timings under `300ms`.
+- For high-frequency interactions, allow `animation="none"` without visual regressions.
+
+### Component Review Checklist
+
+1. Is the animation tied to a clear user goal?
+2. Does it still feel responsive at high usage frequency?
+3. Is origin/continuity preserved (no teleporting)?
+4. Are transitions interruptible during state churn?
+5. Are timers/ephemeral states safe when `document.hidden`?
+6. Is reduced-motion behavior first-class and tested?
 
 ## Token Architecture
 
