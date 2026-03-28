@@ -21,3 +21,5 @@ export type { SocialIconButtonProps } from "./social-icon-button";
 
 export { AuthLink } from "./auth-link";
 export type { AuthLinkProps } from "./auth-link";
+
+export { SignInScreen } from "./sign-in-screen";
