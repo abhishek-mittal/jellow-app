@@ -12,3 +12,12 @@ export type { AuthSubtitleProps } from "./auth-subtitle";
 
 export { AuthBody } from "./auth-body";
 export type { AuthBodyProps } from "./auth-body";
+
+export { AuthCtaButton } from "./auth-cta-button";
+export type { AuthCtaButtonProps } from "./auth-cta-button";
+
+export { SocialIconButton } from "./social-icon-button";
+export type { SocialIconButtonProps } from "./social-icon-button";
+
+export { AuthLink } from "./auth-link";
+export type { AuthLinkProps } from "./auth-link";

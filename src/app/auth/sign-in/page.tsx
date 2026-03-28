@@ -1,11 +1,18 @@
 'use client';
 
 import React, { useState } from 'react';
-import Link from 'next/link';
 import { Input } from '@heroui/input';
-import { Button } from '@heroui/button';
-import { Mail, Lock, Eye, EyeOff, ArrowRight, Instagram, Facebook, Linkedin, Plus } from 'lucide-react';
-import { AuthShell, AuthHero, AuthBody, AuthTitle, AuthSubtitle } from '@/components/auth';
+import { Mail, Lock, Eye, EyeOff, Instagram, Facebook, Linkedin, Plus } from 'lucide-react';
+import {
+  AuthShell,
+  AuthHero,
+  AuthBody,
+  AuthTitle,
+  AuthSubtitle,
+  AuthCtaButton,
+  SocialIconButton,
+  AuthLink,
+} from '@/components/auth';
 
 const HERO_IMAGE =
   'https://images.unsplash.com/photo-1540497077202-7c8a3999166f?q=80&w=1000&auto=format&fit=crop';
@@ -91,49 +98,33 @@ export default function SignInPage() {
           </div>
 
           {/* Sign In Button */}
-          <Button
-            className="w-full h-[60px] bg-[#111111] hover:bg-black text-white rounded-[22px] font-semibold text-[17px] flex items-center justify-center gap-2 mt-6 transition-transform active:scale-[0.98]"
-            endContent={<ArrowRight size={20} strokeWidth={2.5} />}
-          >
+          <AuthCtaButton className="mt-6">
             Sign In
-          </Button>
+          </AuthCtaButton>
 
           {/* Social Logins */}
           <div className="flex justify-center gap-4 pt-4">
-            <Button
-              isIconOnly
-              variant="bordered"
-              className="w-[60px] h-[60px] rounded-[20px] border-slate-200 hover:bg-slate-50 bg-white"
-            >
-              <Instagram size={24} className="text-slate-700" />
-            </Button>
-            <Button
-              isIconOnly
-              variant="bordered"
-              className="w-[60px] h-[60px] rounded-[20px] border-slate-200 hover:bg-slate-50 bg-white"
-            >
-              <Facebook size={24} className="text-slate-700" />
-            </Button>
-            <Button
-              isIconOnly
-              variant="bordered"
-              className="w-[60px] h-[60px] rounded-[20px] border-slate-200 hover:bg-slate-50 bg-white"
-            >
-              <Linkedin size={24} className="text-slate-700" />
-            </Button>
+            <SocialIconButton
+              icon={<Instagram size={24} className="text-slate-700" />}
+              label="Sign in with Instagram"
+            />
+            <SocialIconButton
+              icon={<Facebook size={24} className="text-slate-700" />}
+              label="Sign in with Facebook"
+            />
+            <SocialIconButton
+              icon={<Linkedin size={24} className="text-slate-700" />}
+              label="Sign in with LinkedIn"
+            />
           </div>
 
           {/* Links */}
           <div className="flex flex-col items-center gap-4 pt-6 pb-2">
             <div className="text-[15px] font-medium text-slate-500">
               Don't have an account?{" "}
-              <Link href={"/auth/sign-up" as any} className="text-[#ff6b00] hover:underline cursor-pointer font-semibold">
-                Sign Up.
-              </Link>
+              <AuthLink href="/auth/sign-up">Sign Up.</AuthLink>
             </div>
-            <Link href={"/auth/forgot-password" as any} className="text-[15px] font-semibold text-[#ff6b00] hover:underline">
-              Forgot Password
-            </Link>
+            <AuthLink href="/auth/forgot-password">Forgot Password</AuthLink>
           </div>
         </div>
       </AuthBody>
