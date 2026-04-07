@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import type { Route } from "next";
 import { cn } from "@/lib/utils";
 
 export interface AuthLinkProps {
@@ -18,7 +19,7 @@ export interface AuthLinkProps {
 export function AuthLink({ href, children, className }: AuthLinkProps) {
   return (
     <Link
-      href={href}
+      href={href as Route}
       className={cn(
         "text-[15px] font-semibold text-[#ff6b00] hover:underline",
         className

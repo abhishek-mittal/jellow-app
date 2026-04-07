@@ -208,14 +208,14 @@ export default function ScanPage() {
 
   // ── Camera granted: live viewfinder ──────────────────────────────────────
   return (
-    <div className="relative flex h-dvh flex-col overflow-hidden bg-black">
+    <div className="relative flex h-dvh flex-col overflow-hidden bg-[#0B1A3B]">
       {/* Live camera feed */}
       <video
         ref={videoRef}
         autoPlay
         playsInline
         muted
-        className="h-full w-full object-cover"
+        className="h-full w-full object-cover opacity-60"
         aria-label="Camera viewfinder"
       />
 
@@ -228,7 +228,7 @@ export default function ScanPage() {
       />
 
       {/* Scan / loading button */}
-      <div className="absolute bottom-24 left-0 right-0 z-20 flex flex-col items-center gap-3 px-6">
+      <div className="absolute bottom-10 left-0 right-0 z-20 flex flex-col items-center gap-3 px-6">
         {processingError && (
           <motion.p
             initial={{ opacity: 0, y: 10 }}
@@ -251,7 +251,7 @@ export default function ScanPage() {
               className="w-full max-w-xs"
             >
               <MotionPress>
-                <Button size="lg" onClick={startScan} className="w-full shadow-orange">
+                <Button size="lg" onClick={startScan} className="w-full bg-[#D4A843] text-white hover:bg-[#C49A3B] shadow-[0_4px_20px_rgba(212,168,67,0.3)]">
                   Scan Barcode
                 </Button>
               </MotionPress>
@@ -263,7 +263,7 @@ export default function ScanPage() {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}
               transition={spring.gentle}
-              className="flex items-center gap-2.5 rounded-full bg-black/60 px-6 py-3 text-sm font-medium text-white backdrop-blur-md"
+              className="flex items-center gap-2.5 rounded-full bg-white/10 px-6 py-3 text-sm font-medium text-white backdrop-blur-md"
             >
               <span className="inline-block h-3 w-3 animate-spin rounded-full border-2 border-white/40 border-t-white" />
               Processing…

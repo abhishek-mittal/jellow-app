@@ -1,10 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState, type ChangeEvent } from "react";
 import { Button } from "@/components/ui/button";
-import { UploadZone, type UploadStatus } from "@/components/prescription/upload-zone";
 import { cn } from "@/lib/utils";
-import { Search, AlertTriangle, ShieldAlert, Lightbulb } from "lucide-react";
+import { AlertTriangle, ShieldAlert, Lightbulb, Search } from "lucide-react";
 
 /* ------------------------------------------------------------------ */
 /*  Mock data                                                           */
@@ -79,6 +78,7 @@ async function mockProcessPrescription(): Promise<readonly Medication[]> {
 type PageStatus = "idle" | "uploading" | "processing" | "done" | "error";
 
 export default function PrescriptionPage() {
+  const inputRef = useRef<HTMLInputElement>(null);
   const [status, setStatus] = useState<PageStatus>("idle");
   const [preview, setPreview] = useState<string | undefined>(undefined);
   const [medications, setMedications] = useState<readonly Medication[]>([]);
@@ -125,55 +125,116 @@ export default function PrescriptionPage() {
     );
   };
 
-  const uploadStatus: UploadStatus = status as UploadStatus;
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    const maxSizeMB = 10;
+    if (file.size > maxSizeMB * 1024 * 1024) {
+      e.target.value = "";
+      handleSizeError(
+        Math.round((file.size / (1024 * 1024)) * 10) / 10,
+        maxSizeMB
+      );
+      return;
+    }
+    handleFileSelect(file);
+    e.target.value = "";
+  };
 
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen flex-col bg-gradient-to-b from-[#FFF5EC] to-[#F8F9FA]">
       {/* ── Header ── */}
-      <header className="sticky top-0 z-10 border-b border-black/[0.04] bg-white/95 px-5 py-3 backdrop-blur-sm">
-        <h1 className="font-[var(--font-heading)] text-xl font-semibold text-s-dark-gray">Prescription Upload</h1>
-        <p className="text-sm text-s-dark-gray">
-          Upload a photo to get personalised dietary advice
-        </p>
+      <header className="sticky top-0 z-10 bg-transparent px-5 pt-[calc(env(safe-area-inset-top,24px)+12px)] pb-4">
+        <h1 className="text-center font-[var(--font-heading)] text-xl font-semibold text-s-dark-gray">
+          Upload Prescription
+        </h1>
       </header>
 
-      <div className="flex-1 space-y-5 overflow-y-auto px-5 pt-4 pb-28">
-        {/* ── Upload zone ── */}
-        <UploadZone
-          onFileSelect={handleFileSelect}
-          onSizeError={handleSizeError}
-          accept="image/*"
-          maxSizeMB={10}
-          preview={preview}
-          status={uploadStatus}
-          onRemove={handleRemove}
-        />
+      <div className="flex-1 space-y-6 overflow-y-auto px-5 pt-2 pb-28">
+        {/* ── Idle: card-based upload ── */}
+        {status === "idle" && (
+          <>
+            {/* Hero illustration */}
+            <div className="flex flex-col items-center gap-3 pt-4">
+              <div className="flex h-20 w-20 items-center justify-center rounded-full bg-pink-100 text-[36px]">
+                💊
+              </div>
+              <p className="text-center text-sm text-gray-500 max-w-[260px] leading-relaxed">
+                Take a photo of your prescription and we&apos;ll track your medications
+              </p>
+            </div>
 
-        {/* ── Size error banner ── */}
-        {sizeError && (
-          <div className="rounded-[var(--r-lg)] border border-v-caution bg-v-caution-bg p-4 text-center">
-            <p className="flex items-center justify-center gap-2 text-sm font-medium text-v-caution">
-              <AlertTriangle size={16} /> {sizeError}
-            </p>
-          </div>
-        )}
+            {/* Take Photo card */}
+            <button
+              onClick={() => {
+                if (inputRef.current) {
+                  inputRef.current.setAttribute("capture", "environment");
+                  inputRef.current.click();
+                }
+              }}
+              className="flex w-full items-center gap-4 rounded-[20px] bg-white p-4 shadow-sm transition-shadow hover:shadow-md"
+            >
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-sky-100 text-[22px]">
+                📸
+              </div>
+              <div className="flex-1 text-left">
+                <p className="text-[15px] font-semibold text-gray-900">Take Photo</p>
+                <p className="text-[12px] text-gray-400 mt-0.5">Use camera to capture prescription</p>
+              </div>
+              <span className="text-gray-300">→</span>
+            </button>
 
-        {/* ── Processing banner ── */}
-        {status === "processing" && (
-          <div className="rounded-[var(--r-lg)] bg-s-orange/20 p-4 text-center">
-            <p className="flex items-center justify-center gap-2 text-sm font-medium text-s-orange">
-              <Search size={16} className="animate-pulse" /> Analyzing your prescription…
-            </p>
-          </div>
-        )}
+            {/* From Gallery card */}
+            <button
+              onClick={() => {
+                if (inputRef.current) {
+                  inputRef.current.removeAttribute("capture");
+                  inputRef.current.click();
+                }
+              }}
+              className="flex w-full items-center gap-4 rounded-[20px] bg-white p-4 shadow-sm transition-shadow hover:shadow-md"
+            >
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-amber-100 text-[22px]">
+                🖼️
+              </div>
+              <div className="flex-1 text-left">
+                <p className="text-[15px] font-semibold text-gray-900">From Gallery</p>
+                <p className="text-[12px] text-gray-400 mt-0.5">Select from your photo library</p>
+              </div>
+              <span className="text-gray-300">→</span>
+            </button>
 
-        {/* ── Error banner ── */}
-        {status === "error" && (
-          <div className="rounded-[var(--r-lg)] border border-v-avoid bg-v-avoid-bg p-4 text-center">
-            <p className="flex items-center justify-center gap-2 text-sm font-medium text-v-avoid">
-              <AlertTriangle size={16} /> Could not process the image. Please try again with a clearer photo.
-            </p>
-          </div>
+            {/* Hidden file input */}
+            <input
+              ref={inputRef}
+              type="file"
+              accept="image/*"
+              className="sr-only"
+              onChange={handleInputChange}
+              aria-hidden="true"
+              tabIndex={-1}
+            />
+
+            {/* Tips section */}
+            <section>
+              <h3 className="text-[14px] font-semibold text-gray-800 mb-2 flex items-center gap-1.5">
+                🪄 Tips for a clear scan
+              </h3>
+              <ul className="space-y-1.5 text-[13px] text-gray-500">
+                <li>• Make sure prescription is flat and well-lit</li>
+                <li>• Include all medication names visible</li>
+                <li>• Avoid shadows and glare</li>
+              </ul>
+            </section>
+
+            {/* Encryption badge */}
+            <div className="flex items-center justify-center gap-2 rounded-[16px] bg-[#E8E4F0] py-3 px-4">
+              <span className="text-[16px]">🔒</span>
+              <p className="text-[13px] font-medium text-gray-600">
+                Your data is encrypted and secure
+              </p>
+            </div>
+          </>
         )}
 
         {/* ── Results ── */}
@@ -264,12 +325,31 @@ export default function PrescriptionPage() {
           </>
         )}
 
-        {/* ── Empty-state hint ── */}
-        {status === "idle" && (
-          <p className="text-center text-sm text-s-dark-gray">
-            Tap the zone above to photograph or choose an image of your
-            prescription
-          </p>
+        {/* ── Size error banner ── */}
+        {sizeError && (
+          <div className="rounded-[var(--r-lg)] border border-v-caution bg-v-caution-bg p-4 text-center">
+            <p className="flex items-center justify-center gap-2 text-sm font-medium text-v-caution">
+              <AlertTriangle size={16} /> {sizeError}
+            </p>
+          </div>
+        )}
+
+        {/* ── Processing banner ── */}
+        {status === "processing" && (
+          <div className="rounded-[var(--r-lg)] bg-s-orange/20 p-4 text-center">
+            <p className="flex items-center justify-center gap-2 text-sm font-medium text-s-orange">
+              <Search size={16} className="animate-pulse" /> Analyzing your prescription…
+            </p>
+          </div>
+        )}
+
+        {/* ── Error banner ── */}
+        {status === "error" && (
+          <div className="rounded-[var(--r-lg)] border border-v-avoid bg-v-avoid-bg p-4 text-center">
+            <p className="flex items-center justify-center gap-2 text-sm font-medium text-v-avoid">
+              <AlertTriangle size={16} /> Could not process. Try a clearer photo.
+            </p>
+          </div>
         )}
       </div>
     </div>

@@ -1,206 +1,236 @@
 "use client";
 
-import { seedUser } from "@/lib/seed-data";
-import { Button } from "@/components/ui/button";
-import {
-  Camera,
-  Bell,
-  Shield,
-  Info,
-  ChevronRight,
-  LogOut,
-  Heart,
-  Utensils,
-  Target,
-  Sparkles,
-} from "lucide-react";
+import type { ReactNode } from "react";
+import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import {
-  MotionPage,
-  MotionItem,
-  MotionPress,
-  spring,
-  staggerContainer,
-  fadeInUp,
-} from "@/components/motion";
+  Calendar,
+  ChevronDown,
+  Droplet,
+  MapPin,
+  Pencil,
+  Settings,
+  Sparkles,
+  User,
+  Weight,
+} from "lucide-react";
+import { MotionItem, MotionPage, spring } from "@/components/motion";
 
-/* ─── Helper rows ─────────────────────────────────────────────────── */
+type WeeklyScore = {
+  day: string;
+  value: number;
+};
 
-function PreferenceRow({
+const weeklyScores: WeeklyScore[] = [
+  { day: "Mon", value: 75 },
+  { day: "Tue", value: 95 },
+  { day: "Wed", value: 82 },
+  { day: "Thu", value: 75 },
+  { day: "Fri", value: 90 },
+  { day: "Sat", value: 81 },
+  { day: "Sun", value: 94 },
+];
+
+function ScoreChart() {
+  const min = 60;
+  const max = 100;
+
+  return (
+    <div className="rounded-3xl bg-[#ECECEE] p-4 shadow-[0_1px_3px_rgba(0,0,0,0.04)]">
+      <div className="mb-5 flex items-center justify-between">
+        <div className="flex items-center gap-2.5">
+          <span className="text-s-orange">
+            <Sparkles size={18} fill="currentColor" strokeWidth={1.8} />
+          </span>
+          <p className="font-heading text-xl font-bold text-s-dark-gray">Jellow Score</p>
+        </div>
+        <button className="flex items-center gap-2 rounded-full bg-white px-3 py-1.5 text-sm font-semibold text-s-dark-gray">
+          <Calendar size={14} />
+          Weekly
+          <ChevronDown size={14} />
+        </button>
+      </div>
+
+      <div className="relative h-60 rounded-3xl bg-[#ECECEE] px-4 pb-4 pt-2">
+        {[60, 70, 80, 90, 100].map((line) => (
+          <div
+            key={line}
+            className="pointer-events-none absolute left-0 right-0 border-t border-[#D4D5D9]"
+            style={{ top: `${100 - ((line - min) / (max - min)) * 85}%` }}
+          >
+            <span className="absolute -left-1 -translate-x-full -translate-y-1/2 text-[11px] font-semibold text-[#B3B5BD]">
+              {line}
+            </span>
+          </div>
+        ))}
+
+        <div className="absolute bottom-4 left-3 right-3 flex items-end justify-between gap-2">
+          {weeklyScores.map((item, index) => {
+            const isSelected = index === 1;
+            const barHeight = `${Math.max(((item.value - min) / (max - min)) * 170, 34)}px`;
+
+            return (
+              <div key={item.day} className="flex flex-1 flex-col items-center gap-2">
+                <div className="relative flex w-full items-end justify-center" style={{ height: 176 }}>
+                  {isSelected ? (
+                    <>
+                      <div className="absolute -top-1 rounded-2xl bg-black px-3 py-1 text-xs font-bold text-white">
+                        {item.value}
+                        <span className="absolute left-1/2 top-full h-0 w-0 -translate-x-1/2 border-l-[6px] border-r-[6px] border-t-[7px] border-l-transparent border-r-transparent border-t-black" />
+                      </div>
+                      <motion.div
+                        initial={{ height: 0 }}
+                        animate={{ height: barHeight }}
+                        transition={{ delay: 0.1, ...spring.gentle }}
+                        className="w-5.5 rounded-full bg-black"
+                      />
+                    </>
+                  ) : (
+                    <motion.div
+                      initial={{ height: 0 }}
+                      animate={{ height: barHeight }}
+                      transition={{ delay: 0.1 + index * 0.03, ...spring.gentle }}
+                      className="w-5.5 rounded-full bg-[#D5D6DA]"
+                    />
+                  )}
+                </div>
+                <span className="text-[11px] font-semibold text-[#BABCC3]">{item.day}</span>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function OtherInformationCard({
   icon,
-  label,
   value,
-}: {
-  icon: React.ReactNode;
-  label: string;
-  value: string;
-}) {
-  return (
-    <MotionPress className="block w-full">
-      <div className="flex items-center gap-3 rounded-[var(--r-xl)] bg-white p-3 shadow-md">
-        <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-[var(--r-lg)] bg-s-orange/20 text-s-orange">
-          {icon}
-        </div>
-        <div className="min-w-0 flex-1">
-          <p className="text-xs font-medium text-s-dark-gray">{label}</p>
-          <p className="text-sm font-bold text-s-dark-gray">{value}</p>
-        </div>
-        <ChevronRight size={16} className="shrink-0 text-s-dark-gray" />
-      </div>
-    </MotionPress>
-  );
-}
-
-function SettingsRow({
-  icon,
+  unit,
   label,
-  isLast,
+  iconColor,
 }: {
-  icon: React.ReactNode;
+  icon: ReactNode;
+  value: number;
+  unit: string;
   label: string;
-  isLast?: boolean;
+  iconColor: string;
 }) {
   return (
-    <MotionPress className="block w-full">
-      <div
-        className={`flex w-full items-center gap-3 p-4${
-          isLast ? "" : " border-b border-black/[0.04]"
-        }`}
-      >
-        <span className="text-s-dark-gray">{icon}</span>
-        <span className="flex-1 text-sm font-medium text-s-dark-gray">{label}</span>
-        <ChevronRight size={16} className="text-s-dark-gray" />
-      </div>
-    </MotionPress>
+    <div className="flex-1 rounded-3xl bg-[#ECECEE] p-3 shadow-[0_1px_3px_rgba(0,0,0,0.04)]">
+      <span className="mb-3 inline-flex" style={{ color: iconColor }}>
+        {icon}
+      </span>
+      <p className="font-heading text-[42px] leading-[0.95] text-s-dark-gray">
+        <span className="font-extrabold">{value}</span>
+        <span className="ml-1 text-[22px] font-semibold text-s-dark-gray/75">{unit}</span>
+      </p>
+      <p className="mt-2 text-sm font-semibold text-s-dark-gray/75">{label}</p>
+    </div>
   );
 }
-
-/* ─── Page ────────────────────────────────────────────────────────── */
 
 export default function ProfilePage() {
+  const router = useRouter();
+
   return (
     <MotionPage className="min-h-screen">
-      {/* ── Gradient Hero with Avatar ── */}
       <MotionItem>
-        <div className="gradient-hero relative overflow-hidden rounded-b-[var(--r-2xl)] px-5 pb-10 pt-12">
-          <div className="pointer-events-none absolute -right-8 -top-8 h-32 w-32 rounded-full bg-white/10" />
-          <div className="pointer-events-none absolute -left-4 bottom-4 h-20 w-20 rounded-full bg-white/5" />
+        <section className="overflow-hidden rounded-b-[40px] bg-s-gray pb-5">
+          <div className="relative h-57.5 overflow-hidden rounded-b-[40px]">
+            <img
+              src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1400&q=80"
+              alt="Gym equipment cover"
+              className="h-full w-full object-cover"
+            />
 
-          <div className="relative flex flex-col items-center text-center">
-            <motion.div
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={spring.bouncy}
-              className="relative"
+            <div className="absolute inset-0 bg-black/35" />
+
+            <button
+              aria-label="Edit profile"
+              onClick={() => router.push("/profile/personal-information")}
+              className="absolute left-4 top-1/2 flex h-15 w-15 -translate-y-1/2 items-center justify-center rounded-[22px] bg-white/35 text-white backdrop-blur-sm"
             >
-              <div className="flex h-24 w-24 items-center justify-center rounded-full border-4 border-white/30 bg-white/20 font-[var(--font-heading)] text-3xl font-bold text-white">
-                {seedUser.name.charAt(0)}
-              </div>
-              <button
-                className="absolute -bottom-1 -right-1 flex h-8 w-8 items-center justify-center rounded-full border-2 border-white/30 bg-white text-s-dark-gray shadow-sm"
-                aria-label="Change photo"
-              >
-                <Camera size={14} />
-              </button>
-            </motion.div>
-            <motion.h1
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, ...spring.gentle }}
-              className="mt-4 font-[var(--font-heading)] text-xl font-bold text-white"
+              <Pencil size={24} />
+            </button>
+
+            <button
+              aria-label="Open profile settings"
+              onClick={() => router.push("/profile/account-settings")}
+              className="absolute right-4 top-1/2 flex h-15 w-15 -translate-y-1/2 items-center justify-center rounded-[22px] bg-white/35 text-white backdrop-blur-sm"
             >
-              {seedUser.name}
-            </motion.h1>
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.3 }}
-              className="text-sm text-white/60"
-            >
-              Member since 2026
-            </motion.p>
+              <Settings size={24} />
+            </button>
           </div>
-        </div>
+
+          <div className="relative -mt-13.5 flex flex-col items-center px-5 text-center">
+            <motion.div
+              initial={{ scale: 0.92, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={spring.gentle}
+              className="h-27 w-27 overflow-hidden rounded-full border-[6px] border-s-gray bg-white shadow-md"
+            >
+              <img
+                src="https://i.pravatar.cc/220?img=47"
+                alt="Makise Kurisu"
+                className="h-full w-full object-cover"
+              />
+            </motion.div>
+
+            <h1 className="mt-4 font-heading text-[46px] font-bold leading-none text-s-black">
+              Makise Kurisu
+            </h1>
+
+            <div className="mt-3 flex items-center gap-2 text-lg font-semibold text-s-dark-gray/70">
+              <span className="inline-flex items-center gap-1.5">
+                <MapPin size={18} />
+                Tokyo, Japan
+              </span>
+              <span className="h-1.5 w-1.5 rounded-full bg-s-dark-gray/35" />
+              <span className="inline-flex items-center gap-1.5">
+                <User size={18} />
+                Basic Member
+              </span>
+            </div>
+          </div>
+        </section>
       </MotionItem>
 
-      <div className="space-y-5 px-5 pt-5 pb-6">
-        {/* ── Points + Stats card ── */}
+      <div className="space-y-5 px-5 pb-6 pt-4">
         <MotionItem>
-          <div className="rounded-[var(--r-xl)] bg-white p-4 shadow-md">
-            <div className="flex items-center justify-between">
-              <div>
-                <div className="flex items-center gap-1.5">
-                  <Sparkles size={14} className="text-s-orange" />
-                  <p className="text-xs font-medium text-s-dark-gray">Jelly Points</p>
-                </div>
-                <p className="font-[var(--font-heading)] text-2xl font-bold text-s-orange">
-                  {seedUser.jellyPoints.toLocaleString()}
-                </p>
-              </div>
-              <motion.div
-                variants={staggerContainer}
-                initial="hidden"
-                animate="visible"
-                className="flex gap-6 text-center"
-              >
-                {[
-                  { value: seedUser.totalScans, label: "Scans" },
-                  { value: seedUser.streakDays, label: "Streak" },
-                  { value: seedUser.badges.length, label: "Badges" },
-                ].map((stat) => (
-                  <motion.div key={stat.label} variants={fadeInUp} transition={spring.gentle}>
-                    <p className="font-[var(--font-heading)] text-lg font-bold text-s-dark-gray">
-                      {stat.value}
-                    </p>
-                    <p className="text-xs font-medium text-s-dark-gray">{stat.label}</p>
-                  </motion.div>
-                ))}
-              </motion.div>
-            </div>
-          </div>
+          <ScoreChart />
         </MotionItem>
 
-        {/* ── Dietary Preferences ── */}
         <MotionItem>
           <section>
-            <h2 className="mb-3 font-[var(--font-heading)] text-base font-bold text-s-dark-gray">
-              My Preferences
+            <h2 className="mb-3 px-1 font-heading text-xl font-bold text-s-dark-gray">
+              Other Information
             </h2>
-            <div className="space-y-2">
-              <PreferenceRow icon={<Utensils size={16} />} label="Diet" value="Omnivore" />
-              <PreferenceRow icon={<Heart size={16} />} label="Allergies" value="None set" />
-              <PreferenceRow icon={<Target size={16} />} label="Goals" value="General Wellness" />
+            <div className="grid grid-cols-3 gap-3">
+              <OtherInformationCard
+                icon={<Sparkles size={20} fill="currentColor" strokeWidth={1.8} />}
+                value={17}
+                unit="yr"
+                label="Current Age"
+                iconColor="#EF4444"
+              />
+              <OtherInformationCard
+                icon={<Weight size={20} />}
+                value={68}
+                unit="kg"
+                label="Weight"
+                iconColor="#84CC16"
+              />
+              <OtherInformationCard
+                icon={<Droplet size={20} fill="currentColor" strokeWidth={1.8} />}
+                value={978}
+                unit="kcal"
+                label="Daily Intake"
+                iconColor="#2563EB"
+              />
             </div>
           </section>
-        </MotionItem>
-
-        {/* ── Settings ── */}
-        <MotionItem>
-          <section>
-            <h2 className="mb-3 font-[var(--font-heading)] text-base font-bold text-s-dark-gray">
-              Settings
-            </h2>
-            <div className="overflow-hidden rounded-[var(--r-xl)] bg-white shadow-md">
-              <SettingsRow icon={<Bell size={16} />} label="Notifications" />
-              <SettingsRow icon={<Shield size={16} />} label="Privacy" />
-              <SettingsRow icon={<Info size={16} />} label="About Jellow" isLast />
-            </div>
-          </section>
-        </MotionItem>
-
-        {/* ── Sign Out ── */}
-        <MotionItem>
-          <MotionPress>
-            <Button variant="ghost" size="md" className="w-full text-v-avoid">
-              <LogOut size={16} className="mr-2" />
-              Sign Out
-            </Button>
-          </MotionPress>
-        </MotionItem>
-
-        {/* ── Version ── */}
-        <MotionItem>
-          <p className="text-center text-xs text-s-dark-gray/60">Jellow v0.1.0 (alpha)</p>
         </MotionItem>
       </div>
     </MotionPage>

@@ -6,13 +6,13 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { Plus } from "lucide-react";
 import { spring } from "@/components/motion";
-import { IconHome, IconBot, IconNews, IconUser } from "@/components/icons/nav-icons";
+import { IconHome, IconTrophy, IconPill, IconUser } from "@/components/icons/nav-icons";
 
 const navItems = [
   { href: "/home" as const, label: "Home", Icon: IconHome },
-  { href: "/ai" as const, label: "sandow AI", Icon: IconBot },
+  { href: "/rewards" as const, label: "Rewards", Icon: IconTrophy },
   { href: "/scan" as const, label: "", Icon: Plus, isAction: true },
-  { href: "/resources" as const, label: "Resources", Icon: IconNews },
+  { href: "/prescription" as const, label: "Meds", Icon: IconPill },
   { href: "/profile" as const, label: "Profile", Icon: IconUser },
 ];
 
