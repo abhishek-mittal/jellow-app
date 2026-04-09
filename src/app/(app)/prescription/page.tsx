@@ -3,7 +3,7 @@
 import { useRef, useState, type ChangeEvent } from "react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { AlertTriangle, ShieldAlert, Lightbulb, Search } from "lucide-react";
+import { AlertTriangle, ShieldAlert, Lightbulb, Search, ChevronRight } from "lucide-react";
 
 /* ------------------------------------------------------------------ */
 /*  Mock data                                                           */
@@ -142,24 +142,24 @@ export default function PrescriptionPage() {
   };
 
   return (
-    <div className="flex min-h-screen flex-col bg-gradient-to-b from-[#FFF5EC] to-[#F8F9FA]">
+    <div className="flex min-h-screen flex-col bg-s-gray">
       {/* ── Header ── */}
-      <header className="sticky top-0 z-10 bg-transparent px-5 pt-[calc(env(safe-area-inset-top,24px)+12px)] pb-4">
-        <h1 className="text-center font-[var(--font-heading)] text-xl font-semibold text-s-dark-gray">
+      <header className="sticky top-0 z-10 bg-s-gray px-5 pt-[calc(env(safe-area-inset-top,24px)+12px)] pb-4">
+        <h1 className="font-heading text-[28px] font-extrabold text-s-dark-gray">
           Upload Prescription
         </h1>
       </header>
 
-      <div className="flex-1 space-y-6 overflow-y-auto px-5 pt-2 pb-28">
+      <div className="flex-1 space-y-5 overflow-y-auto px-5 pt-2 pb-28">
         {/* ── Idle: card-based upload ── */}
         {status === "idle" && (
           <>
             {/* Hero illustration */}
-            <div className="flex flex-col items-center gap-3 pt-4">
-              <div className="flex h-20 w-20 items-center justify-center rounded-full bg-pink-100 text-[36px]">
+            <div className="flex flex-col items-center gap-3 pt-2">
+              <div className="flex h-16 w-16 items-center justify-center rounded-[var(--r-md)] bg-s-orange/10 text-[32px]">
                 💊
               </div>
-              <p className="text-center text-sm text-gray-500 max-w-[260px] leading-relaxed">
+              <p className="text-center text-sm text-nav-inactive max-w-[260px] leading-relaxed">
                 Take a photo of your prescription and we&apos;ll track your medications
               </p>
             </div>
@@ -172,16 +172,16 @@ export default function PrescriptionPage() {
                   inputRef.current.click();
                 }
               }}
-              className="flex w-full items-center gap-4 rounded-[20px] bg-white p-4 shadow-sm transition-shadow hover:shadow-md"
+              className="flex w-full items-center gap-4 rounded-[var(--r-xl)] bg-surface-card p-4 shadow-sm transition-shadow hover:shadow-md"
             >
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-sky-100 text-[22px]">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[var(--r-md)] bg-accent-blue/10 text-[22px]">
                 📸
               </div>
               <div className="flex-1 text-left">
-                <p className="text-[15px] font-semibold text-gray-900">Take Photo</p>
-                <p className="text-[12px] text-gray-400 mt-0.5">Use camera to capture prescription</p>
+                <p className="text-[15px] font-semibold text-s-dark-gray">Take Photo</p>
+                <p className="text-[12px] text-nav-inactive mt-0.5">Use camera to capture prescription</p>
               </div>
-              <span className="text-gray-300">→</span>
+              <ChevronRight size={18} className="text-nav-inactive" />
             </button>
 
             {/* From Gallery card */}
@@ -192,16 +192,16 @@ export default function PrescriptionPage() {
                   inputRef.current.click();
                 }
               }}
-              className="flex w-full items-center gap-4 rounded-[20px] bg-white p-4 shadow-sm transition-shadow hover:shadow-md"
+              className="flex w-full items-center gap-4 rounded-[var(--r-xl)] bg-surface-card p-4 shadow-sm transition-shadow hover:shadow-md"
             >
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-amber-100 text-[22px]">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[var(--r-md)] bg-s-orange/10 text-[22px]">
                 🖼️
               </div>
               <div className="flex-1 text-left">
-                <p className="text-[15px] font-semibold text-gray-900">From Gallery</p>
-                <p className="text-[12px] text-gray-400 mt-0.5">Select from your photo library</p>
+                <p className="text-[15px] font-semibold text-s-dark-gray">From Gallery</p>
+                <p className="text-[12px] text-nav-inactive mt-0.5">Select from your photo library</p>
               </div>
-              <span className="text-gray-300">→</span>
+              <ChevronRight size={18} className="text-nav-inactive" />
             </button>
 
             {/* Hidden file input */}
@@ -216,11 +216,11 @@ export default function PrescriptionPage() {
             />
 
             {/* Tips section */}
-            <section>
-              <h3 className="text-[14px] font-semibold text-gray-800 mb-2 flex items-center gap-1.5">
+            <section className="rounded-[var(--r-xl)] bg-surface-card p-4 shadow-sm">
+              <h3 className="text-[14px] font-semibold text-s-dark-gray mb-2 flex items-center gap-1.5">
                 🪄 Tips for a clear scan
               </h3>
-              <ul className="space-y-1.5 text-[13px] text-gray-500">
+              <ul className="space-y-1.5 text-[13px] text-nav-inactive">
                 <li>• Make sure prescription is flat and well-lit</li>
                 <li>• Include all medication names visible</li>
                 <li>• Avoid shadows and glare</li>
@@ -228,9 +228,9 @@ export default function PrescriptionPage() {
             </section>
 
             {/* Encryption badge */}
-            <div className="flex items-center justify-center gap-2 rounded-[16px] bg-[#E8E4F0] py-3 px-4">
+            <div className="flex items-center justify-center gap-2 rounded-[var(--r-xl)] bg-surface-card py-3 px-4 shadow-sm">
               <span className="text-[16px]">🔒</span>
-              <p className="text-[13px] font-medium text-gray-600">
+              <p className="text-[13px] font-medium text-nav-inactive">
                 Your data is encrypted and secure
               </p>
             </div>
@@ -242,14 +242,14 @@ export default function PrescriptionPage() {
           <>
             {/* Extracted medications */}
             <section>
-              <h2 className="mb-3 font-[var(--font-heading)] text-base font-semibold text-s-dark-gray">
+              <h2 className="mb-3 font-heading text-base font-semibold text-s-dark-gray">
                 Extracted Medications
               </h2>
               <ul className="space-y-2">
                 {medications.map((med) => (
                   <li
                     key={med.name}
-                    className="rounded-[var(--r-lg)] bg-white p-3 shadow-md"
+                    className="rounded-[var(--r-xl)] bg-surface-card p-4 shadow-sm"
                   >
                     <div className="flex items-center justify-between">
                       <span className="font-medium text-s-dark-gray">
@@ -267,7 +267,7 @@ export default function PrescriptionPage() {
 
             {/* Dietary recommendations */}
             <section>
-              <h2 className="mb-3 font-[var(--font-heading)] text-base font-semibold text-s-dark-gray">
+              <h2 className="mb-3 font-heading text-base font-semibold text-s-dark-gray">
                 Dietary Recommendations
               </h2>
               <ul className="space-y-2">
@@ -318,7 +318,7 @@ export default function PrescriptionPage() {
             </Button>
 
             {/* Privacy notice */}
-            <p className="rounded-[var(--r-lg)] bg-gray-200/40 px-3 py-2.5 text-center text-xs text-s-dark-gray">
+            <p className="rounded-[var(--r-lg)] bg-surface-divider px-3 py-2.5 text-center text-xs text-s-dark-gray">
               Your prescription data is handled securely and never sold or
               shared with third parties. Review our privacy policy for details.
             </p>

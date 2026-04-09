@@ -2,28 +2,24 @@ import { describe, it, expect } from "vitest";
 import tokens from "@/config/design-tokens.json";
 
 describe("design-tokens.json", () => {
-  it("has Penpot verdict colors", () => {
-    expect(tokens.colors.verdict.green).toBe("#22C55E");
-    expect(tokens.colors.verdict.yellow).toBe("#EAB308");
-    expect(tokens.colors.verdict.red).toBe("#EF4444");
+  it("has verdict colors", () => {
+    expect(tokens.colors.verdict.excellent).toBe("#10B981");
+    expect(tokens.colors.verdict.good).toBe("#3B82F6");
+    expect(tokens.colors.verdict.caution).toBe("#F59E0B");
+    expect(tokens.colors.verdict.avoid).toBe("#EF4444");
   });
 
-  it("has background color", () => {
-    expect(tokens.colors.background).toBe("#FFFBF0");
+  it("has brand colors", () => {
+    expect(tokens.colors.brand.orange).toBe("#FF6B00");
+    expect(tokens.colors.brand.blue).toBe("#3B82F6");
   });
 
-  it("has full gray scale (50–900)", () => {
-    const gray = tokens.colors.gray;
-    expect(gray["50"]).toBeDefined();
-    expect(gray["100"]).toBeDefined();
-    expect(gray["200"]).toBeDefined();
-    expect(gray["300"]).toBeDefined();
-    expect(gray["400"]).toBeDefined();
-    expect(gray["500"]).toBeDefined();
-    expect(gray["600"]).toBeDefined();
-    expect(gray["700"]).toBeDefined();
-    expect(gray["800"]).toBeDefined();
-    expect(gray["900"]).toBeDefined();
+  it("has grayscale tokens", () => {
+    const gs = tokens.colors.grayscale;
+    expect(gs.black).toBe("#111111");
+    expect(gs.darkGray).toBe("#2D2D2D");
+    expect(gs.gray).toBe("#F8F9FA");
+    expect(gs.white).toBe("#FFFFFF");
   });
 
   it("has 8pt spacing grid", () => {
@@ -39,9 +35,8 @@ describe("design-tokens.json", () => {
     expect(spacing["12"]).toBe("48px");
   });
 
-  it("has 4-level shadow elevation ladder", () => {
+  it("has 3-level shadow elevation ladder", () => {
     const shadows = tokens.shadows;
-    expect(shadows.subtle).toBeDefined();
     expect(shadows.card).toBeDefined();
     expect(shadows.elevated).toBeDefined();
     expect(shadows.modal).toBeDefined();

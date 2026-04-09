@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { FoodCard } from "@/components/ui/food-card";
-import { seedHistory } from "@/lib/seed-data";
+import type { ScanHistoryEntry } from "@/lib/types";
 import { verdictLevelToVerdict, formatRelativeTime } from "@/lib/verdict";
 import { Clock, ScanBarcode } from "lucide-react";
 import { motion } from "framer-motion";
@@ -15,13 +15,32 @@ import {
   fadeInUp,
 } from "@/components/motion";
 
+/** Demo scan history — replace with real API data when available. */
+const scanHistory: ScanHistoryEntry[] = [
+  {
+    id: "s1",
+    product: { id: "p1", name: "Greek Yogurt", brand: "Organic Valley", score: 92, level: "excellent" },
+    scannedAt: new Date(Date.now() - 2 * 60 * 60 * 1000).toISOString(),
+  },
+  {
+    id: "s2",
+    product: { id: "p2", name: "Energy Bar", brand: "Clif Bar", score: 58, level: "caution" },
+    scannedAt: new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString(),
+  },
+  {
+    id: "s3",
+    product: { id: "p3", name: "Almond Milk", brand: "Califia", score: 85, level: "excellent" },
+    scannedAt: new Date(Date.now() - 48 * 60 * 60 * 1000).toISOString(),
+  },
+];
+
 export default function VerdictPage() {
   return (
     <MotionPage className="min-h-screen">
       {/* ── Gradient Header ── */}
       <MotionItem>
         <div className="gradient-header rounded-b-[var(--r-2xl)] px-5 pb-5 pt-12">
-          <h1 className="font-[var(--font-heading)] text-2xl font-bold text-white">
+          <h1 className="font-heading text-2xl font-bold text-white">
             Scan History
           </h1>
           <p className="mt-1 text-sm text-white/70">
@@ -32,14 +51,14 @@ export default function VerdictPage() {
 
       <div className="px-5 pt-5 pb-6">
         {/* History list */}
-        {seedHistory.length > 0 ? (
+        {scanHistory.length > 0 ? (
           <motion.div
             variants={staggerContainer}
             initial="hidden"
             animate="visible"
             className="space-y-3"
           >
-            {seedHistory.map((entry) => (
+            {scanHistory.map((entry) => (
               <motion.div
                 key={entry.id}
                 variants={fadeInUp}
@@ -71,7 +90,7 @@ export default function VerdictPage() {
               >
                 <Clock size={32} className="text-s-dark-gray" />
               </motion.div>
-              <p className="font-[var(--font-heading)] text-base font-bold text-s-dark-gray">
+              <p className="font-heading text-base font-bold text-s-dark-gray">
                 No scans yet
               </p>
               <p className="mt-1 mb-6 text-sm text-s-dark-gray">

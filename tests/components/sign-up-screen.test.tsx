@@ -3,6 +3,23 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { SignUpScreen } from "@/components/auth/sign-up-screen";
 
+// Mock next/navigation & auth client
+const { mockPush, mockRefresh, mockSignUpEmail } = vi.hoisted(() => ({
+  mockPush: vi.fn(),
+  mockRefresh: vi.fn(),
+  mockSignUpEmail: vi.fn(),
+}));
+
+vi.mock("next/navigation", () => ({
+  useRouter: () => ({ push: mockPush, refresh: mockRefresh }),
+}));
+
+vi.mock("@/lib/auth-client", () => ({
+  authClient: {
+    signUp: { email: mockSignUpEmail },
+  },
+}));
+
 // Helper: fill all three fields
 async function fillForm(
   user: ReturnType<typeof userEvent.setup>,

@@ -1,47 +1,43 @@
 {
   "colors": {
+    "brand": {
+      "orange": "#FF6B00",
+      "blue": "#3B82F6"
+    },
+    "grayscale": {
+      "black": "#111111",
+      "darkGray": "#2D2D2D",
+      "gray": "#F8F9FA",
+      "white": "#FFFFFF"
+    },
+    "accent": {
+      "purple": "#9F54FF",
+      "red": "#E95A6E",
+      "green": "#4CAF50",
+      "blue": "#4B8BF5",
+      "amber": "#F5BE4B"
+    },
+    "surface": {
+      "card": "#FFFFFF",
+      "input": "#F3F4F6",
+      "divider": "#F0F0F0"
+    },
     "verdict": {
-      "green": "#22C55E",
-      "yellow": "#EAB308",
-      "red": "#EF4444"
+      "excellent": "#10B981",
+      "good": "#3B82F6",
+      "caution": "#F59E0B",
+      "avoid": "#EF4444"
     },
-    "background": "#FFFBF0",
-    "candy": {
-      "pink": "#E91E63",
-      "orange": "#FF6B35",
-      "mint": "#1ABC9C",
-      "purple": "#9B59B6",
-      "blue": "#3498DB"
-    },
-    "verdictLegacy": {
-      "excellent": "#1ABC9C",
-      "good": "#3498DB",
-      "caution": "#FFD93D",
-      "caution-dark": "#B45309",
-      "avoid": "#E91E63"
-    },
-    "coral": {
-      "DEFAULT": "#FFB5A7",
-      "light": "#FCD5CE"
-    },
-    "gray": {
-      "50": "#F9FAFB",
-      "100": "#F3F4F6",
-      "200": "#E5E7EB",
-      "300": "#D1D5DB",
-      "400": "#9CA3AF",
-      "500": "#6B7280",
-      "600": "#4B5563",
-      "700": "#374151",
-      "800": "#1F2937",
-      "900": "#111827"
-    },
-    "white": "#FFFFFF"
+    "semantic": {
+      "success": "#10B981",
+      "warning": "#F59E0B",
+      "error": "#EF4444"
+    }
   },
   "typography": {
     "fontFamily": {
-      "heading": "Nunito",
-      "body": "Nunito"
+      "heading": "Archivo",
+      "body": "Work Sans"
     },
     "fontSize": {
       "caption2": "11px",
@@ -77,14 +73,14 @@
   },
   "borderRadius": {
     "sm": "8px",
-    "md": "12px",
-    "lg": "16px",
-    "xl": "24px",
+    "md": "16px",
+    "lg": "24px",
+    "xl": "32px",
+    "2xl": "40px",
     "full": "9999px"
   },
   "shadows": {
-    "subtle": "0 1px 4px rgba(0, 0, 0, 0.06)",
-    "card": "0 4px 20px rgba(0, 0, 0, 0.08)",
+    "card": "0 2px 12px rgba(0, 0, 0, 0.04)",
     "elevated": "0 8px 30px rgba(0, 0, 0, 0.12)",
     "modal": "0 20px 60px rgba(0, 0, 0, 0.20)"
   }

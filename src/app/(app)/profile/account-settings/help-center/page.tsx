@@ -15,25 +15,25 @@ export default function HelpCenterPage() {
   const faqs = [
     {
       id: 0,
-      question: "What is sandow.ai?",
+      question: "What is Jellow?",
       answer:
-        "Sandow AI is an advanced fitness app that utilizes artificial intelligence to provide personalized training.",
+        "Jellow is an advanced health app that utilizes artificial intelligence to provide personalized nutrition insights.",
     },
     {
       id: 1,
-      question: "How does Sandow AI work?",
+      question: "How does Jellow work?",
       answer:
-        "Our AI analyzes your fitness level and goals to create personalized workout plans tailored just for you.",
+        "Our AI analyzes your food choices and nutrition goals to provide personalized health insights tailored just for you.",
     },
     {
       id: 2,
-      question: "Is Sandow AI a replacement for fitness coach?",
+      question: "Is Jellow a replacement for a nutritionist?",
       answer:
-        "While powerful, Sandow AI works best as a complement to professional coaching for optimal results.",
+        "While powerful, Jellow works best as a complement to professional nutrition advice for optimal results.",
     },
     {
       id: 3,
-      question: "Is Sandow AI free to use?",
+      question: "Is Jellow free to use?",
       answer:
         "We offer both free and premium plans with different features to suit your needs.",
     },
@@ -45,9 +45,9 @@ export default function HelpCenterPage() {
     },
     {
       id: 5,
-      question: "How does Sandow AI work?",
+      question: "How does Jellow work?",
       answer:
-        "Our AI analyzes your fitness level and goals to create personalized workout plans.",
+        "Our AI analyzes your food choices and nutrition goals to provide personalized health insights.",
     },
   ];
 
@@ -185,7 +185,7 @@ export default function HelpCenterPage() {
               {/* Message */}
               <div className="text-center">
                 <h2 className="mb-2 text-[20px] font-bold text-white">
-                  We are here to help you with your fitness needs!
+                  We are here to help you with your health needs!
                 </h2>
                 <p className="text-sm text-s-gray">
                   We aim to reply within a few minutes! 😍

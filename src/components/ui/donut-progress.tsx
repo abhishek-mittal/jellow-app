@@ -14,8 +14,8 @@ export function DonutProgress({
   progress,
   size = 140,
   strokeWidth = 10,
-  color = "#EE7F46",
-  trackColor = "#F0F0F0",
+  color = "var(--s-orange)",
+  trackColor = "var(--surface-divider)",
   className,
 }: DonutProgressProps) {
   const radius = (size - strokeWidth) / 2;

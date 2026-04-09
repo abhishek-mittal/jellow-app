@@ -38,7 +38,7 @@ describe("AuthCtaButton", () => {
   it("has the correct base styles", () => {
     const { container } = render(<AuthCtaButton>Sign In</AuthCtaButton>);
     const btn = container.querySelector("button");
-    expect(btn?.className).toContain("rounded-[22px]");
+    expect(btn?.className).toContain("rounded-[var(--r-lg)]");
     expect(btn?.className).toContain("font-semibold");
   });
 

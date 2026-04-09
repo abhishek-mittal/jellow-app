@@ -36,7 +36,7 @@ export function AuthCtaButton({
     <Button
       type={type}
       className={cn(
-        "w-full h-[60px] bg-[#111111] hover:bg-black text-white rounded-[22px] font-semibold text-[17px] flex items-center justify-center gap-2 transition-transform active:scale-[0.98]",
+        "w-full h-[60px] bg-s-black hover:bg-black text-white rounded-[var(--r-lg)] font-semibold text-[17px] flex items-center justify-center gap-2 transition-transform active:scale-[0.98]",
         className
       )}
       endContent={<ArrowRight size={20} strokeWidth={2.5} aria-hidden="true" />}

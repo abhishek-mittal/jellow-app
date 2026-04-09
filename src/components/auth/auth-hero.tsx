@@ -33,7 +33,7 @@ export function AuthHero({
   return (
     <div
       className={cn(
-        "relative w-full flex-shrink-0 overflow-visible bg-gradient-to-b from-gray-200 to-white",
+        "relative w-full flex-shrink-0 overflow-visible bg-gradient-to-b from-s-gray to-white",
         className
       )}
       style={{
@@ -44,7 +44,7 @@ export function AuthHero({
       {/* Background image */}
       {imageSrc && (
         <div
-          className="absolute inset-0 bg-cover bg-top opacity-50 mix-blend-multiply"
+          className="absolute inset-0 bg-cover bg-top opacity-80"
           style={{ backgroundImage: `url(${imageSrc})` }}
           role="img"
           aria-label={imageAlt}
@@ -53,7 +53,7 @@ export function AuthHero({
 
       {/* Fade-to-white gradient overlay */}
       <div
-        className="absolute inset-0 bg-gradient-to-b from-white/10 via-white/40 to-white"
+        className="absolute inset-0 bg-gradient-to-b from-transparent via-white/20 to-white"
         aria-hidden="true"
       />
 

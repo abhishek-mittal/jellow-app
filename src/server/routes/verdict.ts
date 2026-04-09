@@ -1,7 +1,7 @@
 import { Hono } from "hono";
 import { zValidator } from "@hono/zod-validator";
 import { z } from "zod";
-import { seedVerdict } from "@/lib/seed-data";
+import { getOrComputeVerdict } from "@/server/services/verdict.service";
 
 const verdictParamSchema = z.object({
   productId: z.string().min(1),
@@ -10,9 +10,14 @@ const verdictParamSchema = z.object({
 export const verdictRoute = new Hono().get(
   "/:productId",
   zValidator("param", verdictParamSchema),
-  (c) => {
+  async (c) => {
     const { productId } = c.req.valid("param");
-    // TODO: compute real verdict from nutrition API
-    return c.json({ data: { ...seedVerdict, productId } });
+    const verdict = await getOrComputeVerdict(productId);
+
+    if (!verdict) {
+      return c.json({ error: "Product not found or no nutrition data" }, 404);
+    }
+
+    return c.json({ data: verdict });
   }
 );

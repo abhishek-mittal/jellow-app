@@ -54,3 +54,5 @@ tsconfig.tsbuildinfo
 # RNA Method — runtime state (managed by agents during sessions)
 _memory/
 
+
+/src/generated/prisma

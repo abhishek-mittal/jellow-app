@@ -2,7 +2,26 @@
 
 import Link from "next/link";
 import { MotionItem } from "@/components/motion";
-import { seedHistory } from "@/lib/seed-data";
+import type { ScanHistoryEntry } from "@/lib/types";
+
+/** Demo scan history — replace with real API data when available. */
+const recentScans: ScanHistoryEntry[] = [
+  {
+    id: "s1",
+    product: { id: "p1", name: "Greek Yogurt", brand: "Organic Valley", score: 92, level: "excellent" },
+    scannedAt: new Date(Date.now() - 2 * 60 * 60 * 1000).toISOString(),
+  },
+  {
+    id: "s2",
+    product: { id: "p2", name: "Energy Bar", brand: "Clif Bar", score: 58, level: "caution" },
+    scannedAt: new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString(),
+  },
+  {
+    id: "s3",
+    product: { id: "p3", name: "Almond Milk", brand: "Califia", score: 85, level: "excellent" },
+    scannedAt: new Date(Date.now() - 48 * 60 * 60 * 1000).toISOString(),
+  },
+];
 
 const verdictColor: Record<string, string> = {
   excellent: "bg-emerald-50 text-emerald-600",
@@ -36,7 +55,7 @@ export function RecentScans() {
         </Link>
       </div>
       <div className="flex flex-col gap-3">
-        {seedHistory.map((item) => (
+        {recentScans.map((item) => (
           <MotionItem key={item.id}>
             <Link
               href={`/verdict/${item.product.id}` as never}

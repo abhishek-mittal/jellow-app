@@ -17,14 +17,14 @@ describe("PasswordSentCard", () => {
       const html = renderToStaticMarkup(
         createElement(PasswordSentCard, { maskedEmail: "u***@test.io" })
       );
-      expect(html).toContain("Check your inbox");
+      expect(html).toContain("Password Sent!");
     });
 
     it("renders the body copy", () => {
       const html = renderToStaticMarkup(
         createElement(PasswordSentCard, { maskedEmail: "u***@test.io" })
       );
-      expect(html).toContain("password reset link");
+      expect(html).toContain("sent the password to u***@test.io");
     });
 
     it("renders the success icon (svg element)", () => {
@@ -93,7 +93,7 @@ describe("PasswordSentCard", () => {
       const html = renderToStaticMarkup(
         createElement(PasswordSentCard, { maskedEmail: "j***@example.com" })
       );
-      expect(html).toContain("bg-green-100");
+      expect(html).toContain("bg-[#E8F5E9]");
     });
 
     it("contains the green icon colour class", () => {

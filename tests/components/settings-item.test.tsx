@@ -80,8 +80,8 @@ describe("SettingsItem", () => {
       }),
     );
     expect(html).toContain("Close Account");
-    // Danger items use red-tinted background
-    expect(html).toContain("C65D5D");
+    // Danger items use danger token classes
+    expect(html).toContain("danger");
   });
 
   it("renders toggle item with switch", () => {
@@ -114,6 +114,6 @@ describe("SettingsBadge", () => {
       React.createElement(SettingsBadge, { variant: "warning" }, "Warning"),
     );
     expect(html).toContain("Warning");
-    expect(html).toContain("C65D5D");
+    expect(html).toContain("danger");
   });
 });

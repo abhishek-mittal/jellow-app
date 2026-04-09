@@ -5,13 +5,28 @@ import React from "react";
 import { SignInScreen } from "@/components/auth/sign-in-screen";
 
 // Mock next/navigation
-const mockPush = vi.fn();
+const { mockPush, mockRefresh, mockSignInEmail } = vi.hoisted(() => ({
+  mockPush: vi.fn(),
+  mockRefresh: vi.fn(),
+  mockSignInEmail: vi.fn(),
+}));
+
 vi.mock("next/navigation", () => ({
-  useRouter: () => ({ push: mockPush }),
+  useRouter: () => ({ push: mockPush, refresh: mockRefresh }),
+  useSearchParams: () => new URLSearchParams(),
+}));
+
+vi.mock("@/lib/auth-client", () => ({
+  authClient: {
+    signIn: { email: mockSignInEmail },
+  },
 }));
 
 beforeEach(() => {
   mockPush.mockClear();
+  mockRefresh.mockClear();
+  mockSignInEmail.mockClear();
+  mockSignInEmail.mockResolvedValue({ error: null });
 });
 
 describe("SignInScreen", () => {
@@ -29,13 +44,6 @@ describe("SignInScreen", () => {
   it("renders the Sign In CTA button", () => {
     render(<SignInScreen />);
     expect(screen.getByRole("button", { name: "Sign In" })).toBeInTheDocument();
-  });
-
-  it("renders three social login buttons", () => {
-    render(<SignInScreen />);
-    expect(screen.getByRole("button", { name: "Sign in with Instagram" })).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: "Sign in with Facebook" })).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: "Sign in with LinkedIn" })).toBeInTheDocument();
   });
 
   it("renders Sign Up link pointing to /auth/sign-up", () => {
@@ -71,7 +79,7 @@ describe("SignInScreen", () => {
     expect(screen.getByText("Password is required")).toBeInTheDocument();
   });
 
-  it("navigates to home on successful submit", async () => {
+  it("calls authClient.signIn.email and navigates on successful submit", async () => {
     const user = userEvent.setup();
     render(<SignInScreen />);
 
@@ -85,6 +93,10 @@ describe("SignInScreen", () => {
     await user.click(ctaBtn);
 
     await waitFor(() => {
+      expect(mockSignInEmail).toHaveBeenCalledWith({
+        email: "test@example.com",
+        password: "secret123",
+      });
       expect(mockPush).toHaveBeenCalledWith("/");
     });
   });

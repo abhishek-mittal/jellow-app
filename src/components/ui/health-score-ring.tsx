@@ -90,7 +90,7 @@ export function HealthScoreRing({
       </svg>
       <div className="absolute flex flex-col items-center justify-center">
         <span
-          className="font-[var(--font-heading)] font-bold leading-none"
+          className="font-heading font-bold leading-none"
           style={{ fontSize: scoreFontSize, color }}
         >
           {score}

@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export function SupportBanner() {
   return (
-    <div className="relative overflow-hidden bg-black rounded-[28px] w-full mx-auto min-h-[148px] shadow-sm flex items-center">
+    <div className="relative overflow-hidden bg-s-black rounded-[var(--r-xl)] w-full mx-auto min-h-[148px] shadow-sm flex items-center">
       <div className="relative z-10 flex flex-col justify-between h-full p-6 md:p-8 max-w-[65%]">
         <h3 className="text-white text-[15px] leading-[1.4] font-medium mb-5 tracking-wide">
           Need any help? We're always<br />here to help.

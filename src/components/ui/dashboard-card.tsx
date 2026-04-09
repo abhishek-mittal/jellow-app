@@ -9,7 +9,7 @@ export function DashboardCard({ children, className, ...props }: DashboardCardPr
   return (
     <div
       className={cn(
-        "rounded-[28px] bg-white border border-[#E8E8E8] shadow-[0_2px_12px_rgba(0,0,0,0.02)] overflow-hidden",
+        "rounded-[var(--r-xl)] bg-surface-card shadow-[var(--shadow-card)] overflow-hidden",
         className
       )}
       {...props}

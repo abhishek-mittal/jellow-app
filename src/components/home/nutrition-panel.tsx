@@ -24,39 +24,39 @@ export function NutritionPanel() {
         <div className="flex items-center justify-between mt-2 mb-8 px-2">
           
           <div className="flex flex-col items-center">
-            <span className="text-[20px] font-bold text-[#111]">648</span>
-            <span className="text-[13px] font-medium text-[#7D7D7D]">consumed</span>
+            <span className="text-[20px] font-bold text-s-black">648</span>
+            <span className="text-[13px] font-medium text-nav-inactive">consumed</span>
           </div>
 
           <div className="relative flex items-center justify-center">
-            <DonutProgress progress={progressPercent} color="#EE7F46" size={130} strokeWidth={8} />
+            <DonutProgress progress={progressPercent} color="var(--s-orange)" size={130} strokeWidth={8} />
             <div className="absolute flex flex-col items-center justify-center">
-              <span className="text-[28px] font-extrabold text-[#111] tracking-tight leading-none">2,181</span>
-              <span className="text-[14px] font-medium text-[#7D7D7D] mt-1">kcal total</span>
+              <span className="text-[28px] font-extrabold text-s-black tracking-tight leading-none">2,181</span>
+              <span className="text-[14px] font-medium text-nav-inactive mt-1">kcal total</span>
             </div>
           </div>
 
           <div className="flex flex-col items-center">
-            <span className="text-[20px] font-bold text-[#111]">2,500</span>
-            <span className="text-[13px] font-medium text-[#7D7D7D]">target</span>
+            <span className="text-[20px] font-bold text-s-black">2,500</span>
+            <span className="text-[13px] font-medium text-nav-inactive">target</span>
           </div>
 
         </div>
 
         {/* Macros */}
         <div className="flex items-center justify-between gap-4 mb-8">
-          <MacroBar label="Protein" consumed={23} total={72} color="#EE7F46" className="flex-1" />
-          <MacroBar label="Fat" consumed={15} total={20} color="#4B8BF5" className="flex-1" />
-          <MacroBar label="Carbs" consumed={125} total={220} color="#F5BE4B" className="flex-1" />
+          <MacroBar label="Protein" consumed={23} total={72} color="var(--s-orange)" className="flex-1" />
+          <MacroBar label="Fat" consumed={15} total={20} color="var(--accent-blue)" className="flex-1" />
+          <MacroBar label="Carbs" consumed={125} total={220} color="var(--accent-amber)" className="flex-1" />
         </div>
 
-        <p className="text-center text-[15px] font-medium text-[#7D7D7D] mb-6 px-4">
+        <p className="text-center text-[15px] font-medium text-nav-inactive mb-6 px-4">
           You're on track for your calorie goal today! Keep it up, okay!
         </p>
 
-        <div className="h-[1px] w-full bg-[#F0F0F0] mb-5" />
+        <div className="h-[1px] w-full bg-surface-divider mb-5" />
 
-        <Link href={"/nutrition-goal" as any} className="flex items-center justify-center gap-2 text-[#EE7F46] font-semibold text-[15px] hover:opacity-80 transition-opacity pb-1">
+        <Link href={"/nutrition-goal" as any} className="flex items-center justify-center gap-2 text-s-orange font-semibold text-[15px] hover:opacity-80 transition-opacity pb-1">
           See Nutrition Dashboard
           <ArrowRight size={18} strokeWidth={2} className="mt-[1px]" />
         </Link>

@@ -29,7 +29,7 @@ export function StatsCard({ label, value, icon, trend, trendValue, className }: 
       <div className="mb-2 flex h-9 w-9 items-center justify-center rounded-[var(--r-lg)] bg-s-orange/20 text-s-orange">
         {icon}
       </div>
-      <p className="font-[var(--font-heading)] text-xl font-bold leading-tight text-s-dark-gray">
+      <p className="font-heading text-xl font-bold leading-tight text-s-dark-gray">
         {value}
       </p>
       <p className="mt-0.5 text-xs text-s-dark-gray">{label}</p>

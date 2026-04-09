@@ -11,9 +11,9 @@ export interface SectionHeaderProps {
 export function SectionHeader({ title, actionText, actionHref, className }: SectionHeaderProps) {
   return (
     <div className={cn("flex items-center justify-between py-2", className)}>
-      <h2 className="text-xl font-bold text-[#2D2D2D]">{title}</h2>
+      <h2 className="text-xl font-bold text-s-dark-gray">{title}</h2>
       {actionText && actionHref && (
-        <Link href={actionHref} className="text-sm font-semibold text-[#EE7F46] hover:opacity-80 transition-opacity">
+        <Link href={actionHref} className="text-sm font-semibold text-s-orange hover:opacity-80 transition-opacity">
           {actionText}
         </Link>
       )}

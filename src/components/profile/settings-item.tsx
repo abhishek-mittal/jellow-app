@@ -25,7 +25,7 @@ export function SettingsSection({ title, badge, children, className }: PropsWith
         </div>
         <button
           aria-label={`${title} options`}
-          className="flex h-7 w-7 items-center justify-center rounded-full text-[#B3B5BD] active:bg-black/5"
+          className="flex h-7 w-7 items-center justify-center rounded-full text-nav-inactive active:bg-black/5"
         >
           <MoreVertical size={16} />
         </button>
@@ -72,8 +72,8 @@ export function SettingsItem(props: SettingsItemProps) {
       className={cn(
         "flex w-full items-center gap-3 rounded-2xl px-4 py-3.5",
         isDanger
-          ? "bg-[#C65D5D]/10"
-          : "bg-white shadow-[0_1px_3px_rgba(0,0,0,0.04)]",
+          ? "bg-danger/10"
+          : "bg-surface-card shadow-[0_1px_3px_rgba(0,0,0,0.04)]",
         className,
       )}
     >
@@ -81,12 +81,12 @@ export function SettingsItem(props: SettingsItemProps) {
       <div
         className={cn(
           "flex h-10 w-10 shrink-0 items-center justify-center rounded-full",
-          isDanger ? "bg-[#C65D5D]/20" : "bg-[#F0F1F3]",
+          isDanger ? "bg-danger/20" : "bg-s-gray",
         )}
       >
         <Icon
           size={18}
-          className={isDanger ? "text-[#C65D5D]" : "text-s-dark-gray"}
+          className={isDanger ? "text-danger" : "text-s-dark-gray"}
         />
       </div>
 
@@ -94,7 +94,7 @@ export function SettingsItem(props: SettingsItemProps) {
       <span
         className={cn(
           "flex-1 text-[15px] font-semibold",
-          isDanger ? "text-[#C65D5D]" : "text-s-dark-gray",
+          isDanger ? "text-danger" : "text-s-dark-gray",
         )}
       >
         {label}
@@ -116,13 +116,13 @@ export function SettingsItem(props: SettingsItemProps) {
       ) : (
         <div className="flex items-center gap-1.5">
           {!isDanger && (props as NavigateItem).value && (
-            <span className="text-sm font-medium text-[#9BA0A6]">
+            <span className="text-sm font-medium text-nav-inactive">
               {(props as NavigateItem).value}
             </span>
           )}
           <ChevronRight
             size={18}
-            className={isDanger ? "text-[#C65D5D]" : "text-[#C4C6CC]"}
+            className={isDanger ? "text-danger" : "text-nav-inactive"}
           />
         </div>
       )}
@@ -152,7 +152,7 @@ export function SettingsBadge({ children, variant = "default" }: PropsWithChildr
       className={cn(
         "inline-flex items-center rounded-full px-2 py-0.5 text-[11px] font-bold",
         variant === "warning"
-          ? "bg-[#C65D5D]/15 text-[#C65D5D]"
+          ? "bg-danger/15 text-danger"
           : "bg-s-blue/15 text-s-blue",
       )}
     >

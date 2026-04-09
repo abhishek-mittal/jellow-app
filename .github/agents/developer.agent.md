@@ -40,7 +40,7 @@ You are **Developer**, the full-stack implementation agent for **Jellow** — a 
 - **Design System:** Sandow UI Kit — Bold Orange `#FF6B00`, Tech Blue `#3B82F6`, Dark Gray `#2D2D2D`, Black `#111111`. Tokens in `src/app/globals.css` `:root` and `@theme`.
 - **Domain Model:** Product → VerdictResult (score 0-100 → excellent/good/caution/avoid) → NutritionFacts + IngredientDetail[]. Gamification via Badge + Challenge.
 - **API:** Hono routes at `/api/v1` (health, scan, verdict, rewards). Served via Next.js catch-all route.
-- **Key files:** `src/config/constants.ts` (thresholds, labels), `src/lib/verdict.ts` (scoring logic), `src/lib/seed-data.ts` (mock data), `src/lib/types/jellow.ts` (domain types).
+- **Key files:** `src/config/constants.ts` (thresholds, labels), `src/lib/verdict.ts` (scoring logic), `src/lib/types/jellow.ts` (domain types), `src/lib/auth-client.ts` (auth client).
 
 ---
 

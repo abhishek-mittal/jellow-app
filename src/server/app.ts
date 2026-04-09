@@ -5,6 +5,7 @@ import { healthRoute } from "./routes/health";
 import { scanRoute } from "./routes/scan";
 import { verdictRoute } from "./routes/verdict";
 import { rewardsRoute } from "./routes/rewards";
+import { userRoute } from "./routes/user";
 
 const app = new Hono().basePath("/api/v1");
 
@@ -17,6 +18,7 @@ app.route("/health", healthRoute);
 app.route("/scan", scanRoute);
 app.route("/verdict", verdictRoute);
 app.route("/rewards", rewardsRoute);
+app.route("/user", userRoute);
 
 // Global error handler
 app.onError((err, c) => {

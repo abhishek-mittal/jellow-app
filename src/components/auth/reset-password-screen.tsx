@@ -21,17 +21,17 @@ const RESET_METHODS: ResetMethod[] = [
   {
     variant: "email",
     title: "Send via Email",
-    body: "We'll send a reset link to your email inbox.",
+    body: "Seamlessly reset your password via email address.",
   },
   {
     variant: "2fa",
     title: "Send via 2FA",
-    body: "Use your two-factor authentication app.",
+    body: "Seamlessly reset your password via 2 Factors.",
   },
   {
     variant: "google",
     title: "Send via Google Auth",
-    body: "Reset using your linked Google account.",
+    body: "Seamlessly reset your password via gAuth.",
   },
 ];
 

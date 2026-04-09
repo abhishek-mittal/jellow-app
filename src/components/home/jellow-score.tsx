@@ -1,5 +1,4 @@
 import { ChevronRight, Heart, Sparkles } from "lucide-react";
-import type { ReactNode } from "react";
 
 interface JellowScoreProps {
   score: number;
@@ -9,10 +8,10 @@ interface JellowScoreProps {
 
 export function JellowScore({ score, levelText, tierText }: JellowScoreProps) {
   return (
-    <div className="flex items-center justify-between">
+    <div className="flex items-center justify-between bg-s-dark-gray rounded-[var(--r-lg)] px-5 py-4">
       <div className="flex items-center gap-4">
-        {/* Score block */}
-        <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-[#E87A3E] text-2xl font-bold text-white shadow-sm">
+        {/* Green filled circle with score */}
+        <div className="flex h-14 w-14 items-center justify-center rounded-full bg-accent-green text-[22px] font-bold text-white shadow-sm">
           {score}
         </div>
         {/* Text Details */}

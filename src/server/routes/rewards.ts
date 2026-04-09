@@ -1,13 +1,28 @@
 import { Hono } from "hono";
-import { seedUser } from "@/lib/seed-data";
+import { getUserBadges, getActiveChallenges } from "@/server/services/rewards.service";
+import { getUserProfile } from "@/server/services/user.service";
 
 export const rewardsRoute = new Hono()
-  .get("/profile", (c) => {
-    return c.json({ data: seedUser });
+  .get("/profile", async (c) => {
+    const userId = c.req.header("x-user-id");
+    if (!userId) return c.json({ error: "Unauthorized" }, 401);
+
+    const profile = await getUserProfile(userId);
+    if (!profile) return c.json({ error: "User not found" }, 404);
+
+    return c.json({ data: profile });
   })
-  .get("/challenges", (c) => {
-    return c.json({ data: seedUser.activeChallenges });
+  .get("/challenges", async (c) => {
+    const userId = c.req.header("x-user-id");
+    if (!userId) return c.json({ error: "Unauthorized" }, 401);
+
+    const challenges = await getActiveChallenges(userId);
+    return c.json({ data: challenges });
   })
-  .get("/badges", (c) => {
-    return c.json({ data: seedUser.badges });
+  .get("/badges", async (c) => {
+    const userId = c.req.header("x-user-id");
+    if (!userId) return c.json({ error: "Unauthorized" }, 401);
+
+    const badges = await getUserBadges(userId);
+    return c.json({ data: badges });
   });

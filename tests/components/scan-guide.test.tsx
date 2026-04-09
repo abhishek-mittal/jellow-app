@@ -23,9 +23,9 @@ describe("ScanGuide", () => {
     expect(html).toBeTruthy();
   });
 
-  it("shows 'Point camera at barcode' when not scanning", () => {
+  it("shows 'Position barcode within frame' when not scanning", () => {
     const html = renderToString(<ScanGuide {...defaultProps} isScanning={false} />);
-    expect(html).toContain("Point camera at barcode");
+    expect(html).toContain("Position barcode within frame");
   });
 
   it("shows 'Scanning…' text when isScanning is true", () => {
@@ -33,9 +33,9 @@ describe("ScanGuide", () => {
     expect(html).toContain("Scanning");
   });
 
-  it("renders the manual entry button", () => {
+  it("renders the gallery upload button", () => {
     const html = renderToString(<ScanGuide {...defaultProps} />);
-    expect(html).toContain("Enter manually");
+    expect(html).toContain("Or tap to upload from gallery");
   });
 
   it("renders flash-off icon when flashEnabled is false", () => {
@@ -50,22 +50,20 @@ describe("ScanGuide", () => {
     expect(html).toContain("Turn off flash");
   });
 
-  it("renders all four corner-bracket elements", () => {
+  it("renders all four corner-dot elements", () => {
     const html = renderToString(<ScanGuide {...defaultProps} />);
-    // Each bracket has a unique combination of border direction classes
-    expect(html).toContain("border-l-2 border-t-2"); // top-left
-    expect(html).toContain("border-r-2 border-t-2"); // top-right
-    expect(html).toContain("border-b-2 border-l-2"); // bottom-left
-    expect(html).toContain("border-b-2 border-r-2"); // bottom-right
+    // Each corner has a golden dot positioned at frame corners
+    const dotCount = (html.match(/rounded-full bg-s-orange/g) || []).length;
+    expect(dotCount).toBe(4);
   });
 
-  it("applies animate-pulse to brackets when isScanning is true", () => {
+  it("shows scan line animation when isScanning is true", () => {
     const html = renderToString(<ScanGuide {...defaultProps} isScanning={true} />);
-    expect(html).toContain("animate-pulse");
+    expect(html).toContain("animate-scan-line");
   });
 
-  it("does not apply animate-pulse when not scanning", () => {
+  it("does not show scan line when not scanning", () => {
     const html = renderToString(<ScanGuide {...defaultProps} isScanning={false} />);
-    expect(html).not.toContain("animate-pulse");
+    expect(html).not.toContain("animate-scan-line");
   });
 });

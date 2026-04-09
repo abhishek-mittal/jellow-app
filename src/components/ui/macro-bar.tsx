@@ -14,15 +14,15 @@ export function MacroBar({ label, consumed, total, color, className }: MacroBarP
 
   return (
     <div className={cn("flex flex-col items-center gap-2", className)}>
-      <span className="text-[12px] font-medium text-[#7D7D7D]">{label}</span>
-      <div className="w-full h-[5px] bg-[#E8E8E8] rounded-full overflow-hidden relative">
+      <span className="text-[12px] font-medium text-nav-inactive">{label}</span>
+      <div className="w-full h-[5px] bg-surface-divider rounded-full overflow-hidden relative">
         <div 
           className="absolute left-0 top-0 bottom-0 rounded-full transition-all duration-700 ease-out"
           style={{ width: `${percentage}%`, backgroundColor: color }}
         />
       </div>
-      <span className="text-[13px] font-bold text-[#111]">
-        {consumed}/<span className="text-[#7D7D7D]">{total}g</span>
+      <span className="text-[13px] font-bold text-s-black">
+        {consumed}/<span className="text-nav-inactive">{total}g</span>
       </span>
     </div>
   );

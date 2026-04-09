@@ -32,24 +32,21 @@ export function PasswordSentCard({
     >
       {/* Success icon */}
       <div
-        className="flex h-16 w-16 items-center justify-center rounded-full bg-green-100"
+        className="flex h-16 w-16 items-center justify-center rounded-[16px] bg-[#E8F5E9]"
         aria-hidden="true"
       >
         <CheckCircle2 size={32} className="text-green-600" strokeWidth={2} />
       </div>
 
       {/* Heading */}
-      <p className="mt-4 font-[var(--font-heading)] text-xl font-bold text-s-dark-gray">
-        Check your inbox
+      <p className="mt-4 font-heading text-xl font-bold text-s-dark-gray">
+        Password Sent!
       </p>
 
       {/* Body */}
       <p className="mt-2 text-sm leading-relaxed text-s-dark-gray/60">
-        We&apos;ve sent a password reset link to
+        We&apos;ve sent the password to {maskedEmail}. Resend if the password is not received! 🔥
       </p>
-
-      {/* Masked email */}
-      <p className="mt-1 font-semibold text-s-dark-gray">{maskedEmail}</p>
 
       {/* Action slot */}
       {action && <div className="mt-5 w-full">{action}</div>}

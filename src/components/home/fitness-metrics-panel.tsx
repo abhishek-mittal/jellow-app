@@ -47,7 +47,7 @@ export function FitnessMetricsPanel({}: FitnessMetricsPanelProps) {
         <FitnessMetricCard
           icon={
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="1" y="3" width="18" height="14" rx="4" fill="#EE7F46" />
+              <rect x="1" y="3" width="18" height="14" rx="4" fill="var(--s-orange)" />
               <path d="M6 7H14C14.5523 7 15 7.44772 15 8V8.5H5V8C5 7.44772 5.44772 7 6 7Z" fill="white" />
               <ellipse cx="10" cy="11.5" rx="1.5" ry="1.5" fill="white" />
               <line x1="7" y1="14" x2="13" y2="14" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
@@ -59,12 +59,12 @@ export function FitnessMetricsPanel({}: FitnessMetricsPanelProps) {
           subtitle="Stable weight"
           chartType="bar"
           chartData={weightData}
-          chartColor="#EE7F46"
+          chartColor="var(--s-orange)"
         />
 
         <FitnessMetricCard
           icon={
-            <Droplet className="w-5 h-5 text-[#9F54FF] fill-[#9F54FF]" color="#9F54FF" strokeWidth={0} />
+            <Droplet className="w-5 h-5 text-accent-purple fill-accent-purple" color="var(--accent-purple)" strokeWidth={0} />
           }
           title="Blood Pressure"
           value="128/80"
@@ -72,12 +72,12 @@ export function FitnessMetricsPanel({}: FitnessMetricsPanelProps) {
           subtitle="Stable Range"
           chartType="bar"
           chartData={bpData}
-          chartColor="#9F54FF"
+          chartColor="var(--accent-purple)"
         />
 
         <FitnessMetricCard
           icon={
-            <HeartPulse className="w-5 h-5 text-[#E95A6E]" strokeWidth={2.5} />
+            <HeartPulse className="w-5 h-5 text-accent-red" strokeWidth={2.5} />
           }
           title="Heart Rate"
           value="72"
@@ -85,7 +85,7 @@ export function FitnessMetricsPanel({}: FitnessMetricsPanelProps) {
           subtitle="Resting Rate"
           chartType="line"
           chartData={hrData}
-          chartColor="#E95A6E"
+          chartColor="var(--accent-red)"
         />
       </div>
     </section>

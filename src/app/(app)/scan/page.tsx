@@ -117,7 +117,7 @@ export default function ScanPage() {
         </MotionItem>
         <MotionItem>
           <div>
-            <h1 className="font-[var(--font-heading)] text-2xl font-bold text-s-dark-gray">Scan a Product</h1>
+            <h1 className="font-heading text-2xl font-bold text-s-dark-gray">Scan a Product</h1>
             <p className="mt-2 text-sm leading-relaxed text-s-dark-gray">
               Allow camera access to scan barcodes and check nutrition scores instantly.
             </p>
@@ -164,7 +164,7 @@ export default function ScanPage() {
           </div>
         </MotionItem>
         <MotionItem>
-          <h1 className="font-[var(--font-heading)] text-xl font-bold text-s-dark-gray">Camera Access Denied</h1>
+          <h1 className="font-heading text-xl font-bold text-s-dark-gray">Camera Access Denied</h1>
           <p className="mt-2 text-sm text-s-dark-gray">
             Please enable camera permission in your browser settings and reload the page.
           </p>
@@ -190,7 +190,7 @@ export default function ScanPage() {
           </div>
         </MotionItem>
         <MotionItem>
-          <h1 className="font-[var(--font-heading)] text-xl font-bold text-s-dark-gray">Camera Not Supported</h1>
+          <h1 className="font-heading text-xl font-bold text-s-dark-gray">Camera Not Supported</h1>
           <p className="mt-2 text-sm text-s-dark-gray">
             Your browser does not support camera access. Try entering the barcode manually.
           </p>
@@ -208,7 +208,7 @@ export default function ScanPage() {
 
   // ── Camera granted: live viewfinder ──────────────────────────────────────
   return (
-    <div className="relative flex h-dvh flex-col overflow-hidden bg-[#0B1A3B]">
+    <div className="relative flex h-dvh flex-col overflow-hidden bg-s-black">
       {/* Live camera feed */}
       <video
         ref={videoRef}
@@ -251,7 +251,7 @@ export default function ScanPage() {
               className="w-full max-w-xs"
             >
               <MotionPress>
-                <Button size="lg" onClick={startScan} className="w-full bg-[#D4A843] text-white hover:bg-[#C49A3B] shadow-[0_4px_20px_rgba(212,168,67,0.3)]">
+                <Button size="lg" onClick={startScan} className="w-full bg-s-orange text-white hover:bg-s-orange/90 shadow-[0_4px_20px_rgba(255,107,0,0.3)]">
                   Scan Barcode
                 </Button>
               </MotionPress>

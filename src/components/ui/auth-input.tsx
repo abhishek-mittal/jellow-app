@@ -100,10 +100,10 @@ export function AuthInput({
         aria-label={ariaLabel ?? label}
         classNames={{
           inputWrapper: cn(
-            "bg-[#F3F4F6] border-transparent hover:bg-slate-200 focus-within:!bg-white border-2 shadow-none rounded-[22px] h-[60px] px-4 transition-colors",
+            "bg-surface-input border-transparent hover:bg-slate-200 focus-within:!bg-white border-2 shadow-none rounded-[var(--r-lg)] h-[60px] px-4 transition-colors",
             isInvalid
               ? "!border-red-500 !bg-white hover:!bg-white"
-              : "focus-within:!border-[#ff6b00]"
+              : "focus-within:!border-s-orange"
           ),
           input: cn(
             "text-slate-900 placeholder:text-slate-500 text-[16px] font-medium ml-2",

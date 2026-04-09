@@ -28,10 +28,10 @@ export function NavHeader({ title, onBack, rightAction }: NavHeaderProps) {
         className="flex items-center justify-center w-10 h-10 -ml-2 rounded-full hover:bg-black/5 active:bg-black/10 transition-colors z-10"
         aria-label="Go back"
       >
-        <ChevronLeft className="w-6 h-6 text-gray-800" strokeWidth={2.5} />
+        <ChevronLeft className="w-6 h-6 text-s-dark-gray" strokeWidth={2.5} />
       </button>
       
-      <h1 className="text-[17px] font-semibold text-gray-900 absolute left-1/2 -translate-x-1/2">
+      <h1 className="text-[17px] font-semibold text-s-dark-gray absolute left-1/2 -translate-x-1/2">
         {title}
       </h1>
 

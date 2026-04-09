@@ -57,7 +57,7 @@ describe("ResetMethodCard", () => {
       expect(html).toContain("Reset option");
     });
 
-    it("applies blue icon background for email variant", () => {
+    it("applies orange icon background for email variant", () => {
       const html = renderToStaticMarkup(
         createElement(ResetMethodCard, {
           variant: "email",
@@ -65,10 +65,10 @@ describe("ResetMethodCard", () => {
           body: "desc",
         })
       );
-      expect(html).toContain("bg-blue-100");
+      expect(html).toContain("bg-[#FF6B00]");
     });
 
-    it("applies orange icon background for 2fa variant", () => {
+    it("applies blue icon background for 2fa variant", () => {
       const html = renderToStaticMarkup(
         createElement(ResetMethodCard, {
           variant: "2fa",
@@ -76,10 +76,10 @@ describe("ResetMethodCard", () => {
           body: "desc",
         })
       );
-      expect(html).toContain("bg-orange-100");
+      expect(html).toContain("bg-[#3B82F6]");
     });
 
-    it("applies gray icon background for google variant", () => {
+    it("applies purple icon background for google variant", () => {
       const html = renderToStaticMarkup(
         createElement(ResetMethodCard, {
           variant: "google",
@@ -87,7 +87,7 @@ describe("ResetMethodCard", () => {
           body: "desc",
         })
       );
-      expect(html).toContain("bg-gray-100");
+      expect(html).toContain("bg-[#9333EA]");
     });
 
     it("renders the Google SVG for google variant", () => {
@@ -98,8 +98,8 @@ describe("ResetMethodCard", () => {
           body: "desc",
         })
       );
-      // Google icon uses path with distinctive fill colour
-      expect(html).toContain("#4285F4");
+      // Google icon uses white fill on purple background
+      expect(html).toContain("fill=\"white\"");
     });
   });
 

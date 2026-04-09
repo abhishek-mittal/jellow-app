@@ -28,13 +28,13 @@ export function ScanGuide({
     <div className="absolute inset-0 z-10">
       {/* Dark overlay */}
       <div className="absolute inset-0 flex flex-col">
-        <div className="w-full flex-1 bg-[#0B1A3B]/80" />
+        <div className="w-full flex-1 bg-s-black/80" />
         <div className="flex" style={{ height: SCAN_SIZE }}>
-          <div className="flex-1 bg-[#0B1A3B]/80" />
+          <div className="flex-1 bg-s-black/80" />
           <div style={{ width: SCAN_SIZE }} />
-          <div className="flex-1 bg-[#0B1A3B]/80" />
+          <div className="flex-1 bg-s-black/80" />
         </div>
-        <div className="w-full flex-1 bg-[#0B1A3B]/80" />
+        <div className="w-full flex-1 bg-s-black/80" />
       </div>
 
       {/* Top bar: back + title + flash */}
@@ -65,7 +65,7 @@ export function ScanGuide({
             className={cn(
               "rounded-full px-5 py-1.5 text-[13px] font-semibold transition-colors",
               mode === "food"
-                ? "bg-white text-[#0B1A3B]"
+                ? "bg-white text-s-black"
                 : "text-white/70 hover:text-white"
             )}
           >
@@ -76,7 +76,7 @@ export function ScanGuide({
             className={cn(
               "rounded-full px-5 py-1.5 text-[13px] font-semibold transition-colors",
               mode === "medicine"
-                ? "bg-white text-[#0B1A3B]"
+                ? "bg-white text-s-black"
                 : "text-white/70 hover:text-white"
             )}
           >
@@ -86,7 +86,7 @@ export function ScanGuide({
 
         {/* Scan window with golden border and corner dots */}
         <div
-          className="relative rounded-[20px] border-2 border-[#D4A843]/60"
+          className="relative rounded-[20px] border-2 border-s-orange/60"
           style={{ width: SCAN_SIZE, height: SCAN_SIZE }}
         >
           {/* Corner dots — glowing gold */}
@@ -99,16 +99,16 @@ export function ScanGuide({
             <div
               key={pos}
               className={cn(
-                "absolute h-[10px] w-[10px] rounded-full bg-[#D4A843]",
+                "absolute h-[10px] w-[10px] rounded-full bg-s-orange",
                 pos,
-                isScanning && "shadow-[0_0_8px_2px_rgba(212,168,67,0.6)]"
+                isScanning && "shadow-[0_0_8px_2px_rgba(255,107,0,0.6)]"
               )}
             />
           ))}
 
           {/* Scan line animation */}
           {isScanning && (
-            <div className="absolute left-3 right-3 top-1/2 h-0.5 rounded-full bg-[#D4A843]/70 animate-scan-line" />
+            <div className="absolute left-3 right-3 top-1/2 h-0.5 rounded-full bg-s-orange/70 animate-scan-line" />
           )}
         </div>
 

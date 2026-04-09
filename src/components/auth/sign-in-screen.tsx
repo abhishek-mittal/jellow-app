@@ -1,9 +1,10 @@
 "use client";
 
 import React, { useState } from "react";
-import { useRouter } from "next/navigation";
-import { Instagram, Facebook, Linkedin, Plus } from "lucide-react";
+import { useRouter, useSearchParams } from "next/navigation";
+import { Plus, Instagram, Facebook, Linkedin } from "lucide-react";
 import { EmailInput, PasswordInput } from "@/components/ui/auth-input";
+import { authClient } from "@/lib/auth-client";
 import {
   AuthShell,
   AuthHero,
@@ -11,8 +12,8 @@ import {
   AuthTitle,
   AuthSubtitle,
   AuthCtaButton,
-  SocialIconButton,
   AuthLink,
+  SocialIconButton,
 } from "@/components/auth";
 
 const HERO_IMAGE =
@@ -36,7 +37,10 @@ export function SignInScreen() {
   const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
+  const [generalError, setGeneralError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const searchParams = useSearchParams();
+  const callbackUrl = searchParams.get("callbackUrl") ?? "/";
 
   /** Validates inputs and returns true when both fields pass. */
   function validate(): boolean {
@@ -59,13 +63,26 @@ export function SignInScreen() {
     return valid;
   }
 
-  /** Stub sign-in handler — real auth wired at integration tier. */
   async function handleSignIn() {
     if (!validate()) return;
 
+    setGeneralError("");
     setIsLoading(true);
     try {
-      router.push("/");
+      const { error } = await authClient.signIn.email({
+        email: email.trim(),
+        password,
+      });
+
+      if (error) {
+        setGeneralError(error.message ?? "Sign-in failed. Please try again.");
+        return;
+      }
+
+      router.push(callbackUrl as never);
+      router.refresh();
+    } catch {
+      setGeneralError("Something went wrong. Please try again.");
     } finally {
       setIsLoading(false);
     }
@@ -86,6 +103,12 @@ export function SignInScreen() {
         </AuthSubtitle>
 
         <div className="w-full max-w-sm space-y-5">
+          {generalError && (
+            <p className="text-sm text-red-500 text-center" role="alert">
+              {generalError}
+            </p>
+          )}
+
           <EmailInput
             label="Email Address"
             placeholder="you@example.com"
@@ -114,18 +137,18 @@ export function SignInScreen() {
             Sign In
           </AuthCtaButton>
 
-          {/* Social login row */}
-          <div className="flex justify-center gap-4 pt-4">
+          {/* Social login buttons */}
+          <div className="flex items-center justify-center gap-4 pt-4">
             <SocialIconButton
-              icon={<Instagram size={24} className="text-slate-700" />}
+              icon={<Instagram size={22} className="text-slate-700" />}
               label="Sign in with Instagram"
             />
             <SocialIconButton
-              icon={<Facebook size={24} className="text-slate-700" />}
+              icon={<Facebook size={22} className="text-slate-700" />}
               label="Sign in with Facebook"
             />
             <SocialIconButton
-              icon={<Linkedin size={24} className="text-slate-700" />}
+              icon={<Linkedin size={22} className="text-slate-700" />}
               label="Sign in with LinkedIn"
             />
           </div>

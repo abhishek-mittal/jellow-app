@@ -27,7 +27,7 @@ export function FoodCard({ food, onTap, className }: FoodCardProps) {
       shadow="none"
       radius="lg"
       className={cn(
-        "bg-white shadow-md transition-all duration-200",
+        "bg-surface-card shadow-[var(--shadow-card)] transition-all duration-200",
         onTap && "hover:shadow-lift active:scale-[0.98]",
         className
       )}
@@ -52,7 +52,7 @@ export function FoodCard({ food, onTap, className }: FoodCardProps) {
 
         {/* Content */}
         <div className="min-w-0 flex-1">
-          <p className="truncate font-[var(--font-heading)] font-bold text-s-dark-gray">{food.name}</p>
+          <p className="truncate font-heading font-bold text-s-dark-gray">{food.name}</p>
           <p className="truncate text-sm text-s-dark-gray">{food.brand}</p>
         </div>
 

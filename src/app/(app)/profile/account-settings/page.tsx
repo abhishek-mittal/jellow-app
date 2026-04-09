@@ -34,7 +34,7 @@ export default function AccountSettingsPage() {
   const [biometric, setBiometric] = useState(false);
 
   return (
-    <MotionPage className="min-h-screen bg-[#F8F9FA] pb-24">
+    <MotionPage className="min-h-screen bg-s-gray pb-24">
       {/* ─── Header ─── */}
       <MotionItem>
         <div className="relative bg-s-black px-5 pb-6 pt-12">

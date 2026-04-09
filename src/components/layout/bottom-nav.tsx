@@ -21,7 +21,7 @@ export function BottomNav() {
 
   return (
     <nav className="fixed bottom-0 left-0 right-0 z-50">
-      <div className="mx-auto max-w-md bg-white border border-black/[0.04] shadow-[0_-8px_30px_rgba(0,0,0,0.04)] pb-[env(safe-area-inset-bottom,24px)] rounded-[36px]">
+        <div className="mx-auto max-w-md bg-surface-card border border-black/[0.04] shadow-[0_-8px_30px_rgba(0,0,0,0.04)] pb-[env(safe-area-inset-bottom,24px)] rounded-[var(--r-2xl)]">
         <div className="flex items-center justify-around px-2 pb-2 pt-4">
           {navItems.map((item) => {
             const isActive = pathname?.startsWith(item.href);
@@ -33,7 +33,7 @@ export function BottomNav() {
                     whileTap={{ scale: 0.92 }}
                     whileHover={{ scale: 1.05 }}
                     transition={spring.bouncy}
-                    className="flex h-[56px] w-[56px] items-center justify-center rounded-full bg-[#EE7F46] shadow-[0_8px_16px_rgba(238,127,70,0.3)]"
+                    className="flex h-[56px] w-[56px] items-center justify-center rounded-full bg-s-orange shadow-[0_8px_16px_rgba(255,107,0,0.3)]"
                   >
                     <Plus size={30} strokeWidth={2.5} className="text-white" />
                   </motion.div>
@@ -56,14 +56,14 @@ export function BottomNav() {
                     strokeWidth={isActive ? 2.5 : 2}
                     className={cn(
                       "transition-colors duration-200",
-                      isActive ? "text-[#EE7F46]" : "text-[#9BA0A6]"
+                      isActive ? "text-s-orange" : "text-nav-inactive"
                     )}
                   />
                 </motion.div>
                 <span
                   className={cn(
                     "text-[10px] leading-none transition-colors duration-200 whitespace-nowrap",
-                    isActive ? "font-medium text-[#EE7F46]" : "font-normal text-[#9BA0A6]"
+                    isActive ? "font-medium text-s-orange" : "font-normal text-nav-inactive"
                   )}
                 >
                   {item.label}

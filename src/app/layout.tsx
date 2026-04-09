@@ -5,14 +5,14 @@ import "./globals.css";
 
 const workSans = Work_Sans({
   subsets: ["latin"],
-  variable: "--font-heading",
+  variable: "--font-work-sans",
   display: "swap",
   weight: ["500", "600", "700", "800"],
 });
 
 const archivo = Archivo({
   subsets: ["latin"],
-  variable: "--font-body",
+  variable: "--font-archivo",
   display: "swap",
 });
 
@@ -42,7 +42,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`light ${workSans.variable} ${archivo.variable}`}>
-      <body className={`bg-gray-50 font-[var(--font-heading)] text-gray-900 antialiased`}>
+      <body className="bg-s-gray font-sans text-s-dark-gray antialiased">
         <Providers>{children}</Providers>
       </body>
     </html>

@@ -1,40 +1,71 @@
 "use client";
 
-import { seedUser } from "@/lib/seed-data";
-import { ArrowRight } from "lucide-react";
+import type { Badge, Challenge } from "@/lib/types";
+import { ChevronRight, Trophy, Gift } from "lucide-react";
 import { motion } from "framer-motion";
 import { MotionPage, MotionItem } from "@/components/motion";
 
-// ── Challenge accent colors ────────────────────────────────────────────────
+/** Demo rewards data — replace with real API data when available. */
+const jellyPoints = 2450;
+
+const activeChallenges: Challenge[] = [
+  {
+    id: "c1",
+    title: "Veggie Week",
+    description: "5 healthy scans",
+    iconEmoji: "🌿",
+    progress: 3,
+    goal: 5,
+    reward: 100,
+    expiresAt: "2026-03-18T00:00:00Z",
+  },
+  {
+    id: "c2",
+    title: "Streak Master",
+    description: "7 days in a row",
+    iconEmoji: "🔥",
+    progress: 5,
+    goal: 7,
+    reward: 200,
+    expiresAt: "2026-03-20T00:00:00Z",
+  },
+];
+
+const badges: Badge[] = [
+  { id: "b1", title: "First Scan", iconEmoji: "🌟" },
+  { id: "b2", title: "Veggie Lover", iconEmoji: "🥗" },
+  { id: "b3", title: "Protein Pro", iconEmoji: "👍" },
+  { id: "b4", title: "7-Day Streak", iconEmoji: "🎯" },
+];
 
 const challengeColors: Record<string, { bg: string; bar: string }> = {
-  c1: { bg: "bg-emerald-100", bar: "bg-[#00B4D8]" },
-  c2: { bg: "bg-orange-100", bar: "bg-s-orange" },
+  c1: { bg: "bg-[#E8F5E9]", bar: "bg-accent-green" },
+  c2: { bg: "bg-[#FFF3E0]", bar: "bg-s-orange" },
 };
-
-// ── Page ───────────────────────────────────────────────────────────────────
 
 export default function RewardsPage() {
   return (
-    <MotionPage className="min-h-screen bg-gradient-to-b from-[#FFF0F5] via-[#FFF5F0] to-[#F8F9FA]">
+    <MotionPage className="min-h-screen bg-s-gray pb-24">
       <div className="px-5 pt-12 pb-6">
         {/* ── Page Title ── */}
         <MotionItem>
-          <h1 className="font-[var(--font-heading)] text-3xl font-bold text-s-dark-gray">
+          <h1 className="font-heading text-[28px] font-extrabold text-s-dark-gray">
             Rewards
           </h1>
         </MotionItem>
 
-        {/* ── Jelly Points Oval ── */}
+        {/* ── Jelly Points Card ── */}
         <MotionItem>
-          <div className="mt-6 flex justify-center">
-            <div className="flex items-center gap-3 rounded-full bg-gradient-to-r from-[#A855F7] via-[#C084FC] to-[#E879A8] px-10 py-4 shadow-lg">
-              <span className="text-3xl">🏆</span>
+          <div className="mt-5 rounded-[var(--r-xl)] bg-s-dark-gray p-5">
+            <div className="flex items-center gap-4">
+              <div className="flex h-14 w-14 items-center justify-center rounded-full bg-s-orange">
+                <Trophy size={26} className="text-white" />
+              </div>
               <div>
-                <p className="font-[var(--font-heading)] text-4xl font-bold text-white">
-                  {seedUser.jellyPoints.toLocaleString()}
+                <p className="font-heading text-[32px] font-extrabold leading-none text-white">
+                  {jellyPoints.toLocaleString()}
                 </p>
-                <p className="text-sm font-medium text-white/80">Jelly Points</p>
+                <p className="mt-1 text-sm font-medium text-white/60">Jelly Points</p>
               </div>
             </div>
           </div>
@@ -42,12 +73,15 @@ export default function RewardsPage() {
 
         {/* ── Active Challenges ── */}
         <MotionItem>
-          <section className="mt-8">
-            <h2 className="mb-3 font-[var(--font-heading)] text-lg font-bold text-s-dark-gray">
-              Active Challenges
-            </h2>
+          <section className="mt-7">
+            <div className="mb-3 flex items-center justify-between">
+              <h2 className="font-heading text-lg font-bold text-s-dark-gray">
+                Active Challenges
+              </h2>
+              <button className="text-sm font-semibold text-s-orange">See All</button>
+            </div>
             <div className="space-y-3">
-              {seedUser.activeChallenges.map((challenge) => {
+              {activeChallenges.map((challenge) => {
                 const pct = Math.round((challenge.progress / challenge.goal) * 100);
                 const colors = challengeColors[challenge.id] ?? { bg: "bg-gray-100", bar: "bg-s-orange" };
                 return (
@@ -57,25 +91,28 @@ export default function RewardsPage() {
                   >
                     <div className="flex items-center gap-3">
                       <div
-                        className={`flex h-12 w-12 items-center justify-center rounded-full ${colors.bg} text-2xl`}
+                        className={`flex h-12 w-12 items-center justify-center rounded-[var(--r-md)] ${colors.bg} text-2xl`}
                       >
                         {challenge.iconEmoji}
                       </div>
                       <div className="flex-1">
-                        <p className="font-semibold text-s-dark-gray">{challenge.title}</p>
+                        <p className="text-[15px] font-semibold text-s-dark-gray">{challenge.title}</p>
                         <p className="text-sm text-gray-500">{challenge.description}</p>
                       </div>
-                      <span className="rounded-full border border-emerald-200 bg-emerald-50 px-2.5 py-1 text-xs font-bold text-emerald-600">
+                      <span className="rounded-full bg-s-orange/10 px-2.5 py-1 text-xs font-bold text-s-orange">
                         +{challenge.reward}
                       </span>
                     </div>
-                    <div className="mt-3 h-2 overflow-hidden rounded-full bg-gray-100">
-                      <motion.div
-                        initial={{ width: 0 }}
-                        animate={{ width: `${pct}%` }}
-                        transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
-                        className={`h-full rounded-full ${colors.bar}`}
-                      />
+                    <div className="mt-3 flex items-center gap-2">
+                      <div className="h-2 flex-1 overflow-hidden rounded-full bg-gray-100">
+                        <motion.div
+                          initial={{ width: 0 }}
+                          animate={{ width: `${pct}%` }}
+                          transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
+                          className={`h-full rounded-full ${colors.bar}`}
+                        />
+                      </div>
+                      <span className="text-xs font-medium text-gray-400">{challenge.progress}/{challenge.goal}</span>
                     </div>
                   </div>
                 );
@@ -86,20 +123,20 @@ export default function RewardsPage() {
 
         {/* ── Your Badges ── */}
         <MotionItem>
-          <section className="mt-8">
+          <section className="mt-7">
             <div className="mb-3 flex items-center justify-between">
-              <h2 className="font-[var(--font-heading)] text-lg font-bold text-s-dark-gray">
+              <h2 className="font-heading text-lg font-bold text-s-dark-gray">
                 Your Badges
               </h2>
-              <button className="text-sm font-medium text-[#00B4D8]">See all →</button>
+              <button className="text-sm font-semibold text-s-orange">See All</button>
             </div>
-            <div className="flex gap-5 overflow-x-auto pb-2">
-              {seedUser.badges.map((badge) => (
-                <div key={badge.id} className="flex flex-col items-center gap-1.5">
-                  <div className="flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-amber-100 to-orange-100 text-3xl shadow-sm">
+            <div className="flex gap-4 overflow-x-auto pb-2">
+              {badges.map((badge) => (
+                <div key={badge.id} className="flex w-[72px] flex-col items-center gap-1.5">
+                  <div className="flex h-[60px] w-[60px] items-center justify-center rounded-[var(--r-md)] bg-surface-card text-[28px] shadow-sm">
                     {badge.iconEmoji}
                   </div>
-                  <p className="w-16 text-center text-xs font-medium text-s-dark-gray">
+                  <p className="w-full text-center text-[11px] font-medium leading-tight text-s-dark-gray">
                     {badge.title}
                   </p>
                 </div>
@@ -110,15 +147,15 @@ export default function RewardsPage() {
 
         {/* ── Redeem Points CTA ── */}
         <MotionItem>
-          <div className="mt-8 flex items-center gap-4 rounded-[var(--r-xl)] bg-[#FDDCE4] p-5 shadow-sm">
-            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#FBC4D4] text-2xl">
-              🎁
+          <div className="mt-7 flex items-center gap-4 rounded-[var(--r-xl)] bg-white p-4 shadow-sm">
+            <div className="flex h-12 w-12 items-center justify-center rounded-[var(--r-md)] bg-[#FFF3E0]">
+              <Gift size={22} className="text-s-orange" />
             </div>
             <div className="flex-1">
-              <p className="font-semibold text-s-dark-gray">Redeem Points</p>
+              <p className="text-[15px] font-semibold text-s-dark-gray">Redeem Points</p>
               <p className="text-sm text-gray-500">Exchange for discounts &amp; rewards</p>
             </div>
-            <ArrowRight size={20} className="text-s-dark-gray" />
+            <ChevronRight size={20} className="text-gray-400" />
           </div>
         </MotionItem>
       </div>

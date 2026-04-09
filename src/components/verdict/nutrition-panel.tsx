@@ -38,7 +38,7 @@ export function NutritionPanel({
     <div className={cn("rounded-[var(--r-xl)] bg-white p-4 shadow-md", className)}>
       {/* Header */}
       <div className="mb-4 flex items-center justify-between">
-        <h3 className="font-[var(--font-heading)] font-bold text-s-dark-gray">Nutrition Facts</h3>
+        <h3 className="font-heading font-bold text-s-dark-gray">Nutrition Facts</h3>
         <span className="rounded-full bg-gray-200/40 px-2.5 py-0.5 text-xs font-medium text-s-dark-gray">
           Per {servingSize}
         </span>
@@ -46,7 +46,7 @@ export function NutritionPanel({
 
       {/* Calorie highlight */}
       <div className="mb-4 rounded-[var(--r-lg)] bg-s-gray py-3 text-center">
-        <span className="font-[var(--font-heading)] text-4xl font-bold text-s-dark-gray">{calories}</span>
+        <span className="font-heading text-4xl font-bold text-s-dark-gray">{calories}</span>
         <span className="ml-1 text-sm text-s-dark-gray">kcal</span>
       </div>
 

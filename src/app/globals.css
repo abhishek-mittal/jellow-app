@@ -17,32 +17,58 @@
   /* ── Brand ── */
   --s-orange: #FF6B00;
   --s-blue: #3B82F6;
-  
+
   /* ── Grayscale ── */
   --s-black: #111111;
   --s-dark-gray: #2D2D2D;
   --s-gray: #F8F9FA;
   --s-white: #FFFFFF;
 
+  /* ── Accent Palette (charts, metrics, category coding) ── */
+  --accent-purple: #9F54FF;
+  --accent-red: #E95A6E;
+  --accent-green: #4CAF50;
+  --accent-blue: #4B8BF5;
+  --accent-amber: #F5BE4B;
+
+  /* ── Surfaces ── */
+  --surface-card: #FFFFFF;
+  --surface-input: #F3F4F6;
+  --surface-divider: #F0F0F0;
+
+  /* ── Navigation ── */
+  --nav-inactive: #9BA0A6;
+
   /* ── Semantic ── */
   --success: #10B981;
   --warning: #F59E0B;
   --error: #EF4444;
 
-  /* ── Services / Verdict (Matching semantic tones with branding) ── */
-  --v-good: var(--success);
-  --v-good-bg: #D1FAE5;
+  /* ── Services / Verdict ── */
+  --v-excellent: var(--success);
+  --v-excellent-bg: #D1FAE5;
+  --v-good: var(--s-blue);
+  --v-good-bg: #DBEAFE;
   --v-caution: var(--warning);
   --v-caution-bg: #FEF3C7;
   --v-avoid: var(--error);
   --v-avoid-bg: #FEE2E2;
 
-  /* ── Geometry ── */
-  --border-radius-sm: 8px;
-  --border-radius-md: 16px;
-  --border-radius-lg: 24px;
-  --border-radius-xl: 32px;
-  --border-radius-full: 9999px;
+  /* ── Geometry (radius) ── */
+  --r-sm: 8px;
+  --r-md: 16px;
+  --r-lg: 24px;
+  --r-xl: 32px;
+  --r-2xl: 40px;
+  --r-full: 9999px;
+  --border-radius-sm: var(--r-sm);
+  --border-radius-md: var(--r-md);
+  --border-radius-lg: var(--r-lg);
+  --border-radius-xl: var(--r-xl);
+  --border-radius-full: var(--r-full);
+
+  /* ── Shadow ── */
+  --shadow-card: 0 2px 12px rgba(0, 0, 0, 0.04);
 }
 
 /* ─── Tailwind v4 Theme Extension ─── */
@@ -62,14 +88,30 @@
   --color-s-white: var(--s-white);
   --color-background: var(--s-gray);
 
+  /* Accent Palette */
+  --color-accent-purple: var(--accent-purple);
+  --color-accent-red: var(--accent-red);
+  --color-accent-green: var(--accent-green);
+  --color-accent-blue: var(--accent-blue);
+  --color-accent-amber: var(--accent-amber);
+
+  /* Surfaces */
+  --color-surface-card: var(--surface-card);
+  --color-surface-input: var(--surface-input);
+  --color-surface-divider: var(--surface-divider);
+
+  /* Navigation */
+  --color-nav-inactive: var(--nav-inactive);
+
   /* Verdict */
+  --color-v-excellent: var(--v-excellent);
+  --color-v-excellent-bg: var(--v-excellent-bg);
   --color-v-good: var(--v-good);
   --color-v-good-bg: var(--v-good-bg);
   --color-v-caution: var(--v-caution);
   --color-v-caution-bg: var(--v-caution-bg);
   --color-v-avoid: var(--v-avoid);
   --color-v-avoid-bg: var(--v-avoid-bg);
-
 }
 
 /* ─── Micro-Animation Keyframes ─── */

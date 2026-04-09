@@ -17,7 +17,8 @@ import { PasswordSentScreen } from "@/components/auth/password-sent-screen";
 
 const mockPush = vi.fn();
 vi.mock("next/navigation", () => ({
-  useRouter: () => ({ push: mockPush }),
+  useRouter: () => ({ push: mockPush, refresh: vi.fn() }),
+  useSearchParams: () => ({ get: () => null }),
 }));
 
 beforeEach(() => {
@@ -146,7 +147,7 @@ describe("Screen titles — consistent h1 headings", () => {
 
   it("password-sent screen renders the confirmation text", () => {
     render(<PasswordSentScreen maskedEmail="**221b@gmail.com" />);
-    expect(screen.getByText("Check your inbox")).toBeInTheDocument();
+    expect(screen.getByText("Password Sent!")).toBeInTheDocument();
   });
 });
 
@@ -179,11 +180,11 @@ describe("Auth screens — no bottom navigation bar", () => {
 describe("PasswordSentScreen — masked email display", () => {
   it("renders the masked email passed via prop", () => {
     render(<PasswordSentScreen maskedEmail="**221b@gmail.com" />);
-    expect(screen.getByText("**221b@gmail.com")).toBeInTheDocument();
+    expect(screen.getByText(/\*\*221b@gmail\.com/)).toBeInTheDocument();
   });
 
   it("falls back to **@example.com when maskedEmail is omitted", () => {
     render(<PasswordSentScreen />);
-    expect(screen.getByText("**@example.com")).toBeInTheDocument();
+    expect(screen.getByText(/\*\*@example\.com/)).toBeInTheDocument();
   });
 });

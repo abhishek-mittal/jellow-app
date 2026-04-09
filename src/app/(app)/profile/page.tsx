@@ -15,6 +15,7 @@ import {
   Weight,
 } from "lucide-react";
 import { MotionItem, MotionPage, spring } from "@/components/motion";
+import { authClient } from "@/lib/auth-client";
 
 type WeeklyScore = {
   day: string;
@@ -36,7 +37,7 @@ function ScoreChart() {
   const max = 100;
 
   return (
-    <div className="rounded-3xl bg-[#ECECEE] p-4 shadow-[0_1px_3px_rgba(0,0,0,0.04)]">
+    <div className="rounded-3xl bg-surface-divider p-4 shadow-[0_1px_3px_rgba(0,0,0,0.04)]">
       <div className="mb-5 flex items-center justify-between">
         <div className="flex items-center gap-2.5">
           <span className="text-s-orange">
@@ -51,14 +52,14 @@ function ScoreChart() {
         </button>
       </div>
 
-      <div className="relative h-60 rounded-3xl bg-[#ECECEE] px-4 pb-4 pt-2">
+      <div className="relative h-60 rounded-3xl bg-surface-divider px-4 pb-4 pt-2">
         {[60, 70, 80, 90, 100].map((line) => (
           <div
             key={line}
-            className="pointer-events-none absolute left-0 right-0 border-t border-[#D4D5D9]"
+            className="pointer-events-none absolute left-0 right-0 border-t border-surface-divider"
             style={{ top: `${100 - ((line - min) / (max - min)) * 85}%` }}
           >
-            <span className="absolute -left-1 -translate-x-full -translate-y-1/2 text-[11px] font-semibold text-[#B3B5BD]">
+            <span className="absolute -left-1 -translate-x-full -translate-y-1/2 text-[11px] font-semibold text-nav-inactive">
               {line}
             </span>
           </div>
@@ -90,11 +91,11 @@ function ScoreChart() {
                       initial={{ height: 0 }}
                       animate={{ height: barHeight }}
                       transition={{ delay: 0.1 + index * 0.03, ...spring.gentle }}
-                      className="w-5.5 rounded-full bg-[#D5D6DA]"
+                      className="w-5.5 rounded-full bg-surface-divider"
                     />
                   )}
                 </div>
-                <span className="text-[11px] font-semibold text-[#BABCC3]">{item.day}</span>
+                <span className="text-[11px] font-semibold text-nav-inactive">{item.day}</span>
               </div>
             );
           })}
@@ -118,10 +119,13 @@ function OtherInformationCard({
   iconColor: string;
 }) {
   return (
-    <div className="flex-1 rounded-3xl bg-[#ECECEE] p-3 shadow-[0_1px_3px_rgba(0,0,0,0.04)]">
-      <span className="mb-3 inline-flex" style={{ color: iconColor }}>
+    <div className="flex-1 rounded-3xl bg-surface-divider p-3 shadow-[0_1px_3px_rgba(0,0,0,0.04)]">
+      <div
+        className="mb-3 inline-flex h-8 w-8 items-center justify-center rounded-[10px] text-white"
+        style={{ backgroundColor: iconColor }}
+      >
         {icon}
-      </span>
+      </div>
       <p className="font-heading text-[42px] leading-[0.95] text-s-dark-gray">
         <span className="font-extrabold">{value}</span>
         <span className="ml-1 text-[22px] font-semibold text-s-dark-gray/75">{unit}</span>
@@ -133,6 +137,10 @@ function OtherInformationCard({
 
 export default function ProfilePage() {
   const router = useRouter();
+  const { data: session } = authClient.useSession();
+
+  const userName = session?.user?.name ?? "User";
+  const userImage = session?.user?.image ?? "https://i.pravatar.cc/220?img=47";
 
   return (
     <MotionPage className="min-h-screen">
@@ -141,7 +149,7 @@ export default function ProfilePage() {
           <div className="relative h-57.5 overflow-hidden rounded-b-[40px]">
             <img
               src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1400&q=80"
-              alt="Gym equipment cover"
+              alt="Cover photo"
               className="h-full w-full object-cover"
             />
 
@@ -172,14 +180,14 @@ export default function ProfilePage() {
               className="h-27 w-27 overflow-hidden rounded-full border-[6px] border-s-gray bg-white shadow-md"
             >
               <img
-                src="https://i.pravatar.cc/220?img=47"
-                alt="Makise Kurisu"
+                src={userImage}
+                alt={userName}
                 className="h-full w-full object-cover"
               />
             </motion.div>
 
             <h1 className="mt-4 font-heading text-[46px] font-bold leading-none text-s-black">
-              Makise Kurisu
+              {userName}
             </h1>
 
             <div className="mt-3 flex items-center gap-2 text-lg font-semibold text-s-dark-gray/70">
@@ -213,21 +221,21 @@ export default function ProfilePage() {
                 value={17}
                 unit="yr"
                 label="Current Age"
-                iconColor="#EF4444"
+                iconColor="var(--accent-red)"
               />
               <OtherInformationCard
                 icon={<Weight size={20} />}
                 value={68}
                 unit="kg"
                 label="Weight"
-                iconColor="#84CC16"
+                iconColor="var(--accent-green)"
               />
               <OtherInformationCard
                 icon={<Droplet size={20} fill="currentColor" strokeWidth={1.8} />}
                 value={978}
                 unit="kcal"
                 label="Daily Intake"
-                iconColor="#2563EB"
+                iconColor="var(--accent-blue)"
               />
             </div>
           </section>

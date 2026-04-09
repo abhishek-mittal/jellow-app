@@ -32,15 +32,15 @@ export default function NotificationSettingsPage() {
     <MotionPage className="min-h-screen bg-s-cream pb-24">
       {/* ─── Header ─── */}
       <MotionItem>
-        <div className="relative bg-s-black px-5 pb-6 pt-12">
+        <div className="flex items-center gap-3 px-5 pb-4 pt-12">
           <button
             onClick={() => router.back()}
             aria-label="Go back"
-            className="mb-4 flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white active:bg-white/20"
+            className="flex h-9 w-9 items-center justify-center rounded-full bg-s-gray/20 text-s-black active:bg-s-gray/30"
           >
             <ChevronLeft size={20} />
           </button>
-          <h1 className="text-[28px] font-extrabold leading-tight text-white">
+          <h1 className="text-[22px] font-extrabold text-s-black">
             Notification Settings
           </h1>
         </div>

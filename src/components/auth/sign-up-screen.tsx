@@ -1,8 +1,10 @@
 'use client';
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { Plus } from 'lucide-react';
 import { EmailInput, PasswordInput, ConfirmPasswordInput } from '@/components/ui/auth-input';
+import { authClient } from '@/lib/auth-client';
 import {
   AuthShell,
   AuthHero,
@@ -31,10 +33,14 @@ const LogoMark = (
  * Validates password match on confirm-password blur and on CTA press.
  */
 export function SignUpScreen() {
+  const router = useRouter();
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [confirmError, setConfirmError] = useState('');
+  const [generalError, setGeneralError] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
   const passwordsMatch = password === confirmPassword;
   const allFieldsFilled = email.trim() !== '' && password !== '' && confirmPassword !== '';
@@ -48,13 +54,34 @@ export function SignUpScreen() {
     }
   };
 
-  const handleSignUp = () => {
+  const handleSignUp = async () => {
     if (!passwordsMatch) {
       setConfirmError(PASSWORD_MISMATCH_ERROR);
       return;
     }
     setConfirmError('');
-    // Stub: real auth wired at integration tier (#43)
+    setGeneralError('');
+    setIsLoading(true);
+
+    try {
+      const { error } = await authClient.signUp.email({
+        email: email.trim(),
+        password,
+        name: email.trim().split('@')[0],
+      });
+
+      if (error) {
+        setGeneralError(error.message ?? 'Sign-up failed. Please try again.');
+        return;
+      }
+
+      router.push('/');
+      router.refresh();
+    } catch {
+      setGeneralError('Something went wrong. Please try again.');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -72,6 +99,12 @@ export function SignUpScreen() {
         </AuthSubtitle>
 
         <div className="w-full max-w-sm space-y-5">
+          {generalError && (
+            <p className="text-sm text-red-500 text-center" role="alert">
+              {generalError}
+            </p>
+          )}
+
           <EmailInput
             label="Email Address"
             placeholder="elementary221b@gmail.com"
@@ -103,7 +136,8 @@ export function SignUpScreen() {
 
           <AuthCtaButton
             className="mt-6"
-            isDisabled={isCtaDisabled}
+            isLoading={isLoading}
+            isDisabled={isCtaDisabled || isLoading}
             onClick={handleSignUp}
           >
             Sign Up

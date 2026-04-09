@@ -79,13 +79,13 @@ describe("FoodCard", () => {
   it("has rounded corners", () => {
     const { container } = render(<FoodCard food={mockFood} />);
     const card = container.firstChild as HTMLElement;
-    expect(card?.className).toContain("bg-white");
+    expect(card?.className).toContain("bg-surface-card");
   });
 
   it("has shadow", () => {
     const { container } = render(<FoodCard food={mockFood} />);
     const card = container.firstChild as HTMLElement;
-    expect(card?.className).toContain("shadow-md");
+    expect(card?.className).toContain("shadow-[var(--shadow-card)]");
   });
 
   it("triggers onTap with Enter key", async () => {

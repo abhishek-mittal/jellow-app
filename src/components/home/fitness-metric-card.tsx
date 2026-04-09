@@ -32,9 +32,9 @@ export function FitnessMetricCard({
   const maxVal = Math.max(...chartData.map((d) => d.value));
 
   return (
-    <div className="flex flex-col rounded-[24px] bg-white p-5 shadow-[0_2px_8px_rgba(0,0,0,0.04)] border border-gray-100/50">
+    <div className="flex flex-col rounded-[var(--r-lg)] bg-surface-card p-5 shadow-[var(--shadow-card)]">
       <div className="flex items-center justify-between mb-2">
-        <div className="flex items-center gap-2.5 text-[15px] font-bold text-[#2D2D2D]">
+        <div className="flex items-center gap-2.5 text-[15px] font-bold text-s-dark-gray">
           {icon}
           {title}
         </div>
@@ -46,10 +46,10 @@ export function FitnessMetricCard({
       <div className="flex flex-row items-end justify-between">
         <div className="flex flex-col">
           <div className="flex items-baseline gap-1 mt-1">
-            <span className="text-[26px] font-bold tracking-tight text-[#2D2D2D] leading-none">
+            <span className="text-[26px] font-bold tracking-tight text-s-dark-gray leading-none">
               {value}
             </span>
-            {unit && <span className="text-[15px] font-semibold text-[#2D2D2D] mb-0.5">{unit}</span>}
+            {unit && <span className="text-[15px] font-semibold text-s-dark-gray mb-0.5">{unit}</span>}
           </div>
           <p className="mt-2 text-[13px] font-medium text-gray-500">{subtitle}</p>
         </div>

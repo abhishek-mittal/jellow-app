@@ -1,37 +1,32 @@
 "use client";
 
 import Link from "next/link";
-import { Camera, Apple, Pill, Heart } from "lucide-react";
 import { MotionItem } from "@/components/motion";
 
 const actions = [
   {
     href: "/scan",
     label: "Scan",
-    icon: Camera,
+    emoji: "📷",
     gradient: "from-sky-100 to-sky-200",
-    iconColor: "text-sky-700",
   },
   {
     href: "/home",
     label: "History",
-    icon: Apple,
+    emoji: "🍎",
     gradient: "from-rose-100 to-rose-200",
-    iconColor: "text-rose-600",
   },
   {
     href: "/prescription",
     label: "Meds",
-    icon: Pill,
+    emoji: "💊",
     gradient: "from-amber-100 to-orange-200",
-    iconColor: "text-amber-700",
   },
   {
     href: "/home",
     label: "Favorites",
-    icon: Heart,
+    emoji: "💝",
     gradient: "from-pink-100 to-pink-200",
-    iconColor: "text-pink-600",
   },
 ] as const;
 
@@ -52,7 +47,7 @@ export function QuickActions() {
               <div
                 className={`flex h-[64px] w-[64px] items-center justify-center rounded-full bg-gradient-to-br ${action.gradient} shadow-sm`}
               >
-                <action.icon size={26} className={action.iconColor} />
+                <span className="text-[28px]">{action.emoji}</span>
               </div>
               <span className="text-[12px] font-medium text-gray-600">
                 {action.label}

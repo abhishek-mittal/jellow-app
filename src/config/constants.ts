@@ -8,10 +8,10 @@ export const VERDICT_THRESHOLDS: Record<VerdictLevel, { min: number; max: number
 };
 
 export const VERDICT_COLORS: Record<VerdictLevel, string> = {
-  excellent: "var(--verdict-excellent)",
-  good: "var(--verdict-good)",
-  caution: "var(--verdict-caution)",
-  avoid: "var(--verdict-avoid)",
+  excellent: "var(--v-excellent)",
+  good: "var(--v-good)",
+  caution: "var(--v-caution)",
+  avoid: "var(--v-avoid)",
 };
 
 export const VERDICT_LABELS: Record<VerdictLevel, string> = {

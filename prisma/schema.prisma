@@ -1,0 +1,269 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// ─── Better Auth tables ───────────────────────────────────────────────────────
+
+model User {
+  id            String    @id @default(cuid())
+  name          String
+  email         String    @unique
+  emailVerified Boolean   @default(false)
+  image         String?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  sessions    Session[]
+  accounts    Account[]
+  preferences UserPreferences?
+  stats       UserStats?
+  scans       Scan[]
+  badges      UserBadge[]
+  challenges  UserChallenge[]
+
+  @@map("user")
+}
+
+model Session {
+  id        String   @id @default(cuid())
+  expiresAt DateTime
+  token     String   @unique
+  ipAddress String?
+  userAgent String?
+  userId    String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("session")
+}
+
+model Account {
+  id                    String    @id @default(cuid())
+  accountId             String
+  providerId            String
+  accessToken           String?
+  refreshToken          String?
+  idToken               String?
+  accessTokenExpiresAt  DateTime?
+  refreshTokenExpiresAt DateTime?
+  scope                 String?
+  password              String?
+  userId                String
+  createdAt             DateTime  @default(now())
+  updatedAt             DateTime  @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("account")
+}
+
+model Verification {
+  id         String   @id @default(cuid())
+  identifier String
+  value      String
+  expiresAt  DateTime
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@map("verification")
+}
+
+// ─── Application tables ───────────────────────────────────────────────────────
+
+enum DietaryPreference {
+  omnivore
+  vegetarian
+  vegan
+  pescatarian
+}
+
+enum IngredientSafety {
+  safe
+  caution
+  harmful
+}
+
+enum VerdictLevel {
+  excellent
+  good
+  caution
+  avoid
+}
+
+model UserPreferences {
+  id                   String             @id @default(cuid())
+  userId               String             @unique
+  dietaryPreference    DietaryPreference?
+  allergies            String[]           @default([])
+  healthGoals          String[]           @default([])
+  onboardingCompleted  Boolean            @default(false)
+  createdAt            DateTime           @default(now())
+  updatedAt            DateTime           @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("user_preferences")
+}
+
+model UserStats {
+  id             String   @id @default(cuid())
+  userId         String   @unique
+  jellyPoints    Int      @default(0)
+  totalScans     Int      @default(0)
+  streakDays     Int      @default(0)
+  lastActiveDate DateTime?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("user_stats")
+}
+
+model Product {
+  id        String   @id @default(cuid())
+  name      String
+  brand     String
+  barcode   String   @unique
+  category  String   @default("")
+  imageUrl  String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  nutrition   NutritionFacts?
+  ingredients Ingredient[]
+  scans       Scan[]
+  verdict     Verdict?
+
+  @@map("product")
+}
+
+model NutritionFacts {
+  id          String @id @default(cuid())
+  productId   String @unique
+  calories    Int
+  protein     Float
+  carbs       Float
+  fat         Float
+  fiber       Float
+  sodium      Float
+  servingSize String
+
+  product Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  @@map("nutrition_facts")
+}
+
+model Ingredient {
+  id          String           @id @default(cuid())
+  productId   String
+  name        String
+  safety      IngredientSafety @default(safe)
+  description String?
+
+  product Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  @@map("ingredient")
+}
+
+model Scan {
+  id        String   @id @default(cuid())
+  userId    String
+  productId String
+  scannedAt DateTime @default(now())
+
+  user    User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  product Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  @@index([userId, scannedAt(sort: Desc)])
+  @@map("scan")
+}
+
+model Verdict {
+  id                  String       @id @default(cuid())
+  productId           String       @unique
+  score               Int
+  level               VerdictLevel
+  label               String
+  verdictExplanation  String?
+  createdAt           DateTime     @default(now())
+
+  product   Product        @relation(fields: [productId], references: [id], onDelete: Cascade)
+  nutrients NutrientInfo[]
+
+  @@map("verdict")
+}
+
+model NutrientInfo {
+  id               String @id @default(cuid())
+  verdictId        String
+  name             String
+  value            Float
+  unit             String
+  dailyValuePercent Float?
+
+  verdict Verdict @relation(fields: [verdictId], references: [id], onDelete: Cascade)
+
+  @@map("nutrient_info")
+}
+
+model BadgeDefinition {
+  id          String @id @default(cuid())
+  title       String @unique
+  iconEmoji   String
+  description String?
+  criteria    Json?
+
+  userBadges UserBadge[]
+
+  @@map("badge_definition")
+}
+
+model UserBadge {
+  id       String   @id @default(cuid())
+  userId   String
+  badgeId  String
+  earnedAt DateTime @default(now())
+
+  user  User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  badge BadgeDefinition @relation(fields: [badgeId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, badgeId])
+  @@map("user_badge")
+}
+
+model ChallengeDefinition {
+  id           String @id @default(cuid())
+  title        String @unique
+  description  String
+  iconEmoji    String
+  goal         Int
+  reward       Int
+  durationDays Int
+
+  userChallenges UserChallenge[]
+
+  @@map("challenge_definition")
+}
+
+model UserChallenge {
+  id          String    @id @default(cuid())
+  userId      String
+  challengeId String
+  progress    Int       @default(0)
+  startedAt   DateTime  @default(now())
+  completedAt DateTime?
+
+  user      User                @relation(fields: [userId], references: [id], onDelete: Cascade)
+  challenge ChallengeDefinition @relation(fields: [challengeId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, challengeId])
+  @@map("user_challenge")
+}
